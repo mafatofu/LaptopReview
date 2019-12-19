@@ -19,11 +19,6 @@ public class ReviewController {
 		//검색어를 받아와야 함
 	}
 	
-	@RequestMapping("wordcount")
-	public String wordcount() {
-		return "wordcount";
-		//검색어를 받아와야 함
-	}
 	
 	@RequestMapping("result")
 	public String resultMap(Model model) {
