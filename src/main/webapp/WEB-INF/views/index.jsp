@@ -8,10 +8,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<!-- bootstrap-css -->
-	<link href="resources/bootstrap-4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-css"/>
-	<link rel="stylesheet" type="text/css" href="index.css" />
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css'/>" />
-	
+	<link rel="stylesheet" type="text/css" href="resources/bootstrap-4.4.1/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=2'/>" />
+	<!-- <link rel="stylesheet" type="text/css" href="index.css" /> -->
 	<!-- jQuery, Popper -->
 	<script src="resources/bootstrap-4.4.1/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
 	<script src="resources/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script> <!-- popper 포함 -->
@@ -68,7 +67,7 @@
     </div>
   </div>
  </div>
-  
+  		
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">        
           <input class="search_input" type="text" name="" placeholder="Search...">
@@ -81,7 +80,7 @@
       </div>		
     </div>
     <br><br>
-	<ul class="tagul" style="overflow: hidden;">
+	<ul class="tagul" id = "tagul" style="overflow: hidden;">
 		<li class="tag_li">
 			<a href="/search.php?mode=0&amp;q=%EC%BB%A4%ED%94%BC+%EC%B9%B4%ED%8E%98%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8+%EC%B9%B4%ED%8E%98+">
 				<div class="img_box">
@@ -114,13 +113,21 @@
 				<p class="tag_p">레노버 ThinkPad</p> <!--추천 계정 : @ ID / #,@와 태그,계정아이디 사이에 띄워쓰기 하나 꼭 해주세요-->
 		</a></li>
 	</ul>
-
-	<footer class="py-5 bg-dark">
+	
+	  <!-- Footer -->
+  <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
   </footer>
+	
+	<!-- <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    /.container
+  </footer> -->
 		
 </body>
 
