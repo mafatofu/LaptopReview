@@ -24,4 +24,9 @@ public class ReviewController {
 		service.modelList(model);
 		return "result";
 	}
+	
+	@RequestMapping("setting")
+	public String setting() {
+		return "setting";
+	}
 }

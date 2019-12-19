@@ -12,12 +12,37 @@
 	height: 100%;
     width: 100%;
   	background: linear-gradient(to right, #0062E6, #33AEFF);
-  	background-image: url("../image/notebookImg.jpg");
+  	background-image: url("../image/notebookImg3.jpg");
+  	background-color: rgba( 255, 255, 255, 255 );
     background-size:cover;
     background-position: center;
     background-repeat:no-repeat;
     display:table;
-}
+   	font-family: 'Noto Sans KR', sans-serif;
+   	font-size: 10px;
+	}
+	h1.mt-4 {
+		font-size: 5rem;
+	}
+	
+	.tag_p {
+		background-color: white;
+	}
+	
+	footer{
+		font-size: 1.5rem;
+	}
+	
+	p.lead{
+		font-size: 2rem;
+	}
+	
+	p.tag_p{
+		font-size: 2rem;
+		color: #212529;
+		font-weight: bold;
+	}
+	
 	.container_mk1{
 		height: 60%!important;
 	}
@@ -116,10 +141,10 @@
     .search-query:focus + button {
         z-index: 3;   
     }
-    
+/*  
     .pb-5, .py-5{
     	margin-top:104px;
-    }
+    }*/
     
 /*태그*/
 
@@ -127,12 +152,12 @@
 	
 	display: block;
 	list-style-type: disc;
-/* 	 margin-block-start: 1em;
+	 margin-block-start: 1em;
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
-	padding-inline-start: 40px;  */
-	margin-bottom:75px;
+	padding-inline-start: 0px;  
+	/* margin-bottom:75px;*/
 	
 }
 
