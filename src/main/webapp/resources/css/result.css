@@ -2,6 +2,8 @@
 
 body {
   padding-top: 56px;
+  height: 100%;
+  width:100%;
 }
 
 .carousel-item {
@@ -16,4 +18,14 @@ body {
 
 .portfolio-item {
   margin-bottom: 30px;
+}
+
+#wordcloud{
+	display:block;
+	width:50%;
+	height:50%;
+	margin-top:50px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
 }
