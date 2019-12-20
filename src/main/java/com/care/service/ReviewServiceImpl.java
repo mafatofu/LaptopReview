@@ -17,4 +17,12 @@ public class ReviewServiceImpl implements ReviewService{
 		model.addAttribute("modelList", dao.modelList());
 	}
 
+	@Override
+	public void pnCount(Model model) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
 }

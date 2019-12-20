@@ -19,10 +19,17 @@ public class ReviewController {
 		//검색어를 받아와야 함
 	}
 	
+	@RequestMapping("graph")
+	public String graph() {
+		return "graph";
+		//검색어를 받아와야 함
+	}
+	
 	
 	@RequestMapping("result")
 	public String resultMap(Model model) {
-		service.modelList(model);
+		//service.modelList(model);
+		
 		return "result";
 	}
 }
