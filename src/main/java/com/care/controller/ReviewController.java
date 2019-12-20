@@ -29,4 +29,9 @@ public class ReviewController {
 	public String setting() {
 		return "setting";
 	}
+	
+	@RequestMapping("/")
+	public String home() {
+		return "home";
+	}
 }

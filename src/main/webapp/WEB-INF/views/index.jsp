@@ -14,12 +14,9 @@
 	<!-- jQuery, Popper -->
 	<script src="resources/bootstrap-4.4.1/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
 	<script src="resources/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script> <!-- popper 포함 -->
-	
-	
 </head>
 
 <body>
-  
 <!-- 네비게이션 -->
 <!-- Navigation -->
 <!--
@@ -52,18 +49,13 @@
   -->
 
   <div class="container_mk1">
-  		<!-- 위쪽 문구 -->
 	<div class="d-flex flex-column">
 	  <div id="page-content">
-	    <div class="container text-center">
 	      <div class="row justify-content-center">
-	        <div class="col-md-7">
-	        	<br><br><br>
-	          <h1 class="font-weight-light mt-4 text-white">NoteBook Review Check</h1>
-	          <br>
-	          <p class="lead text-white-50">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>          
-	        </div>
-	      </div>
+	        <br><br><br>
+	        <h1 class="font-weight-light mt-4 text-white">NoteBook Review Check</h1>
+	        <br>
+	        <p class="lead text-white-50">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>       	      
 	    </div>
 	  </div>
 	 </div>
@@ -126,7 +118,7 @@
     </div>
     /.container
   </footer> -->
-		
+	
 </body>
 
 </html>
