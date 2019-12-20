@@ -6,6 +6,18 @@
   flex-shrink: none;
 }
 
+/*상단 노트북 리뷰 관련 글*/
+
+.container text-center{
+	margin:0px;
+}
+
+.col-md-7{
+	flex:100%;
+	max-width: 100%;
+}
+
+
 /* Other Classes for Page Styling */
 
 	body,html {

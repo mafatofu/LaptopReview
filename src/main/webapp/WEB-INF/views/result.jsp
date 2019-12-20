@@ -16,6 +16,7 @@
 	<script src="resources/bootstrap-4.4.1/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
 	<script src="resources/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script> <!-- popper 포함 -->
 	
+	
 </head>
 <body>
 	  <!-- Navigation -->
@@ -74,55 +75,120 @@
       </div>
     </div>
   </nav>
-
-  <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
-          </div>
-        </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </header>
-
+  
+    	<div id="wordcloud">
+  		
+		 <%-- <jsp:include page="wordcloud.jsp" /> --%>
+		 
+		 <script src="https://d3js.org/d3.v3.min.js"></script>
+	    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
+	    <script>
+	        var width = 960,
+	            height = 500
+	
+	        var svg = d3.select("#wordcloud").append("svg")
+	            .attr("width", width)
+	            .attr("height", height);
+	        d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
+	            showCloud(data)
+	            setInterval(function(){
+	                 showCloud(data)
+	            },2000) 
+	        });
+	        //scale.linear: 선형적인 스케일로 표준화를 시킨다. 
+	        //domain: 데이터의 범위, 입력 크기
+	        //range: 표시할 범위, 출력 크기 
+	        //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
+	        wordScale = d3.scale.linear().domain([0, 100]).range([0, 150]).clamp(true);
+	        colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
+	        //var keywords = ["자리야", "트레이서", "한조"]
+	        var svg = d3.select("svg")
+	                    .append("g")
+	                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+	
+	        function showCloud(data) {
+	            d3.layout.cloud().size([width, height])
+	                //클라우드 레이아웃에 데이터 전달
+	                .words(data)
+	 //               .rotate(function (d) {
+	 //               	return d.text.length > 3 ? 0 : 90;
+	 //               })
+	                //스케일로 각 단어의 크기를 설정
+	                .fontSize(function (d) {
+	                    return wordScale(d.frequency);
+	                })
+	                //클라우드 레이아웃을 초기화 > end이벤트 발생 > 연결된 함수 작동  
+	                .on("end", draw)
+	                .start();
+	
+	            function draw(words) { 
+	                var cloud = svg.selectAll("text").data(words)
+	                //Entering words
+	                cloud.enter()
+	                    .append("text")
+	                    .style("font-family", 'Stylish')
+	                    .style("fill", function (d) {
+							return colorScale(d.frequency);
+	                    	// return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
+	                    })
+	                    .style("fill-opacity", .5)
+	                    .attr("text-anchor", "middle") 
+	                    .attr('font-size', 1)
+	                    .text(function (d) {
+	                        return d.text;
+	                    }); 
+	                cloud
+	                    .transition()
+	                    .duration(600)
+	                    .style("font-size", function (d) {
+	                        return d.size + "px";
+	                    })
+	                    .attr("transform", function (d) {
+	                        return "translate(" + [d.x, d.y] + ")";
+	                        //rotate(" + d.rotate + ")";
+	                    })
+	                    .style("fill-opacity", .9); 
+	            }
+	        }
+	    </script>
+		<h3>Word Cloud</h3>
+	</div>
+	
   <!-- Page Content -->
   <div class="container">
 
-    <h1 class="my-4">Welcome to Modern Business</h1>
+    <h1 class="my-4">KeyWord List</h1>
 
     <!-- Marketing Icons Section -->
-    <div class="row">
+    
+	    <div class="row">
+	  
+	      <div class="col-lg-4 mb-4">
+	        <div class="card h-100">
+	          <h4 class="card-header">Card Title</h4>
+	          <div class="card-body"><!-- 그래프가 들어가는 곳 -->
+	            <jsp:include page="graph.jsp" />
+	          </div>
+	          <div class="card-footer">
+	            <a href="#" class="btn btn-primary">Learn More</a>
+	          </div>
+	        </div>
+	      </div>
+	      
+	      
+	      <div class="col-lg-4 mb-4">
+	        <div class="card h-100">
+	          <h4 class="card-header">Card Title</h4>
+	          <div class="card-body">
+	            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+	          </div>
+	          <div class="card-footer">
+	            <a href="#" class="btn btn-primary">Learn More</a>
+	          </div>
+	        </div>
+	      </div>
+      
+      
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Card Title</h4>
@@ -134,18 +200,62 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
+            <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Card Title</h4>
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
+            <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+            <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+            <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+            <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+            <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Card Title</h4>
           <div class="card-body">
@@ -160,9 +270,9 @@
     <!-- /.row -->
 
     <!-- Portfolio Section -->
-    <h2>Portfolio Heading</h2>
+    <!-- <h2>Portfolio Heading</h2> -->
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -229,11 +339,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- /.row -->
-
+	
     <!-- Features Section -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-lg-6">
         <h2>Modern Business Features</h2>
         <p>The Modern Business template by Start Bootstrap includes:</p>
@@ -251,20 +361,20 @@
       <div class="col-lg-6">
         <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
       </div>
-    </div>
+    </div> -->
     <!-- /.row -->
 
     <hr>
 
     <!-- Call to Action Section -->
-    <div class="row mb-4">
+   <!--  <div class="row mb-4">
       <div class="col-md-8">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
       </div>
       <div class="col-md-4">
         <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
       </div>
-    </div>
+    </div> -->
 
   </div>
   <!-- /.container -->
