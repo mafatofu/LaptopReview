@@ -25,7 +25,7 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="resources/css/creative.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/home.css?ver=2'/>" />
+  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/home.css?ver=5'/>" />
   
   <!-- SearchBox CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -68,52 +68,51 @@
 	          	<h1 class="text-uppercase font-weight-bold">NoteBook Review Check</h1>
 	          	<hr class="divider my-4">
         	</div>
-	        <div class="col-lg-8 align-self-baseline">
+	        <div class="col-lg-10 align-self-baseline mx-auto">
 	        	<p class="text-white-75 font-weight-light mb-5">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>
 	        </div>
-	        <div class="align-self-center">
-	        <h1>search</h1>
+	        <div class="align-self-center col-lg-10 mx-auto my-3">
 				<form action="">
 					  <input type="search">
 					  <i class="fa fa-search"></i>
 				</form>
 			</div>      
-	        <div id="recommend_tag_main">
-	      	<ul style="overflow:hidden;">
-	        	<li class="tag_li px-5">
+	        <div id="recommend_tag_main" class="col-lg-10 mt-3">
+	      	<ul class="row align-items-center justify-content-center">
+	        	<li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="/search.php?mode=1&q=daily.oasis">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p">LG 그램</p> 
+	                     <p class="tag_p font-weight-bold">LG 그램</p> 
 	                </a>
 	            </li>
-	            <li class="tag_li px-5">
+	            <li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="/search.php?mode=1&q=daily.oasis">
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p">애플 맥북</p>
+	                     <p class="tag_p font-weight-bold">애플 맥북</p>
 	                </a>
 	            </li>
-	        	<li class="tag_li px-5">
+	        	<li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="/search.php?mode=1&q=daily.oasis">
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p">삼성 노트북9</p>
+	                     <p class="tag_p font-weight-bold">삼성 노트북9</p>
 	                </a>
 	            </li>                                
-	        	<li class="tag_li px-5">
+	        	<li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="/search.php?mode=1&q=daily.oasis">
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p">레노버 IdeaPad</p>
+	                     <p class="tag_p font-weight-bold">레노버 IdeaPad</p>
 	                </a>
 	            </li>                            
 	  		</ul>
-	  	</div>
+	  		</div>
     	</div>
   	</div>
   </header>
