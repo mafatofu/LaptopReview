@@ -4,14 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import com.care.service.ReviewService;
+import com.care.service.SearchService;
 
 @Controller
 public class ReviewController {
 	
 	@Autowired
 	ReviewService service;
+	
+	@Autowired
+	SearchService s_service;
 	
 	@RequestMapping("index")
 	public String index() {
@@ -24,8 +28,7 @@ public class ReviewController {
 		return "graph";
 		//검색어를 받아와야 함
 	}
-	
-	
+		
 	@RequestMapping("result")
 	public String resultMap(Model model) {
 		//service.modelList(model);
@@ -33,13 +36,10 @@ public class ReviewController {
 		return "result";
 	}
 	
-	@RequestMapping("setting")
-	public String setting() {
-		return "setting";
-	}
-	
-	@RequestMapping("/")
-	public String home() {
-		return "home";
+	@RequestMapping("search")
+	public String search(@RequestParam(value="searchItem", required=false) String searchItem, Model model) {
+		model.addAttribute("searchItem", searchItem);
+		s_service.SearchModel(model);
+		return "search";
 	}
 }

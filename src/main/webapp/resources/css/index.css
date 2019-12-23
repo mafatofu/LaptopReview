@@ -1,237 +1,78 @@
-#page-content {
-  flex: 1 0 auto;
+@charset "UTF-8";
+@import "compass/css3";
+
+/* 모델 리스트 */
+#recommend_tag_main {
+    color: #fff;
+    text-align: center;
 }
 
-#sticky-footer {
-  flex-shrink: none;
-}
-
-/*상단 노트북 리뷰 관련 글*/
-
-.container text-center{
-	margin:0px;
-}
-
-.col-md-7{
-	flex:100%;
-	max-width: 100%;
-}
-
-
-/* Other Classes for Page Styling */
-
-	body,html {
-	height: 100%;
-    width: 100%;
-  	background: linear-gradient(to right, #0062E6, #33AEFF);
-  	background-image: url("../image/notebookImg3.jpg");
-  	background-color: rgba(0, 0, 0, 0.5);
-    background-size:cover;
-    background-position: center;
-    background-repeat:no-repeat;
-    display:table;
-   	font-family: 'Noto Sans KR', sans-serif;
-   	font-size: 10px;
-	}
-	
-	.bg{ background-color:rgba(0, 0, 0, 0.5); /*살짝 투명한 검정으로 배경색*/ width:100%; height:550px; position: absolute; /*다른 요소들 위로 겹쳐질 수 있게함*/ top:60px; }
-	
-	h1.mt-4 {
-		font-size: 5rem;
-	}
-	
-	.tag_p {
-		background-color: white;
-	}
-	
-	footer{
-		font-size: 1.5rem;
-		position: fixed;
-	}
-	
-	p.lead{
-		font-size: 2rem;
-	}
-	
-	p.tag_p{
-		font-size: 2rem;
-		color: #212529;
-		font-weight: bold;
-	}
-	
-	.container_mk1{
-		height: 60%!important;
-	}
-
-    .d-flex flex-column{
-    margin: 0;
+ul {
+	margin: auto;
     padding: 0;
-    min-height: 100%;
-    
-    }
-
-    .searchbar{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;
-    background-color: #353b48;
-    border-radius: 30px;
-    padding: 10px;
-    }
-
-    .search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-    }
-
-    .searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 450px;
-    caret-color:red;
-    transition: width 0.4s linear;
-    }
-
-    .searchbar:hover > .search_icon{
-    background: white;
-    color: #e74c3c;
-    }
-
-    .search_icon{
-    height: 40px;
-    width: 40px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:white;
-    text-decoration:none;
-    }
-    
-	.search_icon > img{
-		height:25px;
-		weight:25px;
-	}
-    
-	#custom-search-input {
-        margin:0;
-        margin-top: 10px;
-        padding: 0;
-    }
- 
-    #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
- 
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-    }
- 
-    #custom-search-input button {
-        border: 0;
-        background: none;
-        /** belows styles are working good */
-        padding: 2px 5px;
-        margin-top: 2px;
-        position: relative;
-        left: -28px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
-        margin-bottom: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        color:#D9230F;
-    }
- 
-    .search-query:focus + button {
-        z-index: 3;   
-    }
-/*  
-    .pb-5, .py-5{
-    	margin-top:104px;
-    }*/
-    
-/*태그*/
-
-
-
-
-.tagul {
-	
-	display: block;
-	list-style-type: disc;
-	 margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding-inline-start: 0px;  
-	/* margin-bottom:75px;*/
-	
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
-
 
 .tag_li {
-	float: left;
-	width: 25%;
-	overflow: hidden;
-	text-align: center;
-	
+    float:left;
+    margin:auto;
+    /*width: 25%;
+    overflow: hidden;*/
+    text-align: center;
+    list-style: none;
+    display: list-item;
 }
 
 .tag_li a {
-	display: block;
+    display: block;
+    color: rgba(255,255,255,.7);
+}
+
+.tag_li a:hover{
+	color:#fff;
+	text-decoration: none;
+}
+
+.tag_li:hover .img_box{
+    border: 4px solid #fff;
+}
+
+
+.tag_li p {
+    white-space: nowrap;
+    margin-top: 15px;
+    letter-spacing: 0.6px;
+    text-align: center;
 	
 }
 
 .img_box {
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	display: inline-block;
-	border: 4px solid #ffffff;
-	background: #fff;
-}
-
-.tag_img {
-	border-radius: 50%;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-tag_li p {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	margin-top: 15px;
-	font-size: 15px;
-	letter-spacing: 0.6px;
-	color: #fff;
-	text-align: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    border: 4px solid rgba(255,255,255,.7);
+    /*background: rgba(255,255,255,.7);*/
 	
 }
 
-.tag_li:hover .img_box {
-	border: 4px solid #4bc7cc;
+.tag_img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
 }
 
-.tag_li:hover .tag_img, .tag_li a:hover .tag_p {
-	opacity: 0.8;
-	filter: alpha(opacity = 80);
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
-
-.tag_li a:hover .tag_p {
-	color: #4bc7cc !important;
-}
-
