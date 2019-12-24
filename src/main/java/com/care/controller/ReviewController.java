@@ -18,6 +18,13 @@ public class ReviewController {
 	@Autowired
 	SearchService s_service;
 	
+	
+	
+	@RequestMapping("/")
+	public String home() {
+		return "home";
+	}
+	
 	@RequestMapping("index")
 	public String index() {
 		return "index";
@@ -39,8 +46,10 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("search")
-	public String search(@RequestParam(value="searchItem", required=false) String searchItem, Model model) {
+	public String search(@RequestParam(value="searchItem", required=false) String searchItem, 
+			@RequestParam(value="searchOption", required=false) String searchOption, Model model) {
 		model.addAttribute("searchItem", searchItem);
+		model.addAttribute("searchOption", searchOption);
 		s_service.SearchModel(model);
 		return "search";
 	}
