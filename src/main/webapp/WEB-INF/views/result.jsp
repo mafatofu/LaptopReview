@@ -8,13 +8,13 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<!-- bootstrap-css -->
-	<link href="resources/bootstrap-4.4.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-css"/>
+	<link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-css"/>
 	<!-- <link rel="stylesheet" type="text/css" href="result.css" /> -->
 	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/result.css'/>" /> 
 	
 	<!-- jQuery, Popper -->
-	<script src="resources/bootstrap-4.4.1/site/docs/4.4/assets/js/vendor/jquery.slim.min.js"></script>
-	<script src="resources/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script> <!-- popper 포함 -->
+	<script src="resources/startbootstrap/jquery.slim.min.js"></script>
+	<script src="resources/startbootstrap/bootstrap.min.js"></script> <!-- popper 포함 -->
 	
 	
 </head>
@@ -158,14 +158,24 @@
   <div class="container">
 
     <h1 class="my-4">KeyWord List</h1>
-
+	<!--<c:forEach var="k" items="${keyWord }">
+		${k }
+	</c:forEach>-->
+	
     <!-- Marketing Icons Section -->
-    
+    	
 	    <div class="row">
-	  
+	  	<!-- 키워드 리스트의 사이즈만큼 카드 반복 
+	  			사이즈가 n이라고 할 때, n개의 키워드가 n개의 카드에 들어가게 하기
+	  			해당 키워드의 인덱스 번호를 graph.jsp 쪽으로 보내기
+	  			-->
+	  	
+	  	<c:forEach var = 'k' items="${keyWord }">	
+	  			
+	  	</c:forEach>
 	      <div class="col-lg-4 mb-4">
 	        <div class="card h-100">
-	          <h4 class="card-header">Card Title</h4>
+	          <h4 class="card-header">${k}</h4>
 	          <div class="card-body"><!-- 그래프가 들어가는 곳 -->
 	            <jsp:include page="graph.jsp" />
 	          </div>
@@ -176,10 +186,11 @@
 	      </div>
 	      
 	      
-	      <div class="col-lg-4 mb-4">
+	     <div class="col-lg-4 mb-4">
 	        <div class="card h-100">
 	          <h4 class="card-header">Card Title</h4>
 	          <div class="card-body">
+	          	
 	            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
 	          </div>
 	          <div class="card-footer">
@@ -266,6 +277,7 @@
           </div>
         </div>
       </div>
+      
     </div>
     <!-- /.row -->
 
