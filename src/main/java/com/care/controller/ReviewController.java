@@ -17,6 +17,11 @@ public class ReviewController {
 	@Autowired
 	SearchService s_service;
 	
+	@RequestMapping("/")
+	public String home() {
+		return "home";
+	}
+	
 	@RequestMapping("index")
 	public String index() {
 		return "index";
