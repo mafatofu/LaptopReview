@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -10,18 +8,18 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title></title>
+  <title>Clean Blog - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="resources/css/clean-blog.min.css" rel="stylesheet">
+  <link href="css/clean-blog.min.css" rel="stylesheet">
 
 </head>
 
@@ -55,7 +53,7 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('resources/img/home-bg.jpg')">
+  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -70,26 +68,6 @@
   </header>
 
   <!-- Main Content -->
-  	<div>
-			<table>
-				<tr>
-					<th>제조사</th><th>시리즈</th><th>모델명</th>
-					<th>cpu</th><th>화면크기</th><th>무게</th>
-					<th>목적</th>
-				</tr>		
-				<c:forEach var="list" items="${searchList }">
-				<tr>
-					<td>${list.manufacturer }</td>
-					<td>${list.series }</td>
-					<td>${list.modelName }</td>
-					<td>${list.cpu }</td>
-					<td>${list.display }</td>
-					<td>${list.weight }</td>
-					<td>${list.purpose }</td>
-				</tr>	
-				</c:forEach>
-			</table>	
-	</div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">

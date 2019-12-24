@@ -25,18 +25,12 @@
   
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="resources/css/creative.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=2'/>" />
+  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=3'/>" />
   <link href="resources/css/main.css?ver=4" rel="stylesheet">
   
   <!-- SearchBox CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <script type="text/javascript">
-  	function search_submit() {
-  		console.log("확인");
-		alert("버튼 클릭");
-	}
-  
-  </script>
+
 	
 					
 </head>
@@ -80,34 +74,28 @@
 	        <div class="col-lg-10 align-self-baseline mx-auto">
 	        	<p class="text-white-75 font-weight-light mb-5">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>
 	        </div>
-	        <div class="align-self-center col-lg-10 mx-auto my-3">
-		      <form>
-		        <fieldset>
-		          <legend>QUICK FIND YOUR CITY</legend>
-		        </fieldset>
+	        <div class="s013 col-lg-10 mx-auto my-3">
+		      <form action="search">
 		        <div class="inner-form">
 		          <div class="left">
-		            <div class="input-wrap first">
-		              <div class="input-field first">
-		                <label>WHAT</label>
-		                <input type="text" placeholder="ex: food, service, bar, hotel" />
-		              </div>
-		            </div>
-		            <div class="input-wrap second">
+		           <div class="input-wrap second">
 		              <div class="input-field second">
-		                <label>WHERE</label>
 		                <div class="input-select">
-		                  <select data-trigger="" name="choices-single-defaul">
-		                    <option placeholder="">1 adult</option>
-		                    <option>2 adults</option>
-		                    <option>3 adults</option>
-		                    <option>4 adults</option>
+		                  <select  name="searchOption">
+		                    <option value="MANUFACTURER">제조사</option>
+		                    <option value="SERIES">시리즈명</option>
+		                    <option value="MODELNAME">모델명</option>
 		                  </select>
 		                </div>
 		              </div>
 		            </div>
+		            <div class="input-wrap first">
+		              <div class="input-field first">
+		                <input type="text" placeholder="ex: lg, apple, samsung" name="searchItem" />
+		              </div>
+		            </div>
 		          </div>
-		          <button class="btn-search" type="button">SEARCH</button>
+		          <button class="btn-search" type="button" onclick="form.submit()">SEARCH</button>
 		        </div>
 		      </form>
 			</div>      
@@ -168,6 +156,15 @@
 
   <!-- Custom scripts for this template -->
   <script src="resources/js/creative.min.js"></script>
+  <script src="resources/js/extention/choices.js"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+    </script>
 
 </body>
 

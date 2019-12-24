@@ -17,7 +17,8 @@ public class SearchServiceImpl implements SearchService {
 	public void SearchModel(Model model) {
 		Map<String, Object> map =  model.asMap();
 		String searchItem = (String)map.get("searchItem");
-		model.addAttribute("searchList", dao.searchList(searchItem));
+		String searchOption = (String)map.get("searchOption");
+		model.addAttribute("searchList", dao.searchList(searchOption, searchItem));
 	}
 
 		

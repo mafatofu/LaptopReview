@@ -13,9 +13,6 @@
   <body>
     <div class="s013">
       <form>
-        <fieldset>
-          <legend>QUICK FIND YOUR CITY</legend>
-        </fieldset>
         <div class="inner-form">
           <div class="left">
             <div class="input-wrap first">
@@ -42,7 +39,7 @@
         </div>
       </form>
     </div>
-    <script src="js/extention/choices.js"></script>
+    <script src="resources/js/extention/choices.js"></script>
     <script>
       const choices = new Choices('[data-trigger]',
       {

@@ -2,7 +2,7 @@ package com.care.dto;
 
 public class ReviewDTO {
 	//product 테이블
-	private String production; //제조사
+	private String manufacturer; //제조사
 	private String series; //시리즈
 	private String modelName; //모델네임
 	private String cpu; //cpu
@@ -10,11 +10,12 @@ public class ReviewDTO {
 	private String weight; //무게
 	private String purpose; //용도
 	
-	public String getProduction() {
-		return production;
+
+	public String getManufacturer() {
+		return manufacturer;
 	}
-	public void setProduction(String production) {
-		this.production = production;
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 	public String getSeries() {
 		return series;
