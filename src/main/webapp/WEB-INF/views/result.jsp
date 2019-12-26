@@ -1,88 +1,99 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-	<meta name="viewport"
+<meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<!-- bootstrap-css -->
-	<link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="result.css" /> -->
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/result.css'/>" /> 
-	
-	<!-- jQuery, Popper -->
-	<script src="resources/startbootstrap/jquery.slim.min.js"></script>
-	<script src="resources/startbootstrap/bootstrap.min.js"></script> <!-- popper 포함 -->
-	
-	
+
+<!-- bootstrap-css -->
+<link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet"
+	type="text/css" id="bootstrap-css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!-- <link rel="stylesheet" type="text/css" href="result.css" /> -->
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='resources/css/result.css'/>" />
+
+<!-- jQuery, Popper -->
+<script src="resources/startbootstrap/jquery.slim.min.js"></script>
+<script src="resources/startbootstrap/bootstrap.min.js"></script>
+<!-- popper 포함 -->
+
+
 </head>
 <body>
-	  <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Portfolio
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blog
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Other Pages
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-              <a class="dropdown-item" href="faq.html">FAQ</a>
-              <a class="dropdown-item" href="404.html">404</a>
-              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    	<div id="wordcloud">
-  		
-		 <%-- <jsp:include page="wordcloud.jsp" /> --%>
-		 
-		 <script src="https://d3js.org/d3.v3.min.js"></script>
-	    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
-	    <script>
+	<!-- Navigation -->
+	<nav
+		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="about.html">About</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="services.html">Services</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownPortfolio" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> Portfolio </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownPortfolio">
+							<a class="dropdown-item" href="portfolio-1-col.html">1 Column
+								Portfolio</a> <a class="dropdown-item" href="portfolio-2-col.html">2
+								Column Portfolio</a> <a class="dropdown-item"
+								href="portfolio-3-col.html">3 Column Portfolio</a> <a
+								class="dropdown-item" href="portfolio-4-col.html">4 Column
+								Portfolio</a> <a class="dropdown-item" href="portfolio-item.html">Single
+								Portfolio Item</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Blog </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+							<a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+							<a class="dropdown-item" href="blog-post.html">Blog Post</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Other Pages </a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdownBlog">
+							<a class="dropdown-item" href="full-width.html">Full Width
+								Page</a> <a class="dropdown-item" href="sidebar.html">Sidebar
+								Page</a> <a class="dropdown-item" href="faq.html">FAQ</a> <a
+								class="dropdown-item" href="404.html">404</a> <a
+								class="dropdown-item" href="pricing.html">Pricing Table</a>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="wordcloud">
+
+		<%-- <jsp:include page="wordcloud.jsp" /> --%>
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script
+			src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"
+			type="text/JavaScript"></script>
+		<script>
 	        var width = 960,
 	            height = 500
 	
@@ -153,251 +164,108 @@
 	    </script>
 		<h3>Word Cloud</h3>
 	</div>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<h1 class="my-4">KeyWord List</h1>
+
+		<!-- Marketing Icons Section -->
+		<div class="row">
+			<c:forEach var='k' items="${keyWord }">
+				<div class="col-lg-4 mb-4">
+					<div class="card h-100">
+						<h4 class="card-header">${k}</h4>
+						<!-- 그래프 삽입 -->
+						<c:set var="positive_word"/>
+						<c:set var="negative_word"/>
+						<c:forEach var = "pw" items = "${positive_House}" varStatus="idx">
+							${idx.index }, ${pw }<br>
+						</c:forEach>
+					
+						<c:forEach var = "nw" items = "${negative_House}" varStatus="idx">
+							${idx.index }, ${pw }<br>
+						</c:forEach>
+						
+						
+						<canvas id="myChart" class="chart"></canvas>
+						<canvas id="myChart2" class="chart"></canvas>
 	
-  <!-- Page Content -->
-  <div class="container">
+						<script>
+					var positive_word = new Array();
+					var negative_word = new Array();
+					var p = new Array();
+					//positive_House, negative_House 전체가 아닌, 키워드에 해당하는 하나의 맵만을 저장
+					
+					
+					
+					
 
-    <h1 class="my-4">KeyWord List</h1>
-	<!--<c:forEach var="k" items="${keyWord }">
-		${k }
-	</c:forEach>-->
-	
-    <!-- Marketing Icons Section -->
-    	
-	    <div class="row">
-	  	<!-- 키워드 리스트의 사이즈만큼 카드 반복 
-	  			사이즈가 n이라고 할 때, n개의 키워드가 n개의 카드에 들어가게 하기
-	  			해당 키워드의 인덱스 번호를 graph.jsp 쪽으로 보내기
-	  			-->
-	  	
-	  	<c:forEach var = 'k' items="${keyWord }">	
-	  			
-	  	</c:forEach>
-	      <div class="col-lg-4 mb-4">
-	        <div class="card h-100">
-	          <h4 class="card-header">${k}</h4>
-	          <div class="card-body"><!-- 그래프가 들어가는 곳 -->
-	            <jsp:include page="graph.jsp" />
-	          </div>
-	          <div class="card-footer">
-	            <a href="#" class="btn btn-primary">Learn More</a>
-	          </div>
-	        </div>
-	      </div>
-	      
-	      
-	     <div class="col-lg-4 mb-4">
-	        <div class="card h-100">
-	          <h4 class="card-header">Card Title</h4>
-	          <div class="card-body">
-	          	
-	            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-	          </div>
-	          <div class="card-footer">
-	            <a href="#" class="btn btn-primary">Learn More</a>
-	          </div>
-	        </div>
-	      </div>
-      
-      
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    <!-- /.row -->
+					
+					var ctx = document.getElementById('myChart').getContext('2d');
+					var chart = new Chart(ctx, {
+					    // The type of chart we want to create
+					    type: 'horizontalBar',
+					    // The data for our dataset
+					    data: {
+					    	/*긍/부정 해시맵 상위 5개 단어(키)*/
+					    	labels: ["pw[0]","pw[1]","pw[2]","pw[3]","pw[4]"],
+					        datasets: [{
+					            label: '긍정단어', 
+					            backgroundColor: 'rgb(255, 99, 132)',
+					            borderColor: 'rgb(255, 99, 132)',
+					        /*긍/부정 해시맵 상위 5개 갯수(값)*/   
+					            data: ["pw[0]","pw[1]","pw[2]","pw[3]","pw[4]"]
+					        }]
+					    },
+				
+					    // Configuration options go here
+					    options: {}
+					});
+				</script>
 
-    <!-- Portfolio Section -->
-    <!-- <h2>Portfolio Heading</h2> -->
+						<script>
+				var ctx = document.getElementById('myChart2').getContext('2d');
+				var chart = new Chart(ctx, {
+				    // The type of chart we want to create
+				    type: 'horizontalBar',
+			
+				    // The data for our dataset
+				    data: {
+				    	labels: ["1번","2번","3번","4번","5번"],
+				        datasets: [{
+				            label: '부정단어', 
+				            backgroundColor: 'rgb(102, 102, 255)',
+				            borderColor: 'rgb(102, 102, 255)',
+				            data: [1,2,3,4,5]
+				        }]
+				    },
+			
+				    // Configuration options go here
+				    options: {}
+				});
+				</script>
+						<div class="card-body">
+							<!-- 그래프가 들어가는 곳 -->
+							<!--<jsp:include page="graph.jsp" />-->
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+		<!-- /.row -->
+		<hr>
+	</div>
+	<!-- /.container -->
 
-    <!-- <div class="row">
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project One</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Two</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Three</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Four</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Five</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Six</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- /.row -->
-	
-    <!-- Features Section -->
-    <!-- <div class="row">
-      <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
-        <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
-          </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-      </div>
-    </div> -->
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Call to Action Section -->
-   <!--  <div class="row mb-4">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-      </div>
-    </div> -->
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your
+				Website 2019</p>
+		</div>
+		<!-- /.container -->
+	</footer>
 
 </body>
 </html>
