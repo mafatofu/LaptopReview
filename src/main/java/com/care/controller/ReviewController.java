@@ -57,11 +57,11 @@ public class ReviewController {
 			break;
 		case 2:
 			searchOption = "SERIES";
-			search = "시리즈 : " + searchItem + "에 대한 검색 결과";
+			search = "시리즈 \"" + searchItem + "\"에 대한 검색 결과";
 			break;
 		case 3:			
 			searchOption = "MODELNAME";
-			search = "모델명 : " + searchItem + "에 대한 검색 결과";
+			search = "모델명 \"" + searchItem + "\"에 대한 검색 결과";
 			break;
 		}		
 		model.addAttribute("searchItem", searchItem);

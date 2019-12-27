@@ -102,7 +102,7 @@
 	        <div id="recommend_tag_main" class="col-lg-10 mt-3">
 	      	<ul class="row align-items-center justify-content-center">
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchItem=lggram">
+	            	<a href="search?searchOption=2&searchItem=그램">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
 	                     </div>
@@ -110,7 +110,7 @@
 	                </a>
 	            </li>
 	            <li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchItem=apple">
+	            	<a href="search?searchOption=2&searchItem=맥북">
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
 	                     </div>
@@ -118,7 +118,7 @@
 	                </a>
 	            </li>
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="/search.php?mode=1&q=daily.oasis">
+	            	<a href="search?searchOption=2&searchItem=노트북9"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
 	                     </div>
@@ -126,7 +126,7 @@
 	                </a>
 	            </li>                                
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="/search.php?mode=1&q=daily.oasis">
+	            	<a href="search?searchOption=2&searchItem=아이디어패드"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad.jpg" class="tag_img">
 	                     </div>

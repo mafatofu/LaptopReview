@@ -27,25 +27,25 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index">Start Bootstrap</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search">
       <div class="input-group">
       	<div class="input-select">
       		<select  name="searchOption">
-		    	<option value="MANUFACTURER">제조사</option>
-		        <option value="SERIES">시리즈명</option>
-		        <option value="MODELNAME">모델명</option>
+		    	<option value=1>제조사</option>
+		        <option value=2>시리즈명</option>
+		        <option value=3>모델명</option>
 		    </select>
 		</div>      
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
+          <button class="btn btn-primary">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -98,7 +98,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -141,7 +141,10 @@
         </ol>
 
         <!-- Page Content -->
-  	<div>		
+  	<div>
+  		<c:if test="${empty searchList }">
+  		검색 결과가 없습니다.
+  		</c:if>	
 		<c:forEach var="list" items="${searchList }">
 		<c:url value="result" var="url">
 			<c:param name="modelName" value="${list.modelName }"></c:param>
@@ -154,7 +157,7 @@
 		${list.display }인치&#9;
 		${list.weight }kg&#9;
 		${list.purpose }
-		</a>
+		</a><br>
 		</c:forEach>
 	</div>
 
