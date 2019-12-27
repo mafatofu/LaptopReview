@@ -31,11 +31,21 @@ public class ReviewController {
 	
 	@RequestMapping("charts")
 	public String charts(Model model) {
-		service.pnCount(model);
 		return "charts";
 		//검색어를 받아와야 함
 	}
 	
+	@RequestMapping("graph")
+	public String graph() {
+		return "graph";
+		//검색어를 받아와야 함
+	}
+	@RequestMapping("graph2")
+	public String graph2(Model model, HttpServletRequest request) {
+		model.addAttribute("request", request);
+		service.pnCount(model);
+		return "graph2";
+	}
 	@RequestMapping("result")
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);

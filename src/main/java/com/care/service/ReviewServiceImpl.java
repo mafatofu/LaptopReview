@@ -55,9 +55,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 		//키워드별 긍부정단어장(정렬 전)
 		HashMap<String, Integer> positive = new HashMap<String, Integer>();
-		HashMap<String, Integer> negative = new HashMap<String, Integer>();
-		
-		
+		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
 
 		//디렉터리의 파일 리스트를 가져옴
 		File pnPath = new File(modelPath);

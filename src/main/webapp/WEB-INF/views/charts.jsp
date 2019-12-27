@@ -146,7 +146,10 @@
             <i class="fas fa-chart-area"></i>
             Area Chart Example</div>
           <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <!-- wordCloud -->
+            <div id="wordcloud">
+				<jsp:include page="wordcloud.jsp" flush="true"></jsp:include> 
+			</div>  
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
@@ -158,7 +161,9 @@
                 <i class="fas fa-chart-bar"></i>
                 Bar Chart Example</div>
               <div class="card-body">
-                <canvas id="myBarChart" width="100%" height="50"></canvas>
+                <canvas id="myBarChart" width="100%" height="50">
+                
+                </canvas>
               </div>
               <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
