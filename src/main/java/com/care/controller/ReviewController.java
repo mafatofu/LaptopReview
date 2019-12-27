@@ -68,4 +68,10 @@ public class ReviewController {
 		model.addAttribute("search", search);
 		return "search";
 	}
+	
+	@RequestMapping("test")
+	public String test(@RequestParam(value="modelName", required = false) String modelName, Model model) {
+		model.addAttribute("model", modelName);
+		return "test";
+	}
 }

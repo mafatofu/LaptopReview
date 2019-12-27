@@ -142,15 +142,20 @@
 
         <!-- Page Content -->
   	<div>		
-				<c:forEach var="list" items="${searchList }">
-					${list.manufacturer }&#9;
-					${list.series }&#9;
-					${list.modelName }&#9;
-					${list.cpu }&#9;
-					${list.display }&#9;
-					${list.weight }&#9;
-					${list.purpose }
-				</c:forEach>
+		<c:forEach var="list" items="${searchList }">
+		<c:url value="result" var="url">
+			<c:param name="modelName" value="${list.modelName }"></c:param>
+		</c:url>
+		<a href="${url}">
+		${list.manufacturer }&#9;
+		${list.series }&#9;
+		${list.modelName }&#9;
+		${list.cpu }&#9;
+		${list.display }인치&#9;
+		${list.weight }kg&#9;
+		${list.purpose }
+		</a>
+		</c:forEach>
 	</div>
 
       </div>
