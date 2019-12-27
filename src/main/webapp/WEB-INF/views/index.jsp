@@ -82,9 +82,9 @@
 		              <div class="input-field second">
 		                <div class="input-select">
 		                  <select  name="searchOption">
-		                    <option value="MANUFACTURER">제조사</option>
-		                    <option value="SERIES">시리즈명</option>
-		                    <option value="MODELNAME">모델명</option>
+		                    <option value=1>제조사</option>
+		                    <option value=2>시리즈명</option>
+		                    <option value=3>모델명</option>
 		                  </select>
 		                </div>
 		              </div>

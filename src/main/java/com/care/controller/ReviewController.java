@@ -18,8 +18,6 @@ public class ReviewController {
 	@Autowired
 	SearchService s_service;
 	
-	
-	
 	@RequestMapping("/")
 	public String home() {
 		return "home";
@@ -31,13 +29,13 @@ public class ReviewController {
 		//검색어를 받아와야 함
 	}
 	
-	@RequestMapping("graph")
-	public String graph(Model model) {
+	@RequestMapping("charts")
+	public String charts(Model model) {
 		service.pnCount(model);
-		return "graph";
+		return "charts";
 		//검색어를 받아와야 함
 	}
-		
+	
 	@RequestMapping("result")
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
@@ -46,11 +44,28 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("search")
-	public String search(@RequestParam(value="searchItem", required=false) String searchItem, 
-			@RequestParam(value="searchOption", required=false) String searchOption, Model model) {
+	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, 
+			@RequestParam(value="searchOption", required=false, defaultValue = "MANUFACTURER") int option, Model model) {
+		String search = null;
+		String searchOption = null;
+		switch (option) {
+		case 1:
+			searchOption = "MANUFACTURER";
+			search = "제조사 \"" + searchItem + "\"에 대한 검색 결과";
+			break;
+		case 2:
+			searchOption = "SERIES";
+			search = "시리즈 : " + searchItem + "에 대한 검색 결과";
+			break;
+		case 3:			
+			searchOption = "MODELNAME";
+			search = "모델명 : " + searchItem + "에 대한 검색 결과";
+			break;
+		}		
 		model.addAttribute("searchItem", searchItem);
 		model.addAttribute("searchOption", searchOption);
 		s_service.SearchModel(model);
+		model.addAttribute("search", search);
 		return "search";
 	}
 }

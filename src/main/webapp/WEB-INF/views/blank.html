@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -13,13 +13,13 @@
   <title>SB Admin - Blank Page</title>
 
   <!-- Custom fonts for this template-->
-  <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.2" rel="stylesheet">
+  <link href="css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -34,16 +34,9 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="">
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-      	<div class="input-select">
-      		<select  name="searchOption">
-		    	<option value="MANUFACTURER">제조사</option>
-		        <option value="SERIES">시리즈명</option>
-		        <option value="MODELNAME">모델명</option>
-		    </select>
-		</div>      
-        <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
@@ -137,21 +130,16 @@
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">${search}</li>
+          <li class="breadcrumb-item">
+            <a href="index.html">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Blank Page</li>
         </ol>
 
         <!-- Page Content -->
-  	<div>		
-				<c:forEach var="list" items="${searchList }">
-					${list.manufacturer }&#9;
-					${list.series }&#9;
-					${list.modelName }&#9;
-					${list.cpu }&#9;
-					${list.display }&#9;
-					${list.weight }&#9;
-					${list.purpose }
-				</c:forEach>
-	</div>
+        <h1>Blank Page</h1>
+        <hr>
+        <p>This is a great starting point for new custom pages.</p>
 
       </div>
       <!-- /.container-fluid -->
@@ -196,14 +184,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="resources/js/sb-admin.min.js"></script>
+  <script src="js/sb-admin.min.js"></script>
 
 </body>
 

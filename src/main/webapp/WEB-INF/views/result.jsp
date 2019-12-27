@@ -13,82 +13,104 @@
   <meta name="author" content="">
 
   <title>SB Admin - Charts</title>
+	
+	<!-- Custom fonts for this template-->
+  	<link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  	<!-- Page level plugin CSS-->
+  	<link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  	<!-- Custom styles for this template-->
+  	<link href="resources/css/sb-admin.css?ver=1.2" rel="stylesheet">
+	
+	<!-- bootstrap-css -->
+<!-- 	<link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet"
+		type="text/css" id="bootstrap-css" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+	
+	<!-- <link rel="stylesheet" type="text/css" href="result.css" /> -->
+	<link rel="stylesheet" type="text/css"
+		href="<c:url value='resources/css/result.css'/>" />
+		
+		
+	
+	<!-- jQuery, Popper -->
+	<script src="resources/startbootstrap/jquery.slim.min.js"></script>
+	<script src="resources/startbootstrap/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap core JavaScript-->
+  	<script src="resources/vendor/jquery/jquery.min.js"></script>
+  	<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- bootstrap-css -->
-<link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet"
-	type="text/css" id="bootstrap-css" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<!-- <link rel="stylesheet" type="text/css" href="result.css" /> -->
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='resources/css/result.css'/>" />
+  	<!-- Core plugin JavaScript-->
+  	<script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- jQuery, Popper -->
-<script src="resources/startbootstrap/jquery.slim.min.js"></script>
-<script src="resources/startbootstrap/bootstrap.min.js"></script>
-<!-- popper 포함 -->
+  	<!-- Custom scripts for all pages-->
+  	<script src="resources/js/sb-admin.min.js"></script>
+	<!-- popper 포함 -->
 
 
 </head>
 <body>
 	<!-- Navigation -->
-	<nav
-		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">Start Bootstrap</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="about.html">About</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="services.html">Services</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
-					</li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#"
-						id="navbarDropdownPortfolio" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false"> Portfolio </a>
-						<div class="dropdown-menu dropdown-menu-right"
-							aria-labelledby="navbarDropdownPortfolio">
-							<a class="dropdown-item" href="portfolio-1-col.html">1 Column
-								Portfolio</a> <a class="dropdown-item" href="portfolio-2-col.html">2
-								Column Portfolio</a> <a class="dropdown-item"
-								href="portfolio-3-col.html">3 Column Portfolio</a> <a
-								class="dropdown-item" href="portfolio-4-col.html">4 Column
-								Portfolio</a> <a class="dropdown-item" href="portfolio-item.html">Single
-								Portfolio Item</a>
-						</div></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Blog </a>
-						<div class="dropdown-menu dropdown-menu-right"
-							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-							<a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-							<a class="dropdown-item" href="blog-post.html">Blog Post</a>
-						</div></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Other Pages </a>
-						<div class="dropdown-menu dropdown-menu-right"
-							aria-labelledby="navbarDropdownBlog">
-							<a class="dropdown-item" href="full-width.html">Full Width
-								Page</a> <a class="dropdown-item" href="sidebar.html">Sidebar
-								Page</a> <a class="dropdown-item" href="faq.html">FAQ</a> <a
-								class="dropdown-item" href="404.html">404</a> <a
-								class="dropdown-item" href="pricing.html">Pricing Table</a>
-						</div></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span class="badge badge-danger">7</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
 
 	<div id="wordcloud">
 
