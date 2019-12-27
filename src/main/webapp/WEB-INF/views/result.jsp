@@ -8,6 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin - Charts</title>
 
 <!-- bootstrap-css -->
 <link href="resources/startbootstrap/bootstrap.min.css" rel="stylesheet"
@@ -177,30 +182,15 @@
 					<div class="card h-100">
 						<h4 class="card-header">${k}</h4>
 						<!-- 그래프 삽입 -->
-						<c:set var="positive_word"/>
-						<c:set var="negative_word"/>
-						<c:forEach var = "pw" items = "${positive_House}" varStatus="idx">
-							${idx.index }, ${pw }<br>
-						</c:forEach>
-					
-						<c:forEach var = "nw" items = "${negative_House}" varStatus="idx">
-							${idx.index }, ${pw }<br>
-						</c:forEach>
-						
-						
+
 						<canvas id="myChart" class="chart"></canvas>
 						<canvas id="myChart2" class="chart"></canvas>
-	
+
 						<script>
 					var positive_word = new Array();
 					var negative_word = new Array();
 					var p = new Array();
 					//positive_House, negative_House 전체가 아닌, 키워드에 해당하는 하나의 맵만을 저장
-					
-					
-					
-					
-
 					
 					var ctx = document.getElementById('myChart').getContext('2d');
 					var chart = new Chart(ctx, {
@@ -209,13 +199,31 @@
 					    // The data for our dataset
 					    data: {
 					    	/*긍/부정 해시맵 상위 5개 단어(키)*/
-					    	labels: ["pw[0]","pw[1]","pw[2]","pw[3]","pw[4]"],
+					    	labels: [
+					    	<c:forEach var = "pw" items = "${positive_House}">
+								<c:if test ="${k == pw.key}">
+									<c:forEach var = "pp" items = "${pw.value }"
+										varStatus = "idx" begin="0" end="4" step="1">
+											"${pp.key}",
+									</c:forEach>
+								</c:if>
+							</c:forEach>	
+					    	],
 					        datasets: [{
 					            label: '긍정단어', 
 					            backgroundColor: 'rgb(255, 99, 132)',
 					            borderColor: 'rgb(255, 99, 132)',
 					        /*긍/부정 해시맵 상위 5개 갯수(값)*/   
-					            data: ["pw[0]","pw[1]","pw[2]","pw[3]","pw[4]"]
+					            data: [
+							    	<c:forEach var = "pw" items = "${positive_House}">
+									<c:if test ="${k == pw.key}">
+										<c:forEach var = "pp" items = "${pw.value }"
+											varStatus = "idx" begin="0" end="4" step="1">
+												${pp.value},
+										</c:forEach>
+									</c:if>
+								</c:forEach>	   	
+					            	]
 					        }]
 					    },
 				

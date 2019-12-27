@@ -154,6 +154,8 @@ public class ReviewServiceImpl implements ReviewService{
 		}*/
 
 		
+		
+		
 		//모델에 전달
 		//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		model.addAttribute("keyWord", keyWordList);
