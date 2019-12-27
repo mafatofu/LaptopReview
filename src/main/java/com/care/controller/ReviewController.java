@@ -1,4 +1,5 @@
 package com.care.controller;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,15 +32,16 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("graph")
-	public String graph() {
+	public String graph(Model model) {
+		service.pnCount(model);
 		return "graph";
 		//검색어를 받아와야 함
 	}
 		
 	@RequestMapping("result")
-	public String resultMap(Model model) {
-		//service.modelList(model);
-		
+	public String resultMap(Model model, HttpServletRequest request) {
+		model.addAttribute("request", request);
+		service.pnCount(model);
 		return "result";
 	}
 	
