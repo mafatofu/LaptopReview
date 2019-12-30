@@ -142,10 +142,12 @@
 
     <div id="content-wrapper">
     	<!-- wordCloud -->
+    	<center>
 		<div id="wordcloud">
 			<jsp:include page="wordcloud.jsp"></jsp:include>
-		<h3>Word Cloud</h3>
+			<h3>Word Cloud</h3>
 		</div>
+		</center>
 		
       <div class="container-fluid">
       <!-- Page Content -->

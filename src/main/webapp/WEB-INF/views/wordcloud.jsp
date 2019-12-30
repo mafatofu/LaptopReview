@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
     <script>
-        var width = 900,
-            height = 500
-
-        var svg = d3.select("#wordcloud").append("svg")
+	    var width = document.getElementById('content-wrapper').offsetWidth;
+	    var height = document.getElementById('content-wrapper').offsetHeight;
+	    
+    	
+/*    	var width = d3.select('#wordcloud');
+   	 	var height = 500; */
+        
+    	var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
-            .attr("height", height);
+            .attr("height", height); 
         d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
             showCloud(data)
             setInterval(function(){

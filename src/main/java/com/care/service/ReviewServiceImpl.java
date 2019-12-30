@@ -49,10 +49,9 @@ public class ReviewServiceImpl implements ReviewService{
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
 		//모델명
-		/*String modelNameCk[] = null;
+		String modelNameCk[] = null;
 		modelNameCk =  request.getParameter("modelName").split("\\s");
-		String modelName = modelNameCk[3];*/
-		String modelName =  request.getParameter("modelName");
+		String modelName = modelNameCk[3];
 		
 		//모델 path
 		String modelPath = "LaptopReview/src/main/webapp/resources/PNCount/"+modelName;
