@@ -18,8 +18,6 @@ public class ReviewController {
 	@Autowired
 	SearchService s_service;
 	
-	
-	
 	@RequestMapping("/")
 	public String home() {
 		return "home";
@@ -31,18 +29,18 @@ public class ReviewController {
 		//검색어를 받아와야 함
 	}
 	
-	@RequestMapping("graph")
-	public String graph(Model model) {
-		service.pnCount(model);
-		return "graph";
-		//검색어를 받아와야 함
-	}
-		
 	@RequestMapping("result")
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
 		service.pnCount(model);
 		return "result";
+	}
+	
+	@RequestMapping("result2")
+	public String resultMap2(Model model, HttpServletRequest request) {
+		model.addAttribute("request", request);
+		service.pnCount(model);
+		return "result2";
 	}
 	
 	@RequestMapping("search")
@@ -59,4 +57,5 @@ public class ReviewController {
 		model.addAttribute("model", modelName);
 		return "wordcloud";
 	}
+
 }

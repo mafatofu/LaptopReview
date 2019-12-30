@@ -49,15 +49,17 @@ public class ReviewServiceImpl implements ReviewService{
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
 		//모델명
-		String modelName = request.getParameter("modelName");
+		/*String modelNameCk[] = null;
+		modelNameCk =  request.getParameter("modelName").split("\\s");
+		String modelName = modelNameCk[3];*/
+		String modelName =  request.getParameter("modelName");
+		
 		//모델 path
-		String modelPath = "D:/190715_leeyeongkyu/TeamProject01/resources/output/2.PNCount/"+modelName;
+		String modelPath = "LaptopReview/src/main/webapp/resources/PNCount/"+modelName;
 
 		//키워드별 긍부정단어장(정렬 전)
 		HashMap<String, Integer> positive = new HashMap<String, Integer>();
-		HashMap<String, Integer> negative = new HashMap<String, Integer>();
-		
-		
+		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
 
 		//디렉터리의 파일 리스트를 가져옴
 		File pnPath = new File(modelPath);
@@ -152,6 +154,7 @@ public class ReviewServiceImpl implements ReviewService{
 		for (String string : keyWordList) {
 			System.out.println(string);
 		}*/
+
 
 		
 		//모델에 전달

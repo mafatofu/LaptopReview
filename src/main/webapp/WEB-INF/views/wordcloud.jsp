@@ -1,6 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -29,8 +29,11 @@
 	<div id="wordcloud"></div>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
+=======
+    
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
     <script>
-        var width = 960,
+        var width = 900,
             height = 500
 
         var svg = d3.select("#wordcloud").append("svg")
@@ -98,6 +101,3 @@
             }
         }
     </script>
-</body>
-
-</html>

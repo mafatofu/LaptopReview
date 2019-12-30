@@ -11,9 +11,7 @@
   <meta name="author" content="">
 
   <title>SB Admin - Blank Page</title>
-  <!-- chart -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>	
-  
+
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -22,14 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.2" rel="stylesheet">
-  
-  
-  <!-- wordcloud -->
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>	
-  <style>
-  	@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
-  </style>
+
 </head>
 
 <body id="page-top">
@@ -141,119 +132,8 @@
     </ul>
 
     <div id="content-wrapper">
-    	<!-- wordCloud -->
-		<div id="wordcloud">
-			<jsp:include page="wordcloud.jsp"></jsp:include>
-		<h3>Word Cloud</h3>
-		</div>
-		
-      <div class="container-fluid">
-      <!-- Page Content -->
 
-		<h1 class="my-4">KeyWord List</h1>
-		<!-- Marketing Icons Section -->
-		<div class="row">
-		
-		<c:forEach var='k' items="${keyWord }">
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">${k}</h4>
-					<div class="card-body">
-						<canvas id="${k}" class="chart"></canvas>
-						<canvas id="${k}2" class="chart"></canvas>
-			<script>	
-				var ctx = document.getElementById('${k}').getContext('2d');
-				var chart = new Chart(ctx, {
-				    // The type of chart we want to create
-				    type: 'horizontalBar',
-				    // The data for our dataset
-				    data: {
-				    	labels: [
-				    		<c:forEach var = "pw" items = "${positive_House}">
-								<c:if test ="${k == pw.key}">
-									<c:forEach var = "pp" items = "${pw.value }"
-										 begin="0" end="4" step="1">
-										"${pp.key}",
-									</c:forEach>
-								</c:if>
-							</c:forEach>
-				    	],
-				        datasets: [{
-				            label: '긍정단어', 
-				            backgroundColor: 'rgb(205, 092, 092)',
-				            borderColor: 'rgb(205, 092, 092)',
-				            data: [
-				            	<c:forEach var = "pw" items = "${positive_House}">
-									<c:if test ="${k == pw.key}">
-										<c:forEach var = "pp" items = "${pw.value }"
-											 begin="0" end="4" step="1">
-											"${pp.value}",
-										</c:forEach>
-									</c:if>
-								</c:forEach>
-				            	]
-				        }]
-				    },
-			
-				    // Configuration options go here
-				    options: {}
-				});
-
-		</script>
-
-		<script>
-			var negative_word = new Array();
-			var negative_key = new Array();
-			
-			var ctx = document.getElementById('${k}2').getContext('2d');
-			var chart = new Chart(ctx, {
-			    // The type of chart we want to create
-			    type: 'horizontalBar',
-			    // The data for our dataset
-				    data: {
-				    	labels: [
-				    		<c:forEach var = "nw" items = "${negative_House}">
-								<c:if test ="${k == nw.key}">
-									<c:forEach var = "nn" items = "${nw.value }"
-										 begin="0" end="4" step="1">
-										"${nn.key}",
-									</c:forEach>
-								</c:if>
-						</c:forEach>
-				    	],
-				        datasets: [{
-				            label: '부정단어', 
-				            backgroundColor: 'rgb(111, 150, 255)',
-				            borderColor: 'rgb(120, 150, 255)',
-				            data: [
-				            	<c:forEach var = "nw" items = "${negative_House}">
-								<c:if test ="${k == nw.key}">
-									<c:forEach var = "nn" items = "${nw.value }"
-										 begin="0" end="4" step="1">
-										"${nn.value}",
-									</c:forEach>
-								</c:if>
-							</c:forEach>
-				            ]
-				        }]
-				    },
-			    // Configuration options go here
-			    options: {}
-			});
-		</script>
-	
-					</div>
-				</div>
-			</div>
-			</c:forEach>
-		</div>
-		<!-- /.row -->
-		<hr>
-
-  		
-  		
-
-      </div>
+    </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
