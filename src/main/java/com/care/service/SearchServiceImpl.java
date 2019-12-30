@@ -20,7 +20,7 @@ public class SearchServiceImpl implements SearchService {
 		searchItem = searchItem.toUpperCase().replace(" ", "");
 		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1"};
 		String[] apple = {"APPLE", "애플"}; String[] apple_s = {"맥북프로", "맥북", "에어"};
-		String[] samsung = {"SAMSUNG", "삼성"}; String[] samsung_s = {"노트북9", "노트북7", "노트북5", "노트북3", "갤럭시북", "갤럭시북S",  "노트북", "플렉스", "이온", "ODYSSEY"};
+		String[] samsung = {"SAMSUNG", "삼성"}; String[] samsung_s = {"노트북9", "노트북7", "노트북5", "노트북3", "갤럭시북", "갤럭시북S",  "노트북", "플렉스", "이온", "ODYSSEY", "PEN", "S"};
 		String[] hp = {"HP"}; String[] hp_s = {"파빌리온", "프로북", "엔비", "게이밍", "오멘", "스펙터"};
 		String[] lenovo = {"LENOVO", "레노버"};  String[] lenovo_s = {"LEGION", "아이디어패드", "요가"};
 		String[] msi = {"MSI"}; String[] msi_s = {"프레스티지", "모던", "크리에이터","GF75","THIN","GP75","GL65","GF63","파워팩", "프로", "WIN10", "17M", "14", "화이트", "에디션","GL63", "TITAN", "DT", "P76","15", "GS65", "LEOPARD", "PS63"};
