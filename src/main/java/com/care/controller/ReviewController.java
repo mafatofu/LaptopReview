@@ -27,7 +27,6 @@ public class ReviewController {
 	@RequestMapping("index")
 	public String index() {
 		return "index";
-		//검색어를 받아와야 함
 	}
 	
 	@RequestMapping("result")
