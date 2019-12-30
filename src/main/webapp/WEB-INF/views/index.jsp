@@ -78,17 +78,6 @@
 		      <form action="search">
 		        <div class="inner-form">
 		          <div class="left">
-		           <div class="input-wrap second">
-		              <div class="input-field second">
-		                <div class="input-select">
-		                  <select  name="searchOption">
-		                    <option value=1>제조사</option>
-		                    <option value=2>시리즈명</option>
-		                    <option value=3>모델명</option>
-		                  </select>
-		                </div>
-		              </div>
-		            </div>
 		            <div class="input-wrap first">
 		              <div class="input-field first">
 		                <input type="text" placeholder="ex: lg, apple, samsung" name="searchItem" />
