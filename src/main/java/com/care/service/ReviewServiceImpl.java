@@ -55,7 +55,7 @@ public class ReviewServiceImpl implements ReviewService{
 		String modelName =  request.getParameter("modelName");
 		
 		//모델 path
-		String modelPath = "D:/190715_leeyeongkyu/TeamProject01/resources/output/2.PNCount/"+modelName;
+		String modelPath = "LaptopReview/src/main/webapp/resources/PNCount/"+modelName;
 
 		//키워드별 긍부정단어장(정렬 전)
 		HashMap<String, Integer> positive = new HashMap<String, Integer>();

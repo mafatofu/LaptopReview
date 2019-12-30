@@ -1,28 +1,11 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-</head>
-<style>
-@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
-
-</style>
-
-<body>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
+    
     <script>
-        var width = 960,
+        var width = 900,
             height = 500
 
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
             .attr("height", height);
         d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
@@ -87,6 +70,3 @@
             }
         }
     </script>
-</body>
-
-</html>
