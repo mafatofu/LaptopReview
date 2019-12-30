@@ -24,9 +24,9 @@
   <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="resources/css/creative.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=3'/>" />
-  <link href="resources/css/main.css?ver=4" rel="stylesheet">
+  <link href="resources/css/creative.min.css?ver=1.4" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.4'/>" />
+  <link href="resources/css/main.css?ver=1.4" rel="stylesheet">
   
   <!-- SearchBox CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -40,7 +40,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">LapView</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,7 +68,7 @@
   	<div class="container h-100">
     	<div class="row h-100 align-items-center justify-content-center text-center">
         	<div class="text-white col-lg-10 align-self-end">
-	          	<h1 class="text-uppercase font-weight-bold">NoteBook Review Check</h1>
+	          	<h1 class="text-uppercase font-weight-bold">LapView</h1>
 	          	<hr class="divider my-4">
         	</div>
 	        <div class="col-lg-10 align-self-baseline mx-auto">
