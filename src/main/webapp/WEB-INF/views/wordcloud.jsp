@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-    <head>
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
-=======
-<<<<<<< HEAD
+
+    
+
 <!DOCTYPE html>
 <html>
 
@@ -34,18 +31,11 @@
 	<div id="wordcloud"></div>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
-=======
-    
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
+
     <script>
 	    var width = document.getElementById('content-wrapper').offsetWidth;
 	    var height = document.getElementById('content-wrapper').offsetHeight;
 	    
-    	
-/*    	var width = d3.select('#wordcloud');
-   	 	var height = 500; */
-        
     	var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
             .attr("height", height); 

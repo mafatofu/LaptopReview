@@ -1,4 +1,6 @@
 package com.care.controller;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,6 @@ import com.care.service.SearchService;
 
 @Controller
 public class ReviewController {
-	
 	@Autowired
 	ReviewService service;
 	
@@ -32,15 +33,10 @@ public class ReviewController {
 	@RequestMapping("result")
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
+
 		service.pnCount(model);
+
 		return "result";
-	}
-	
-	@RequestMapping("result2")
-	public String resultMap2(Model model, HttpServletRequest request) {
-		model.addAttribute("request", request);
-		service.pnCount(model);
-		return "result2";
 	}
 	
 	@RequestMapping("search")
