@@ -44,30 +44,18 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("search")
-	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, 
-			@RequestParam(value="searchOption", required=false, defaultValue = "MANUFACTURER") int option, Model model) {
-		String search = null;
-		String searchOption = null;
-		switch (option) {
-		case 1:
-			searchOption = "MANUFACTURER";
-			search = "제조사 \"" + searchItem + "\"에 대한 검색 결과";
-			break;
-		case 2:
-			searchOption = "SERIES";
-			search = "시리즈 \"" + searchItem + "\"에 대한 검색 결과";
-			break;
-		case 3:			
-			searchOption = "MODELNAME";
-			search = "모델명 \"" + searchItem + "\"에 대한 검색 결과";
-			break;
-		}		
+	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, Model model) {
+		String search = "\""+searchItem + "\"에 대한 검색결과'";
 		model.addAttribute("searchItem", searchItem);
-		model.addAttribute("searchOption", searchOption);
 		s_service.SearchModel(model);
 		model.addAttribute("search", search);
 		return "search";
 	}
 	
+	@RequestMapping("test")
+	public String test(@RequestParam(value="modelName", required = false) String modelName, Model model) {
+		model.addAttribute("model", modelName);
+		return "wordcloud";
+	}
 
 }
