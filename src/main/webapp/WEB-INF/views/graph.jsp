@@ -15,7 +15,10 @@
 <body>
 	<canvas id="myChart" class="chart"></canvas>
 	<canvas id="myChart2" class="chart"></canvas>
-
+	
+	<canvas id="myChart3" class="chart"></canvas>
+	<canvas id="myChart4" class="chart"></canvas>
+	
 	<script>	
 	var positive_word = new Array();
 	var positive_key = new Array();
@@ -84,6 +87,78 @@
 		    options: {}
 		});
 		
+		
+		var ctx = document.getElementById('myChart3').getContext('2d');
+		var chart = new Chart(ctx, {
+		    // The type of chart we want to create
+		    type: 'horizontalBar',
+		    // The data for our dataset
+		    data: {
+		    	labels: [positive_key[0],positive_key[1],positive_key[2],positive_key[3],positive_key[4]],
+		        datasets: [{
+		            label: '긍정단어', 
+		            backgroundColor: 'rgb(102, 102, 255)',
+		            borderColor: 'rgb(102, 102, 255)',
+		            data: [positive_word[0],positive_word[1],positive_word[2],positive_word[3],positive_word[4]]
+		        }]
+		    },
+	
+		    // Configuration options go here
+		    options: {}
+		});
+		console.log(positive_key);
+		console.log(positive_word);
+	</script>
+
+	<script>
+		var negative_word = new Array();
+		var negative_key = new Array();
+		
+		<c:forEach var = "nw" items = "${negative_House}">
+			<c:if test ="${k == nw.key}">
+				<c:forEach var = "nn" items = "${nw.value }"
+					varStatus = "idx" begin="0" end="4" step="1">
+					negative_key = "${nn.key}",
+					negative_word = "${nn.value}",
+				</c:forEach>
+			</c:if>
+		</c:forEach>
+		
+		var ctx = document.getElementById('myChart4').getContext('2d');
+		var chart = new Chart(ctx, {
+		    // The type of chart we want to create
+		    type: 'horizontalBar',
+		    // The data for our dataset
+		    data: {
+		    	labels: [positive_key[0],positive_key[1],positive_key[2],positive_key[3],positive_key[4]],
+		        datasets: [{
+		            label: '긍정단어', 
+		            backgroundColor: 'rgb(102, 102, 255)',
+		            borderColor: 'rgb(102, 102, 255)',
+		            data: [positive_word[0],positive_word[1],positive_word[2],positive_word[3],positive_word[4]]
+		        }]
+		    },
+	
+		    // Configuration options go here
+		    options: {}
+		});
+		console.log(positive_key);
+		console.log(positive_word);
+	</script>
+
+	<script>
+		var negative_word = new Array();
+		var negative_key = new Array();
+		
+		<c:forEach var = "nw" items = "${negative_House}">
+			<c:if test ="${k == nw.key}">
+				<c:forEach var = "nn" items = "${nw.value }"
+					varStatus = "idx" begin="0" end="4" step="1">
+					negative_key = "${nn.key}",
+					negative_word = "${nn.value}",
+				</c:forEach>
+			</c:if>
+		</c:forEach>
 		
 		console.log(negative_key);
 		console.log(negative_word);

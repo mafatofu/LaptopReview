@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin - Charts</title>
+<title>SB Admin - Charts</title>	
 
 
 <!-- bootstrap-css -->
@@ -127,11 +127,10 @@
 				<div class="card h-100">
 					<h4 class="card-header">${k}</h4>
 					<div class="card-body">
-		
-							<canvas id="myChart" class="chart"></canvas>
-							<canvas id="myChart2" class="chart"></canvas>
+						<canvas id="${k}" class="chart"></canvas>
+						<canvas id="${k}2" class="chart"></canvas>
 			<script>	
-				var ctx = document.getElementById('myChart').getContext('2d');
+				var ctx = document.getElementById('${k}').getContext('2d');
 				var chart = new Chart(ctx, {
 				    // The type of chart we want to create
 				    type: 'horizontalBar',
@@ -149,8 +148,8 @@
 				    	],
 				        datasets: [{
 				            label: '긍정단어', 
-				            backgroundColor: 'rgb(102, 102, 255)',
-				            borderColor: 'rgb(102, 102, 255)',
+				            backgroundColor: 'rgb(205, 092, 092)',
+				            borderColor: 'rgb(205, 092, 092)',
 				            data: [
 				            	<c:forEach var = "pw" items = "${positive_House}">
 									<c:if test ="${k == pw.key}">
@@ -174,9 +173,7 @@
 			var negative_word = new Array();
 			var negative_key = new Array();
 			
-			
-			
-			var ctx = document.getElementById('myChart2').getContext('2d');
+			var ctx = document.getElementById('${k}2').getContext('2d');
 			var chart = new Chart(ctx, {
 			    // The type of chart we want to create
 			    type: 'horizontalBar',
