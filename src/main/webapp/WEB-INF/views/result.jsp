@@ -104,7 +104,17 @@
 	    </div>
 	  </div>
 	</div>
+<<<<<<< HEAD
 	<!-- modal end -->
+=======
+		<!-- Marketing Icons Section -->
+		<div class="row">
+		<!-- 키워드 개수만큼 그래프 생성 -->
+		<c:forEach var='k' items="${keyWord }">
+			<div class="col-lg-4 mb-4">
+				<div class="card h-100">
+					<h4 class="card-header">${k}</h4>
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 					<div class="card-body">
 						<canvas id="${k}" class="chart"></canvas>
 						<canvas id="${k}2" class="chart"></canvas>
