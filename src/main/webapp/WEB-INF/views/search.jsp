@@ -30,7 +30,7 @@
 
     <a class="navbar-brand mr-1" href="index">LapView</a>
 
-    <button class="btn btn-link btn-sm text-white" id="sidebarToggle" href="#">
+    <button class="btn btn-link btn-sm text-white">
       <i class="fas fa-bars"></i>
     </button>
 
