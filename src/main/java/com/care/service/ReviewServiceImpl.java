@@ -61,7 +61,9 @@ public class ReviewServiceImpl implements ReviewService{
 		File file = new File(getClass().getClassLoader().getResource("PNCount/"+modelName).getFile());
 		//디렉터리의 파일 리스트를 가져옴
 		File[] PNList = file.listFiles();
-		
+		for(File f : PNList) {
+			System.out.println(f);
+		}
 		//키워드 추출
 		String keyWordSplit[] = null;
 		String keyWordName = ""; 
