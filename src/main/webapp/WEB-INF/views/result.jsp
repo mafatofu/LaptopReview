@@ -43,14 +43,7 @@
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search">
-      <div class="input-group">
-      	<div class="input-select">
-      		<select  name="searchOption">
-		    	<option value=1>제조사</option>
-		        <option value=2>시리즈명</option>
-		        <option value=3>모델명</option>
-		    </select>
-		</div>      
+      <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary">
