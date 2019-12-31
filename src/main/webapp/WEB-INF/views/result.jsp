@@ -20,7 +20,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.3" rel="stylesheet">
   
   
   <!-- wordcloud -->
@@ -62,14 +62,23 @@
     	<center>
 		<div id="wordcloud">
 			<jsp:include page="wordcloud.jsp"></jsp:include>
-			<h3>Word Cloud</h3>
 		</div>
 		</center>
 		
       <div class="container-fluid">
       <!-- Page Content -->
 	      
-	<!-- modal -->
+	
+		
+		<h1 class="my-4">KeyWord List</h1>
+		<!-- Marketing Icons Section -->
+		<div class="row">
+		<!-- 키워드 개수만큼 그래프 생성 -->
+		<c:forEach var='k' items="${keyWord }">
+			<div class="col-lg-4 mb-4">
+				<div class="card h-100">
+					<h4 class="card-header">${k}</h4>
+					<!-- modal -->
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 	  Launch demo modal
@@ -96,15 +105,6 @@
 	  </div>
 	</div>
 	<!-- modal end -->
-		
-		<h1 class="my-4">KeyWord List</h1>
-		<!-- Marketing Icons Section -->
-		<div class="row">
-		<!-- 키워드 개수만큼 그래프 생성 -->
-		<c:forEach var='k' items="${keyWord }">
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">${k}</h4>
 					<div class="card-body">
 						<canvas id="${k}" class="chart"></canvas>
 						<canvas id="${k}2" class="chart"></canvas>

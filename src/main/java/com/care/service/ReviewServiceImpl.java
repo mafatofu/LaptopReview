@@ -64,7 +64,11 @@ public class ReviewServiceImpl implements ReviewService{
 				keyWordName = PNList[j].getPath();
 				keyWordSplit = keyWordName.split(modelName+"\\\\");
 				keyWordCk = keyWordSplit[1].split("\\.");
-				keyWordList.add(keyWordCk[0]);
+				keyWordList.add(transKeyWord(keyWordCk[0]));
+				
+				//만약 들어오는 키워드가 cost, display, gift.... 라면, 가격, 화면, 사은품 등 한글로 반환하기
+				
+				//keyWordList.add(keyWordCk[0]);
 				
 				try {
 					BufferedReader br = new BufferedReader(
@@ -136,6 +140,21 @@ public class ReviewServiceImpl implements ReviewService{
 		model.addAttribute("negative_House", negative_House);
 
 
+	}
+	
+	public String transKeyWord(String keyWord) {
+		switch (keyWord) {
+		case "shipping": return "배송";
+		case "gift": return "사은품";
+		case "price": return "가격";
+		case "window": return "윈도우";
+		case "cost": return "가성비";
+		case "perform": return "성능";
+		case "display": return "화면";
+		case "weight": return "무게";
+		case "speed": return "속도";
+		default: return keyWord;
+		}
 	}
 
 
