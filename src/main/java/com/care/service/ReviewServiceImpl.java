@@ -70,13 +70,13 @@ public class ReviewServiceImpl implements ReviewService{
 		if(PNList.length > 0){
 			//키워드 갯수만큼 돌림
 			for(int j=0; j < PNList.length; j++){
-				keyWordName = PNList[j].getPath();
 				//키워드리스트 추가
 				//"_"으로 첫번째, "."으로 두번째 정제
+				keyWordName = PNList[j].getPath();
 				keyWordSplit = keyWordName.split(modelName+"\\\\");
 				keyWordCk = keyWordSplit[1].split("\\.");
 				keyWordList.add(keyWordCk[0]);
-
+				
 				try {
 					BufferedReader br = new BufferedReader(
 							new InputStreamReader(new FileInputStream(keyWordName),StandardCharsets.UTF_8));

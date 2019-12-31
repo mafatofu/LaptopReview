@@ -201,11 +201,11 @@
 							 begin="0" end="4" step="1" varStatus="idx">
 							 positive_key[${idx.index}] ="${pp.key}",
 							 positive_word[${idx.index}] = "${pp.value}",
-							
-					</c:forEach>
-				</c:if>
+						</c:forEach>
+					</c:if>
+				</c:forEach>
+				console.log()
 				
-			</c:forEach>
 				var ctx = document.getElementById('${k}').getContext('2d');
 				var chart = new Chart(ctx, {
 				    // The type of chart we want to create
@@ -213,7 +213,7 @@
 				    // The data for our dataset
 				    data: {
 				    	labels: [
-				    		positive_key[0],positive_key[1],positive_key[2],positive_key[3],positive_key[4]
+							positive_key[0],positive_key[1],positive_key[2],positive_key[3],positive_key[4]
 				    	],
 				        datasets: [{
 				            label: '긍정단어', 
@@ -224,35 +224,36 @@
 				            	]
 				        }]
 				    },
-			
 				    // Configuration options go here
 				    options: {}
 				});
 
 		</script>
-
-		<script>
-			var negative_word = new Array();
-			var negative_key = new Array();
-			
-			<c:forEach var = "nw" items = "${negative_House}">
-			<c:if test ="${k == pw.key}">
-				<c:forEach var = "np" items = "${nw.value }"
-					 begin="0" end="4" step="1" varStatus="idx">
-					 negative_key[${idx.index}] ="${np.key}",
-					 negative_word[${idx.index}] = "${np.value}",
-					
+		
+		
+		<script>	
+				//키워드의 상위 5개 긍부정단어 생성
+				var negative_word = new Array();
+				var negative_key = new Array();
+				<c:forEach var = "nw" items = "${negative_House}">
+					<c:if test ="${k == nw.key}">
+						<c:forEach var = "np" items = "${nw.value }"
+							 begin="0" end="4" step="1" varStatus="idx">
+							 negative_key[${idx.index}] ="${np.key}",
+							 negative_word[${idx.index}] = "${np.value}",
+					</c:forEach>
+				</c:if>
 			</c:forEach>
-					 </c:if>
-					 </c:forEach>
-			var ctx = document.getElementById('${k}2').getContext('2d');
-			var chart = new Chart(ctx, {
-			    // The type of chart we want to create
-			    type: 'horizontalBar',
-			    // The data for our dataset
+				console.log()
+				
+				var ctx = document.getElementById('${k}2').getContext('2d');
+				var chart = new Chart(ctx, {
+				    // The type of chart we want to create
+				    type: 'horizontalBar',
+				    // The data for our dataset
 				    data: {
 				    	labels: [
-				    		negative_key[0],negative_key[1],negative_key[2],negative_key[3],negative_key[4]
+							negative_key[0],negative_key[1],negative_key[2],negative_key[3],negative_key[4]
 				    	],
 				        datasets: [{
 				            label: '부정단어', 
@@ -260,13 +261,15 @@
 				            borderColor: 'rgb(120, 150, 255)',
 				            data: [
 				            	negative_word[0],negative_word[1],negative_word[2],negative_word[3],negative_word[4]
-				            ]
+				            	]
 				        }]
 				    },
-			    // Configuration options go here
-			    options: {}
-			});
+				    // Configuration options go here
+				    options: {}
+				});
+
 		</script>
+
 	
 					</div>
 				</div>
