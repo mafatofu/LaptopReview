@@ -118,7 +118,7 @@
 	        	<li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="search?searchOption=2&searchItem=아이디어패드"">
 	                	<div class="img_box">
-	                    	<img src="resources/img/ideapad.jpg" class="tag_img">
+	                    	<img src="resources/img/ideapad2.jpg" class="tag_img">
 	                     </div>
 	                     <p class="tag_p">레노버 IdeaPad</p>
 	                </a>

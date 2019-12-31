@@ -20,7 +20,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.3" rel="stylesheet">
   
   
   <!-- wordcloud -->
@@ -62,7 +62,6 @@
     	<center>
 		<div id="wordcloud">
 			<jsp:include page="wordcloud.jsp"></jsp:include>
-			<h3>Word Cloud</h3>
 		</div>
 		</center>
 		
@@ -95,9 +94,6 @@
 	    </div>
 	  </div>
 	</div>
-	<!-- modal end -->
-		
-		<h1 class="my-4">KeyWord List</h1>
 		<!-- Marketing Icons Section -->
 		<div class="row">
 		<!-- 키워드 개수만큼 그래프 생성 -->
