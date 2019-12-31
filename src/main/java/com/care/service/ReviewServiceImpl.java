@@ -75,8 +75,8 @@ public class ReviewServiceImpl implements ReviewService{
 				keyWordName = PNList[j].getPath();
 				//키워드리스트 추가
 				//"_"으로 첫번째, "."으로 두번째 정제
-				keyWordSplit = keyWordName.split("_");
-				keyWordCk = keyWordSplit[2].split("\\.");
+				keyWordSplit = keyWordName.split(modelName+"\\\\");
+				keyWordCk = keyWordSplit[1].split("\\.");
 				keyWordList.add(keyWordCk[0]);
 
 				try {
