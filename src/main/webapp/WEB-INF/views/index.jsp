@@ -25,7 +25,7 @@
   
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="resources/css/creative.min.css?ver=1.4" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.4'/>" />
+  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.1'/>" />
   <link href="resources/css/main.css?ver=1.4" rel="stylesheet">
   
   <!-- SearchBox CSS -->
@@ -74,7 +74,7 @@
 	        <div class="col-lg-10 align-self-baseline mx-auto">
 	        	<p class="text-white-75 font-weight-light mb-5">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>
 	        </div>
-	        <div class="s013 col-lg-10 mx-auto my-3">
+	        <div class="s013 col-lg-10 align-self-center mx-auto my-3">
 		      <form action="search">
 		        <div class="inner-form">
 		          <div class="left">
@@ -89,13 +89,14 @@
 		      </form>
 			</div>      
 	        <div id="recommend_tag_main" class="col-lg-10 mt-3">
+	        <hr class="divider-2 my-5">
 	      	<ul class="row align-items-center justify-content-center">
 	        	<li class="tag_li col-lg-3 col-sm-6">
 	            	<a href="search?searchOption=2&searchItem=그램">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p font-weight-bold">LG 그램</p> 
+	                     <p class="tag_p">LG 그램</p> 
 	                </a>
 	            </li>
 	            <li class="tag_li col-lg-3 col-sm-6">
@@ -103,7 +104,7 @@
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p font-weight-bold">애플 맥북</p>
+	                     <p class="tag_p">애플 맥북</p>
 	                </a>
 	            </li>
 	        	<li class="tag_li col-lg-3 col-sm-6">
@@ -111,7 +112,7 @@
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p font-weight-bold">삼성 노트북9</p>
+	                     <p class="tag_p">삼성 노트북9</p>
 	                </a>
 	            </li>                                
 	        	<li class="tag_li col-lg-3 col-sm-6">
@@ -119,7 +120,7 @@
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad.jpg" class="tag_img">
 	                     </div>
-	                     <p class="tag_p font-weight-bold">레노버 IdeaPad</p>
+	                     <p class="tag_p">레노버 IdeaPad</p>
 	                </a>
 	            </li>                            
 	  		</ul>
@@ -146,15 +147,6 @@
   <!-- Custom scripts for this template -->
   <script src="resources/js/creative.min.js"></script>
   <script src="resources/js/extention/choices.js"></script>
-    <script>
-      const choices = new Choices('[data-trigger]',
-      {
-        searchEnabled: false,
-        itemSelectText: '',
-      });
-
-    </script>
-
 </body>
 
 </html>
