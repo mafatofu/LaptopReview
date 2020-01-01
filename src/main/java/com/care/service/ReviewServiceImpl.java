@@ -13,70 +13,63 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.NavigableMap;
-import java.util.Set;
-import java.util.TreeMap;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.care.dao.ReviewDAO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
-	
-	@Autowired
-	ReviewDAO dao;
 
-	@Override
-	public void modelList(Model model) {
-		model.addAttribute("modelList", dao.modelList());
-	}
 
 	@Override
 	public void pnCount(Model model) {
 		Map<String, Object> map = model.asMap();
 		//리퀘스트에 사용자가 입력한 값이 정확한 모델명이라 가정
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
-		
+
 		//최종적으로 모델에 넘어가는 맵. 키값으로 키워드를, 밸류값으로 긍/부정 단어 리스트(맵)를 가진다
 		HashMap<String, LinkedHashMap> positive_House = new HashMap<String, LinkedHashMap>();
 		HashMap<String, LinkedHashMap> negative_House = new HashMap<String, LinkedHashMap>();
-		
+
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
-		//모델명
-		String modelName = request.getParameter("modelName");
-		//모델 path
-		String modelPath = "D:/190715_leeyeongkyu/TeamProject01/resources/output/2.PNCount/"+modelName;
-
 		//키워드별 긍부정단어장(정렬 전)
 		HashMap<String, Integer> positive = new HashMap<String, Integer>();
 		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
+		//모델명
+		String modelNameCk[] = null;
+		modelNameCk = request.getParameter("modelName").split("\\s");
+		String modelName = modelNameCk[2];
+		System.out.println("모델명: "+modelName);
+		//모델 path
 
+		//resources 안의 파일 경로 가져오기
+		File file = new File(getClass().getClassLoader().getResource("PNCount/"+modelName).getFile());
 		//디렉터리의 파일 리스트를 가져옴
-		File pnPath = new File(modelPath);
-		File[] PNList = pnPath.listFiles();
-
+		File[] PNList = file.listFiles();
+		for(File f : PNList) {
+			System.out.println(f);
+		}
 		//키워드 추출
 		String keyWordSplit[] = null;
 		String keyWordName = ""; 
 		String keyWordCk[]=null;
-//		System.out.println("-------긍/부정 단어 리스트-------");
+
 		if(PNList.length > 0){
 			//키워드 갯수만큼 돌림
 			for(int j=0; j < PNList.length; j++){
-				keyWordName = PNList[j].getPath();
 				//키워드리스트 추가
 				//"_"으로 첫번째, "."으로 두번째 정제
-				keyWordSplit = keyWordName.split("_");
-				keyWordCk = keyWordSplit[2].split("\\.");
-				keyWordList.add(keyWordCk[0]);
-				/*System.out.println();
-				System.out.println("키워드: "+keyWordList.get(j));*/
+				keyWordName = PNList[j].getPath();
+				keyWordSplit = keyWordName.split(modelName+"\\\\");
+				keyWordCk = keyWordSplit[1].split("\\.");
+				keyWordList.add(transKeyWord(keyWordCk[0]));
+				
+				//만약 들어오는 키워드가 cost, display, gift.... 라면, 가격, 화면, 사은품 등 한글로 반환하기
+				
+				//keyWordList.add(keyWordCk[0]);
+				
 				try {
 					BufferedReader br = new BufferedReader(
 							new InputStreamReader(new FileInputStream(keyWordName),StandardCharsets.UTF_8));
@@ -99,7 +92,7 @@ public class ReviewServiceImpl implements ReviewService{
 					// value 내림차순으로 정렬하고, value가 같으면 key 오름차순으로 정렬
 					List<Map.Entry<String, Integer>> positive_List = new LinkedList<>(positive.entrySet());
 					List<Map.Entry<String, Integer>> negative_List = new LinkedList<>(negative.entrySet());
-					
+
 					Collections.sort(positive_List, new Comparator<Map.Entry<String, Integer>>() {
 						@Override
 						public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
@@ -111,15 +104,12 @@ public class ReviewServiceImpl implements ReviewService{
 					// 순서유지를 위해 LinkedHashMap을 사용
 					LinkedHashMap<String, Integer> Positive_sortedMap = new LinkedHashMap<String, Integer>(); 
 					LinkedHashMap<String, Integer> negative_sortedMap = new LinkedHashMap<String, Integer>();
-					
+
 					for(Iterator<Map.Entry<String, Integer>> iter = positive_List.iterator(); iter.hasNext();){
 						Map.Entry<String, Integer> entry = iter.next();
 						Positive_sortedMap.put(entry.getKey(), entry.getValue());		
 					}
-					/*System.out.println("-----정렬된 맵-----");
-					System.out.println(Positive_sortedMap);*/
-					
-					
+
 					Collections.sort(negative_List, new Comparator<Map.Entry<String, Integer>>() {
 						@Override
 						public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
@@ -129,15 +119,12 @@ public class ReviewServiceImpl implements ReviewService{
 					});
 
 					// 순서유지를 위해 LinkedHashMap을 사용
-					
+
 					for(Iterator<Map.Entry<String, Integer>> iter = negative_List.iterator(); iter.hasNext();){
 						Map.Entry<String, Integer> entry = iter.next();
 						negative_sortedMap.put(entry.getKey(), entry.getValue());		
 					}
-					
-					/*System.out.println("-----정렬된 맵-----");
-					System.out.println(negative_sortedMap);*/
-					
+
 					positive_House.put(keyWordList.get(j), Positive_sortedMap);
 					negative_House.put(keyWordList.get(j), negative_sortedMap);
 				} catch (Exception e) {
@@ -145,23 +132,33 @@ public class ReviewServiceImpl implements ReviewService{
 				}
 			}
 		}
-		/*System.out.println();
-		System.out.println("키워드 리스트");
-		for (String string : keyWordList) {
-			System.out.println(string);
-		}*/
 
-
-		
 		//모델에 전달
 		//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
 		model.addAttribute("negative_House", negative_House);
+
+
+	}
+	
+	public String transKeyWord(String keyWord) {
+		switch (keyWord) {
+		case "shipping": return "배송";
+		case "gift": return "사은품";
+		case "price": return "가격";
+		case "window": return "윈도우";
+		case "cost": return "가성비";
+		case "perform": return "성능";
+		case "display": return "화면";
+		case "weight": return "무게";
+		case "speed": return "속도";
+		default: return keyWord;
+		}
 	}
 
 
-	
+
 
 }
 
