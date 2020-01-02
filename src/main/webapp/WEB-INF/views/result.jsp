@@ -104,6 +104,7 @@
 					<canvas id="${k}" class="chart"></canvas>
 					<canvas id="${k}2" class="chart"></canvas>
 			<script>	
+			/*winMerge 테스트*/
 				//키워드의 상위 5개 긍부정단어 생성
 				var positive_word = new Array();
 				var positive_key = new Array();

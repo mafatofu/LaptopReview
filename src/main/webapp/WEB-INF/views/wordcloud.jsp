@@ -11,39 +11,13 @@
     <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<style>
-@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
 
-</style>
-<!-- <script>
-	var chart = $("#wordcloud"),
-		aspect = chart.width() / chart.height(),
-		container = chart.parent();
-	
-	$(window).on("resize", function() {
-		var targetWidth = container.width();
-		chart.attr("width", targetWidth);
-		chart.attr("height", Math.round(targetWidth / aspect));
-	}).trigger("resize");
-</script>
- -->
-<!-- <body>
-	<div id="wordcloud"></div>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script> -->
 
     <script>
-<<<<<<< HEAD
-	    /* var width = document.getElementById('wordcloud').offsetWidth; */
-	    var width = window.outerWidth;
-	    var height = width*0.56;
-	    var fontSize = width*0.1;
-=======
 	    var width = window.outerWidth;
 	    var height = width*0.56;
 	    var fontSize = width*0.15;
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
-	    
+
     	var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
             .attr("height", height); 
@@ -58,11 +32,8 @@
         //range: 표시할 범위, 출력 크기 
         //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
         wordScale = d3.scale.linear().domain([0, 100]).range([0, fontSize]).clamp(true);
-<<<<<<< HEAD
         colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
-=======
-        colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true);
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
+        /* colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true); */
         //var keywords = ["자리야", "트레이서", "한조"]
         var svg = d3.select("svg")
                     .append("g")
