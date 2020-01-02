@@ -52,31 +52,77 @@
         </div>
       </div>     
     </form>
-
   </nav>
 
   <div id="wrapper">
-
     <div id="content-wrapper">
     	<!-- wordCloud -->
+<<<<<<< HEAD
 
 		<div id="wordcloud"></div>
 			
 
 		
+=======
+    	<center>
+		<div id="wordcloud">
+			<jsp:include page="wordcloud.jsp"></jsp:include>
+		</div>
+		</center>
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
       <div class="container-fluid">
       <!-- Page Content -->
+<<<<<<< HEAD
 	      
+=======
+
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 		<!-- Marketing Icons Section -->
 		<div class="row">
 		<!-- 키워드 개수만큼 그래프 생성 -->
 		<c:forEach var='k' items="${keyWord }">
 			<div class="col-lg-4 mb-4">
+<<<<<<< HEAD
 				<div class="card h-100">
 					<h4 class="card-header">${k}</h4>
 					<div class="card-body">
 						<canvas id="${k}" class="chart"></canvas>
 						<canvas id="${k}2" class="chart"></canvas>
+=======
+				<div class="card h-100">
+					<h4 class="card-header">${k}</h4>
+					<!-- modal -->
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+				  Launch demo modal
+				</button>
+	
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+					
+				<div class="card-body">
+					<canvas id="${k}" class="chart"></canvas>
+					<canvas id="${k}2" class="chart"></canvas>
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 			<script>	
 				//키워드의 상위 5개 긍부정단어 생성
 				var positive_word = new Array();
@@ -127,9 +173,9 @@
 							 begin="0" end="4" step="1" varStatus="idx">
 							 negative_key[${idx.index}] ="${np.key}",
 							 negative_word[${idx.index}] = "${np.value}",
-					</c:forEach>
-				</c:if>
-			</c:forEach>
+						</c:forEach>
+					</c:if>
+				</c:forEach>
 				console.log()
 				
 				var ctx = document.getElementById('${k}2').getContext('2d');
