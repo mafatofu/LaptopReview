@@ -52,11 +52,9 @@
         </div>
       </div>     
     </form>
-
   </nav>
 
   <div id="wrapper">
-
     <div id="content-wrapper">
     	<!-- wordCloud -->
     	<center>
@@ -64,12 +62,8 @@
 			<jsp:include page="wordcloud.jsp"></jsp:include>
 		</div>
 		</center>
-		
       <div class="container-fluid">
       <!-- Page Content -->
-	      
-	
-		
 		<h1 class="my-4">KeyWord List</h1>
 		<!-- Marketing Icons Section -->
 		<div class="row">
@@ -79,34 +73,32 @@
 				<div class="card h-100">
 					<h4 class="card-header">${k}</h4>
 					<!-- modal -->
-	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-	  Launch demo modal
-	</button>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+				  Launch demo modal
+				</button>
 	
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        ...
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-	      </div>
-	    </div>
-	  </div>
-	</div>
-<<<<<<< HEAD
-	<!-- modal end -->
-=======
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
 		<!-- Marketing Icons Section -->
 		<div class="row">
 		<!-- 키워드 개수만큼 그래프 생성 -->
@@ -114,7 +106,6 @@
 			<div class="col-lg-4 mb-4">
 				<div class="card h-100">
 					<h4 class="card-header">${k}</h4>
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 					<div class="card-body">
 						<canvas id="${k}" class="chart"></canvas>
 						<canvas id="${k}2" class="chart"></canvas>
@@ -168,9 +159,9 @@
 							 begin="0" end="4" step="1" varStatus="idx">
 							 negative_key[${idx.index}] ="${np.key}",
 							 negative_word[${idx.index}] = "${np.value}",
-					</c:forEach>
-				</c:if>
-			</c:forEach>
+						</c:forEach>
+					</c:if>
+				</c:forEach>
 				console.log()
 				
 				var ctx = document.getElementById('${k}2').getContext('2d');
