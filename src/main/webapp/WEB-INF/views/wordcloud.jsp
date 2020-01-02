@@ -9,16 +9,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 
+<<<<<<< HEAD
     <script>
 	    var width = window.outerWidth;
 	    var height = width*0.56;
 	    var fontSize = width*0.15;
 
     	var svg = d3.select("#wordcloud").append("svg")
+=======
+    <script>
+       var width = window.outerWidth;
+       var height = width*0.56;
+       var fontSize = width*0.15;
+
+       var svg = d3.select("#wordcloud").append("svg")
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
             .attr("width", width)
             .attr("height", height); 
         d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
@@ -31,9 +40,15 @@
         //domain: 데이터의 범위, 입력 크기
         //range: 표시할 범위, 출력 크기 
         //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
+<<<<<<< HEAD
         wordScale = d3.scale.linear().domain([0, 100]).range([0, fontSize]).clamp(true);
         colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
         /* colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true); */
+=======
+        wordScale = d3.scale.linear().domain([0, 100]).range([0, fontSize]).clamp(true);
+        colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
+        /* colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true); */
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
         //var keywords = ["자리야", "트레이서", "한조"]
         var svg = d3.select("svg")
                     .append("g")
@@ -44,7 +59,7 @@
                 //클라우드 레이아웃에 데이터 전달
                 .words(data)
  //               .rotate(function (d) {
- //               	return d.text.length > 3 ? 0 : 90;
+ //                  return d.text.length > 3 ? 0 : 90;
  //               })
                 //스케일로 각 단어의 크기를 설정
                 .fontSize(function (d) {
@@ -61,8 +76,8 @@
                     .append("text")
                     .style("font-family", 'Stylish')
                     .style("fill", function (d) {
-						return colorScale(d.frequency);
-                    	// return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
+                  return colorScale(d.frequency);
+                       // return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
                     })
                     .style("fill-opacity", .5)
                     .attr("text-anchor", "middle") 
