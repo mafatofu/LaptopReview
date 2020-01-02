@@ -59,11 +59,10 @@
 
     <div id="content-wrapper">
     	<!-- wordCloud -->
-    	<center>
-		<div id="wordcloud">
-			<jsp:include page="wordcloud.jsp"></jsp:include>
-		</div>
-		</center>
+
+		<div id="wordcloud"></div>
+			
+
 		
       <div class="container-fluid">
       <!-- Page Content -->
