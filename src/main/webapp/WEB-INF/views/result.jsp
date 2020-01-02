@@ -15,14 +15,15 @@
   
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+  
+  
+  
   <!-- Page level plugin CSS-->
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/result.css?ver=1.1" rel="stylesheet">
-  
 </head>
 
 <body id="page-top">
@@ -63,33 +64,6 @@
          <div class="col-lg-4 mb-4">
             <div class="card h-100">
                <h4 class="card-header">${k}</h4>
-               <!-- modal -->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-              Launch demo modal
-            </button>
-   
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
                
             <div class="card-body">
                <canvas id="${k}" class="chart"></canvas>
@@ -173,10 +147,76 @@
 
       </script>
 
-   
+   			
+   		
+   		
                </div>
             </div>
          </div>
+	         <div class="col-lg-8 mb-8">
+		         <div class="card h-100">
+		         	<h4 class="card-header">${k} 리뷰</h4>
+		         	<div class = "review">
+		         	<div class="reviewNav">
+
+		         		<div class = "positive_Nav">
+		         			<button type="button" class="btn btn-outline-primary slideup">p1</button>
+			         		<button type="button" class="btn btn-outline-primary slideup">P2</button>
+			         		<button type="button" class="btn btn-outline-primary slideup">P3</button>
+			         		<button type="button" class="btn btn-outline-primary slideup">P4</button>
+			         		<a href="#positive_review5"><button type="button" class="btn btn-outline-primary slideup">P5</button></a>
+		         		</div>
+		         		<div class = "negative_Nav">
+		         			<button type="button" class="btn btn-outline-danger slideleft">n1</button>
+			         		<button type="button" class="btn btn-outline-danger slideleft">n2</button>
+			         		<button type="button" class="btn btn-outline-danger slideleft">n3</button>
+			         		<button type="button" class="btn btn-outline-danger slideleft">n4</button>
+			         		<button type="button" class="btn btn-outline-danger slideleft">n5</button>
+		         		</div>	
+
+		         	</div>    
+		            <div class="review_body">
+		            	<div class = "positive_review1">
+		            		<p>첫번째 긍정 단어 리뷰</p>
+		            		<p>첫번째 긍정 단어 리뷰</p>
+		            		<p>첫번째 긍정 단어 리뷰</p>
+		            		<p>첫번째 긍정 단어 리뷰</p>
+		            		<p>첫번째 긍정 단어 리뷰</p>
+		            	</div>
+		            	<div class = "positive_review2">
+		            		<p>두번째 긍정 단어 리뷰</p>
+		            		<p>두번째 긍정 단어 리뷰</p>
+		            		<p>두번째 긍정 단어 리뷰</p>
+		            		<p>두번째 긍정 단어 리뷰</p>
+		            		<p>두번째 긍정 단어 리뷰</p>
+		            	</div>
+		            	<div class = "positive_review3">
+		            		<p>세번째 긍정 단어 리뷰</p>
+		            		<p>세번째 긍정 단어 리뷰</p>
+		            		<p>세번째 긍정 단어 리뷰</p>
+		            		<p>세번째 긍정 단어 리뷰</p>
+		            		<p>세번째 긍정 단어 리뷰</p>
+		            	</div>
+		            	<div class = "positive_review4">
+		            		<p>네번째 긍정 단어 리뷰</p>
+		            		<p>네번째 긍정 단어 리뷰</p>
+		            		<p>네번째 긍정 단어 리뷰</p>
+		            		<p>네번째 긍정 단어 리뷰</p>
+		            		<p>네번째 긍정 단어 리뷰</p>
+		            	</div>
+		            	<div id = "positive_review5">
+		            		<p>다섯번째 긍정 단어 리뷰</p>
+		            		<p>다섯번째 긍정 단어 리뷰</p>
+		            		<p>다섯번째 긍정 단어 리뷰</p>
+		            		<p>다섯번째 긍정 단어 리뷰</p>
+		            		<p>다섯번째 긍정 단어 리뷰</p>
+		            	</div>
+		           		
+			         	
+		         	</div>
+		         </div>
+	         </div>
+	         </div>
          </c:forEach>
       </div>
       <!-- /.row -->
