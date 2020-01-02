@@ -1,6 +1,9 @@
 package com.care.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,8 +19,17 @@ public class SearchDAOImpl implements SearchDAO{
 	public static final String NAMESPACE = "search";
 
 	@Override
-	public List<ReviewDTO> searchList(String searchItem) {
-		List<ReviewDTO> list = sql.selectList(NAMESPACE+".search", searchItem);
+	public List<ReviewDTO> searchList(String searchItem, String order, Boolean order_asc) {
+		Map<String, Object> search = new HashMap<String, Object>();
+		search.put("searchItem", searchItem);
+		search.put("order", order);
+		System.out.println(search.get("searchItem") + " : " + search.get("order"));
+		List<ReviewDTO> list;
+		if (order_asc) {
+			list = sql.selectList(NAMESPACE+".searchASC", search);
+		}else {
+			list = sql.selectList(NAMESPACE+".searchDESC", search);
+		}
 		return list;
 	}
 }

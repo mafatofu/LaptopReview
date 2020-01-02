@@ -92,7 +92,7 @@
 	        <hr class="divider-2 my-5">
 	      	<ul class="row align-items-center justify-content-center">
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=그램">
+	            	<a href="search?searchItem=그램">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
 	                     </div>
@@ -100,7 +100,7 @@
 	                </a>
 	            </li>
 	            <li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=맥북">
+	            	<a href="search?searchItem=맥북">
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
 	                     </div>
@@ -108,7 +108,7 @@
 	                </a>
 	            </li>
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=노트북9"">
+	            	<a href="search?searchItem=노트북9"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
 	                     </div>
@@ -116,7 +116,7 @@
 	                </a>
 	            </li>                                
 	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=아이디어패드"">
+	            	<a href="search?searchItem=아이디어패드"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad2.jpg" class="tag_img">
 	                     </div>
