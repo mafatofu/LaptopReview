@@ -14,13 +14,15 @@
 
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
   <!-- Page level plugin CSS-->
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+ 
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
-   <link href="resources/css/search.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
+  <link href="resources/css/search.css?ver=1.5	" rel="stylesheet">
 
 </head>
 
@@ -38,7 +40,7 @@
     <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
       <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
+         <div class="input-group-append">
           <button class="btn btn-primary">
             <i class="fas fa-search"></i>
           </button>
@@ -56,26 +58,58 @@
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">${search}</li>
+          <li class="breadcrumb-item">"${search}"에 대한 검색결과</li>
         </ol>
 
         <!-- Page Content -->
-  	<div class="search-result">
+        <!-- 눌렀을때 해당부분 _ Array 추가 / desc 모드 추가 필요 -->
+  	<div class="search-result mx-2">
   		<c:if test="${empty searchList }">
   		검색 결과가 없습니다.
   		</c:if>	
+  		<table class="search">
+  			<tr class="tr_h">
+		<c:url value="search" var="modelnameURL">
+			<c:param name="searchItem" value="${search}"></c:param>
+			<c:param name="order" value="MODELNAME"></c:param>
+		</c:url>  			
+  				<td><a href="${modelnameURL}" onclick="javascript:isArray()">모델명</a></td>
+		<c:url value="search" var="cpuURL">
+			<c:param name="searchItem" value="${search}"></c:param>
+			<c:param name="order" value="CPU"></c:param>
+		</c:url>    				
+  				<td><a href="${cpuURL}">CPU</a></td>
+		<c:url value="search" var="displayURL">
+			<c:param name="searchItem" value="${search}"></c:param>
+			<c:param name="order" value="DISPLAY"></c:param>
+		</c:url>   				
+  				<td><a href="${displayURL}">화면크기</a></td>
+		<c:url value="search" var="weightURL">
+			<c:param name="searchItem" value="${search}"></c:param>
+			<c:param name="order" value="WEIGHT"></c:param>
+		</c:url>     				
+  				<td><a href="${weightURL}">무게</a></td>
+		<c:url value="search" var="purposeURL">
+			<c:param name="searchItem" value="${search}"></c:param>
+			<c:param name="order" value="PURPOSE"></c:param>
+		</c:url>     				
+  				<td><a href="${purposeURL}">용도</a></td>
+  			</tr>
 		<c:forEach var="list" items="${searchList }">
 		<c:url value="result" var="url">
 			<c:param name="modelName" value="${list.modelName }"></c:param>
 		</c:url>
-		<a href="${url}">
-		${list.modelName }&#9;
-		${list.cpu }&#9;
-		${list.display }인치&#9;
-		${list.weight }kg&#9;
-		${list.purpose }
-		</a><br>
+		<tr>
+			<td class="td_col">
+				<a href="${url}">${list.modelName }</a>
+			</td>
+			<td class="td_col">	${list.cpu }&nbsp;&nbsp;</td>
+			<td class="td_col"> ${list.display }인치&nbsp;&nbsp;</td>
+			<td class="td_col"> ${list.weight }kg&nbsp;&nbsp; </td>
+			<td class="td_col"> ${list.purpose }&nbsp;&nbsp;</td>
+		</tr>
 		</c:forEach>
+		</table>
 	</div>
 
       </div>
@@ -119,6 +153,13 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+  	function isArray(){
+  		
+  		
+  	}
+  	
+  </script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="resources/vendor/jquery/jquery.min.js"></script>

@@ -38,9 +38,14 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("search")
-	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, Model model) {
-		String search = "\""+searchItem + "\"에 대한 검색결과'";
+	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, 
+			@RequestParam(value="order", required=false, defaultValue = "modelName") String order,
+			@RequestParam(value="order_asc", required=false, defaultValue = "true") Boolean order_asc,Model model) {
+		String search = searchItem;
 		model.addAttribute("searchItem", searchItem);
+		model.addAttribute("order", order);
+		model.addAttribute("order_asc", order_asc);
+		System.out.println(order_asc);
 		s_service.SearchModel(model);
 		model.addAttribute("search", search);
 		return "search";
