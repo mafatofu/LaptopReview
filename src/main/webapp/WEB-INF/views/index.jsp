@@ -26,7 +26,7 @@
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="resources/css/creative.min.css?ver=1.4" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.1'/>" />
-  <link href="resources/css/main.css?ver=1.4" rel="stylesheet">
+  <link href="resources/css/main.css?ver=1.6" rel="stylesheet">
   
   <!-- SearchBox CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -72,10 +72,10 @@
 	          	<hr class="divider my-4">
         	</div>
 	        <div class="col-lg-10 align-self-baseline mx-auto">
-	        	<p class="text-white-75 font-weight-light mb-5">여러 사이트를 통해 수집한 리뷰 데이터들을 분석한 다양한 정보를 얻을 수 있습니다.</p>
+	        	<p class="text-white-75 font-weight-light mb-5">다양한 리뷰 데이터들을 분석한 결과를 확인할 수 있습니다.</p>
 	        </div>
 	        <div class="s013 col-lg-10 align-self-center mx-auto my-3">
-		      <form action="search">
+		      <form name="search" action="search" onsubmit="return isNull()">
 		        <div class="inner-form">
 		          <div class="left">
 		            <div class="input-wrap first">
@@ -84,7 +84,7 @@
 		              </div>
 		            </div>
 		          </div>
-		          <button class="btn-search" type="button" onclick="form.submit()">SEARCH</button>
+		          <button class="btn-search">SEARCH</button>
 		        </div>
 		      </form>
 			</div>      
@@ -136,6 +136,7 @@
     </div>
   </footer>
 
+
   <!-- Bootstrap core JavaScript -->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -147,6 +148,7 @@
   <!-- Custom scripts for this template -->
   <script src="resources/js/creative.min.js"></script>
   <script src="resources/js/extention/choices.js"></script>
+  <script src="resources/js/common.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.3" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   
   
   <!-- wordcloud -->
@@ -42,7 +42,7 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search">
+    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
       <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -64,7 +64,7 @@
 		</center>
       <div class="container-fluid">
       <!-- Page Content -->
-		<h1 class="my-4">KeyWord List</h1>
+
 		<!-- Marketing Icons Section -->
 		<div class="row">
 		<!-- 키워드 개수만큼 그래프 생성 -->
@@ -99,16 +99,10 @@
 				  </div>
 				</div>
 
-		<!-- Marketing Icons Section -->
-		<div class="row">
-		<!-- 키워드 개수만큼 그래프 생성 -->
-		<c:forEach var='k' items="${keyWord }">
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">${k}</h4>
-					<div class="card-body">
-						<canvas id="${k}" class="chart"></canvas>
-						<canvas id="${k}2" class="chart"></canvas>
+					
+				<div class="card-body">
+					<canvas id="${k}" class="chart"></canvas>
+					<canvas id="${k}2" class="chart"></canvas>
 			<script>	
 				//키워드의 상위 5개 긍부정단어 생성
 				var positive_word = new Array();
@@ -229,6 +223,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
+  <script src="resources/js/common.js"></script>
 
 </body>
 
