@@ -186,7 +186,7 @@ textarea {
   /* 1 */
   font-size: 100%;
   /* 1 */
-  line-height: 1.15;
+  line-height: 2.4;
   /* 1 */
   margin: 0;
   /* 2 */
@@ -872,7 +872,6 @@ legend {
   width: 96%;
   border: 0;
   font-family: 'Lato', sans-serif;
-  padding: 10px;
 }
 
 .s013 form .inner-form .input-wrap .input-field input.placeholder {
@@ -1017,7 +1016,7 @@ legend {
 }
 
 .s013 form .btn-search:hover {
-  background: #003366;
+  background: #084b99;
 }
 
 @media screen and (max-width: 767px) {

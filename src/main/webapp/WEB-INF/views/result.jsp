@@ -20,7 +20,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.3" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   
   
   <!-- wordcloud -->
@@ -42,7 +42,7 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search">
+    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
       <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
@@ -68,32 +68,6 @@
       <div class="container-fluid">
       <!-- Page Content -->
 	      
-	<!-- modal -->
-	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-	  Launch demo modal
-	</button>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        ...
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-	      </div>
-	    </div>
-	  </div>
-	</div>
 		<!-- Marketing Icons Section -->
 		<div class="row">
 		<!-- 키워드 개수만큼 그래프 생성 -->
@@ -224,6 +198,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
+  <script src="resources/js/common.js"></script>
 
 </body>
 
