@@ -1,15 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-	<style>@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');</style>
+    
 
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
 
     <script>
-	    var width = window.outerWidth;
-	    var height = width*0.56;
-	    var fontSize = width*0.1;
-	    
-    	var svg = d3.select("#wordcloud").append("svg")
+       var width = window.outerWidth;
+       var height = width*0.56;
+       var fontSize = width*0.15;
+
+       var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
             .attr("height", height); 
         d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
@@ -23,8 +32,8 @@
         //range: 표시할 범위, 출력 크기 
         //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
         wordScale = d3.scale.linear().domain([0, 100]).range([0, fontSize]).clamp(true);
-
         colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
+        /* colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true); */
         //var keywords = ["자리야", "트레이서", "한조"]
         var svg = d3.select("svg")
                     .append("g")
@@ -35,7 +44,7 @@
                 //클라우드 레이아웃에 데이터 전달
                 .words(data)
  //               .rotate(function (d) {
- //               	return d.text.length > 3 ? 0 : 90;
+ //                  return d.text.length > 3 ? 0 : 90;
  //               })
                 //스케일로 각 단어의 크기를 설정
                 .fontSize(function (d) {
@@ -52,8 +61,8 @@
                     .append("text")
                     .style("font-family", 'Stylish')
                     .style("fill", function (d) {
-						return colorScale(d.frequency);
-                    	// return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
+                  return colorScale(d.frequency);
+                       // return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
                     })
                     .style("fill-opacity", .5)
                     .attr("text-anchor", "middle") 
@@ -75,3 +84,5 @@
             }
         }
     </script>
+</body>
+</html>
