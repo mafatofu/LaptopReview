@@ -33,7 +33,7 @@ public class ReviewController {
 		model.addAttribute("request", request);
 
 		service.pnCount(model);
-
+		service.pnReview(model);
 		return "result";
 	}
 	

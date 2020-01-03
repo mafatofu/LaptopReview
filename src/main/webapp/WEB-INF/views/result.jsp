@@ -24,6 +24,24 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/result.css?ver=1.1" rel="stylesheet">
+  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$('#reviewNav a').click(function(){
+			//var offset = $('#positive_review5').offset(); //선택한 태그의 위치를 반환
+			var fixOffset = $('.card-header').offset();//스크롤 상단 고정.
+                //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
+	        $('html').animate({scrollTop : fixOffset.top}, 400);
+		});
+
+	});
+
+</script>
+
+
+  
 </head>
 
 <body id="page-top">
@@ -104,9 +122,7 @@
                 // Configuration options go here
                 options: {}
             });
-
       </script>
-      
       
       <script>   
             //키워드의 상위 5개 긍부정단어 생성
@@ -146,9 +162,6 @@
             });
 
       </script>
-
-   			
-   		
    		
                </div>
             </div>
@@ -156,17 +169,16 @@
 	         <div class="col-lg-8 mb-8">
 		         <div class="card h-100">
 		         	<h4 class="card-header">${k} 리뷰</h4>
-		         	<div class = "review">
-		         	<div class="reviewNav">
-
-		         		<div class = "positive_Nav">
-		         			<button type="button" class="btn btn-outline-primary slideup">p1</button>
+		         	<div id = "review">
+		         	<div id = "reviewNav">
+		         		<div id = "positive_Nav">
+		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-primary slideup">p1</button></a>
 			         		<button type="button" class="btn btn-outline-primary slideup">P2</button>
 			         		<button type="button" class="btn btn-outline-primary slideup">P3</button>
 			         		<button type="button" class="btn btn-outline-primary slideup">P4</button>
 			         		<a href="#positive_review5"><button type="button" class="btn btn-outline-primary slideup">P5</button></a>
 		         		</div>
-		         		<div class = "negative_Nav">
+		         		<div id = "negative_Nav">
 		         			<button type="button" class="btn btn-outline-danger slideleft">n1</button>
 			         		<button type="button" class="btn btn-outline-danger slideleft">n2</button>
 			         		<button type="button" class="btn btn-outline-danger slideleft">n3</button>
@@ -175,43 +187,44 @@
 		         		</div>	
 
 		         	</div>    
-		            <div class="review_body">
-		            	<div class = "positive_review1">
-		            		<p>첫번째 긍정 단어 리뷰</p>
-		            		<p>첫번째 긍정 단어 리뷰</p>
-		            		<p>첫번째 긍정 단어 리뷰</p>
-		            		<p>첫번째 긍정 단어 리뷰</p>
-		            		<p>첫번째 긍정 단어 리뷰</p>
-		            	</div>
-		            	<div class = "positive_review2">
-		            		<p>두번째 긍정 단어 리뷰</p>
-		            		<p>두번째 긍정 단어 리뷰</p>
-		            		<p>두번째 긍정 단어 리뷰</p>
-		            		<p>두번째 긍정 단어 리뷰</p>
-		            		<p>두번째 긍정 단어 리뷰</p>
-		            	</div>
-		            	<div class = "positive_review3">
-		            		<p>세번째 긍정 단어 리뷰</p>
-		            		<p>세번째 긍정 단어 리뷰</p>
-		            		<p>세번째 긍정 단어 리뷰</p>
-		            		<p>세번째 긍정 단어 리뷰</p>
-		            		<p>세번째 긍정 단어 리뷰</p>
-		            	</div>
-		            	<div class = "positive_review4">
-		            		<p>네번째 긍정 단어 리뷰</p>
-		            		<p>네번째 긍정 단어 리뷰</p>
-		            		<p>네번째 긍정 단어 리뷰</p>
-		            		<p>네번째 긍정 단어 리뷰</p>
-		            		<p>네번째 긍정 단어 리뷰</p>
-		            	</div>
-		            	<div id = "positive_review5">
-		            		<p>다섯번째 긍정 단어 리뷰</p>
-		            		<p>다섯번째 긍정 단어 리뷰</p>
-		            		<p>다섯번째 긍정 단어 리뷰</p>
-		            		<p>다섯번째 긍정 단어 리뷰</p>
-		            		<p>다섯번째 긍정 단어 리뷰</p>
-		            	</div>
-		           		
+		            <div id="review_body">
+		            	<div id = "positive_review">
+			            	<ol start = "1" id = "positive_review1">
+			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            	</ol>
+							<ol start = "1" id = "positive_review2">
+								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            	</ol>
+			            	<ol start = "1" id = "positive_review3">
+			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            	</ol>
+			            	<ol start = "1" id = "positive_review4">
+			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
+			            	</ol>
+			            	<ol start = "1" id = "positive_review5">
+			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
+			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
+			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
+			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
+			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
+			            	</ol>
+		           		</div>
 			         	
 		         	</div>
 		         </div>

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
 
-.review{
+#review{
 	width:100%;
 	text-align:center;
 }
 
-.review_body{
+#review_body{
 	max-height: 368px;
     overflow-y: scroll;
     text-overflow: ellipsis;
@@ -14,6 +14,14 @@
     word-wrap: break-word;
     margin:auto;
 }
+
+#positive_review li{
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:10px;
+	
+}
+
 /* .reviewNav{
 	
 }  */
