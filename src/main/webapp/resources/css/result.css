@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
 
+#review{
+	width:100%;
+	text-align:center;
+}
+
+#review_body{
+	max-height: 368px;
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    margin:auto;
+}
+
+#positive_review li{
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:10px;
+	
+}
+
+/* .reviewNav{
+	
+}  */
+/* .negative_Nav{
+	display:inline-block;
+} */
 /*@charset "UTF-8";
 
 html,body {
