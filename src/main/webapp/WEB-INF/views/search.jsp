@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Blank Page</title>
+  <title>LapView</title>
 
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,22 +22,16 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/search.css?ver=1.5	" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
     <a class="navbar-brand mr-1" href="index">LapView</a>
 
-    <button class="btn btn-link btn-sm text-white">
-      <i class="fas fa-bars"></i>
-    </button>
-
     <!-- Navbar Search -->
-    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
+    <form class="_search form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
       <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
          <div class="input-group-append">
@@ -51,49 +45,46 @@
   </nav>
 
   <div id="wrapper">
-
     <div id="content-wrapper">
-
       <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">"${search}"에 대한 검색결과</li>
         </ol>
 
         <!-- Page Content -->
-        <!-- 눌렀을때 해당부분 _ Array 추가 / desc 모드 추가 필요 -->
+        <!-- 눌렀을때 해당부분 active추가 / desc 모드 추가 필요 -->
   	<div class="search-result mx-2">
   		<c:if test="${empty searchList }">
   		검색 결과가 없습니다.
   		</c:if>	
-  		<table class="search">
+  		<table class="search_table">
   			<tr class="tr_h">
 		<c:url value="search" var="modelnameURL">
 			<c:param name="searchItem" value="${search}"></c:param>
 			<c:param name="order" value="MODELNAME"></c:param>
 		</c:url>  			
-  				<td><a href="${modelnameURL}" onclick="javascript:isArray()">모델명</a></td>
+  				<td class="colm_0" onclick="location.href='${modelnameURL}'">모델명</td>
 		<c:url value="search" var="cpuURL">
 			<c:param name="searchItem" value="${search}"></c:param>
 			<c:param name="order" value="CPU"></c:param>
 		</c:url>    				
-  				<td><a href="${cpuURL}">CPU</a></td>
+  				<td class="colm_1" onclick="location.href='${cpuURL}'">CPU</td>
 		<c:url value="search" var="displayURL">
 			<c:param name="searchItem" value="${search}"></c:param>
 			<c:param name="order" value="DISPLAY"></c:param>
 		</c:url>   				
-  				<td><a href="${displayURL}">화면크기</a></td>
+  				<td class="colm_2" onclick="location.href='${displayURL}'">화면크기</td>
 		<c:url value="search" var="weightURL">
 			<c:param name="searchItem" value="${search}"></c:param>
 			<c:param name="order" value="WEIGHT"></c:param>
 		</c:url>     				
-  				<td><a href="${weightURL}">무게</a></td>
+  				<td class="colm_3" onclick="location.href='${weightURL}'">무게</td>
 		<c:url value="search" var="purposeURL">
 			<c:param name="searchItem" value="${search}"></c:param>
 			<c:param name="order" value="PURPOSE"></c:param>
 		</c:url>     				
-  				<td><a href="${purposeURL}">용도</a></td>
+  				<td class="colm_4" onclick="location.href='${purposeURL}'">용도</td>
   			</tr>
 		<c:forEach var="list" items="${searchList }">
 		<c:url value="result" var="url">
@@ -113,7 +104,6 @@
 	</div>
 
       </div>
-      <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
@@ -153,13 +143,30 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript">
-  	function isArray(){
-  		
-  		
-  	}
-  	
-  </script>
+<script>
+	function getParam(sname) {	
+	    var params = location.search.substr(location.search.indexOf("?") + 1);	
+	    var sval = "";	
+	    params = params.split("&");	
+	    for (var i = 0; i < params.length; i++) {	
+	        temp = params[i].split("=");	
+	        if ([temp[0]] == sname) { sval = temp[1]; }	
+	    }	
+	    return sval;	
+	}
+
+// Add active class to the current column
+	var header = document.getElementsByClassName("tr_h");
+	var order_array = ['MODELNAME', 'CPU', 'DISPLAY', 'WEIGHT', 'PURPOSE']
+	var order = order_array.indexOf(getParam("order"));
+	console.log("order = " + order);
+	var colms = header[0].getElementsByClassName("colm_"+order); 
+	console.log("colms[0] : " + colms[0]);
+	colms[0].className += " active";
+
+	// Add order parameter to the current column
+	/* colms[0].onclick 		= "location.href='${modelnameURL}'?order_asc=false" */
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
@@ -170,7 +177,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
-  <script src="resources/js/common.js"></script>
+  <script src="resources/js/common.js?ver=1.1"></script>
 
 </body>
 

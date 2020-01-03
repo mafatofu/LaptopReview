@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Blank Page</title>
+  <title>LapView</title>
   <!-- chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>   
   
@@ -21,7 +21,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
-  <link href="resources/css/result.css?ver=1.1" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
   
 </head>
 
@@ -36,7 +36,7 @@
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
+    <form class="_search form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
       <div class="input-group">    
         <input type="text" class="form-control" name="searchItem" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">

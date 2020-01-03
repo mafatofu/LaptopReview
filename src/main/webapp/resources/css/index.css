@@ -17,6 +17,10 @@ ul {
     margin-inline-end: 0px;
 }
 
+.div_flow{
+	overflow-x: auto;
+}
+
 .tag_li {
     float:left;
     margin:auto;

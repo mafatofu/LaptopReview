@@ -1,6 +1,13 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
 
-.search {
+@media (max-width: 767px){
+	._search{
+		width:200px;
+	}
+}
+
+.search_table {
 	width: 100%;
 }
 
@@ -8,7 +15,7 @@
 	overflow-x:auto;
 }
 
-.search tr:nth-of-type(2n) {
+.search_table tr:nth-of-type(2n) {
     background-color: #f6f7f8;
 }
 
@@ -20,13 +27,13 @@
     cursor: pointer;
 }
 
-.tr_h a {
+.tr_h {
 	color: #444;
 	text-decoration: none;
 }
 
-.tr_h a:hover {
-	color: #334d99;
+.active, .tr_h td:hover {
+	color: #0466c8 !important;
 	font-weight:bold;
 	text-decoration: none;
 }
