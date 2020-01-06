@@ -10,22 +10,22 @@
   <meta name="author" content="">
 
   <title>LapView</title>
+  
+  <link rel="shortcut icon" href="resources/img/favicon.ico">
+  
   <!-- chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>   
   
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
-  
-  
+    
   <!-- Page level plugin CSS-->
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
-  
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script>
 	$(document).ready(function(){
@@ -272,7 +272,7 @@
   <!-- wordcloud -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>   
-  <script src="resources/js/wordcloud.js"></script>
+  <script src="resources/js/wordcloud.js?ver=1.8	"></script>
 
 </body>
 </html>

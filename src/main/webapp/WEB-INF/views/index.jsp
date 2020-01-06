@@ -11,6 +11,8 @@
   <meta name="author" content="">
 
   <title>LapView</title>
+  
+  <link rel="shortcut icon" href="resources/img/favicon.ico">
 
   <!-- Font Awesome Icons -->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,8 +26,8 @@
   <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="resources/css/creative.min.css?ver=1.4" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.1'/>" />
+  <link href="resources/css/creative.min.css?ver=1.5" rel="stylesheet">
+  <link href="resources/css/index.css?ver=1.7" rel="stylesheet">
   <link href="resources/css/main.css?ver=1.6" rel="stylesheet">
   
   <!-- SearchBox CSS -->
@@ -91,7 +93,7 @@
 	        <div id="recommend_tag_main" class="col-lg-10 mt-3">
 	        <hr class="divider-2 my-5">
 	      	<ul class="row align-items-center justify-content-center">
-	        	<li class="tag_li col-lg-3 col-sm-6">
+	        	<li class="tag_li col-lg-3 col-xs-6">
 	            	<a href="search?searchItem=그램">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
@@ -99,7 +101,7 @@
 	                     <p class="tag_p">LG 그램</p> 
 	                </a>
 	            </li>
-	            <li class="tag_li col-lg-3 col-sm-6">
+	            <li class="tag_li col-lg-3 col-xs-6">
 	            	<a href="search?searchItem=맥북">
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
@@ -107,7 +109,7 @@
 	                     <p class="tag_p">애플 맥북</p>
 	                </a>
 	            </li>
-	        	<li class="tag_li col-lg-3 col-sm-6">
+	        	<li class="tag_li col-lg-3 col-xs-6">
 	            	<a href="search?searchItem=노트북9"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
@@ -115,7 +117,7 @@
 	                     <p class="tag_p">삼성 노트북9</p>
 	                </a>
 	            </li>                                
-	        	<li class="tag_li col-lg-3 col-sm-6">
+	        	<li class="tag_li col-lg-3 col-xs-6">
 	            	<a href="search?searchItem=아이디어패드"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad2.jpg" class="tag_img">

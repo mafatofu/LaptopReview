@@ -11,6 +11,8 @@
   <meta name="author" content="">
 
   <title>LapView</title>
+  
+  <link rel="shortcut icon" href="resources/img/favicon.ico">
 
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,7 +24,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.6" rel="stylesheet">
 
 </head>
 
@@ -46,7 +48,7 @@
 
   <div id="wrapper">
     <div id="content-wrapper">
-      <div class="container-fluid">
+      <div class="search_container">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">"${search}"에 대한 검색결과</li>
@@ -177,7 +179,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
-  <script src="resources/js/common.js?ver=1.1"></script>
+  <script src="resources/js/common.js?ver=1.2"></script>
 
 </body>
 
