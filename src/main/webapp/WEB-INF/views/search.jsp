@@ -12,7 +12,7 @@
 
   <title>LapView</title>
   
-  <link rel="shortcut icon" href="resources/img/favicon.ico">
+  <link rel="shortcut icon" href="resources/img/favicon2.ico">
 
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,13 +23,13 @@
  
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.6" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.7" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.8	" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <nav class="fixed-top navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="index">LapView</a>
 
     <!-- Navbar Search -->
@@ -121,11 +121,6 @@
 
   </div>
   <!-- /#wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

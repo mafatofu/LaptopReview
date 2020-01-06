@@ -11,7 +11,7 @@
 
   <title>LapView</title>
   
-  <link rel="shortcut icon" href="resources/img/favicon.ico">
+  <link rel="shortcut icon" href="resources/img/favicon2.ico">
   
   <!-- chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>   
@@ -23,22 +23,26 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.9" rel="stylesheet">
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
-<script>
-	$(document).ready(function(){
-		$('#reviewNav a').click(function(){
-			//var offset = $('#positive_review5').offset(); //선택한 태그의 위치를 반환
-			var fixOffset = $('.card-header').offset();//스크롤 상단 고정.
-                //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
-	        $('html').animate({scrollTop : fixOffset.top}, 400);
+	<script>
+		$(document).ready(function(){
+/* 			$('#reviewNav a').click(function(){
+				//var offset = $('#positive_review5').offset(); //선택한 태그의 위치를 반환
+				var fixOffset = $('.card-header').offset();//스크롤 상단 고정.
+	                //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
+		        $('html').animate({scrollTop : fixOffset.top}, 400);
+			});
+			 */
+			$('#keyLink a').click(function(){
+				var fixOffset = $('#keyword').offset();
+		        $('html').animate({scrollTop : fixOffset.top}, 400);
+		        console.log('클릭 확인');
+			});
 		});
-
-	});
-
-</script>
+	</script>
 
 
   
@@ -46,13 +50,25 @@
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
+  <nav class="navbar-expand navbar-dark bg-dark static-top fixed-top">
     <a class="navbar-brand mr-1" href="index">LapView</a>
-
-    <button class="btn btn-link btn-sm text-white order-sm-0">
+    <button class="btn btn-link btn-sm text-white order-sm-0" onclick="$('#div_nav_menu_open').css('display', 'block')">
       <i class="fas fa-bars"></i>
     </button>
+    
+    <div id = "div_nav_menu_open" style="display: none;">
+    	<div class="bg_nav_menu_close" onclick="$('#div_nav_menu_open').css('display','none')"></div>
+	    <div class="nav_menu_open">
+			<ul>
+				<li><a href="#wordcloud">WordCloud</a></li>
+				<li id="keyLink"><a href="#keyword" >키워드 분석</a></li>
+				<li><a href="#">마케팅정보</a></li><!--search.html 페이지의 #marketing-->
+				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>
+				<li><a href="#">SIGN IN</a></li>
+			</ul> 		   
+	    </div>    	
+    </div>
+
 
     <!-- Navbar Search -->
     <form class="_search form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="search" onsubmit="return isNull()">
@@ -71,7 +87,7 @@
     <div id="content-wrapper">
        <!-- wordCloud -->
       <div id="wordcloud"></div>
-      <div class="container-fluid">
+      <div class="container-fluid" id="keyword">
       <!-- Page Content -->
 
 

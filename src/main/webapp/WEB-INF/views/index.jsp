@@ -12,7 +12,7 @@
 
   <title>LapView</title>
   
-  <link rel="shortcut icon" href="resources/img/favicon.ico">
+  <link rel="shortcut icon" href="resources/img/favicon2.ico">
 
   <!-- Font Awesome Icons -->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
