@@ -23,10 +23,7 @@ public class ReviewServiceImpl implements ReviewService{
 	//키워드 리스트
 	List<String> keyWordList = new ArrayList<String>();
 	
-	//긍부정 단어 리스트
-	List<String> positive_WordList = new ArrayList<String>();
-	List<String> negative_WordList = new ArrayList<String>();
-	
+	//긍부정단어 리스트의 리스트
 	List<List> positive_WordHouse = new ArrayList<List>();
 	List<List> negative_WordHouse = new ArrayList<List>();
 	
@@ -59,36 +56,55 @@ public class ReviewServiceImpl implements ReviewService{
 		//
 		//절대경로를 바탕으로 하여 실제 파일 안의 리뷰들을  긍부정단어 Map에 저장
 		String reviewPath = "";
-		/*if(PNList.length > 0){
-			for (int i = 0; i < PNList.length; i++) {
-				reviewPath = PNList[i].getPath();
-				try {
-					BufferedReader br = new BufferedReader(
-							new InputStreamReader(new FileInputStream(reviewPath),StandardCharsets.UTF_8));
-					
-					
-					String line = "";
-					String[] array;
-					
-					
-					//
-					//긍부정리뷰 가져오기
-					//리뷰에는 positive negative 단어가 안쓰여져있다?!
-					//긍부정 단어의 리스트에 있는 단어들로 split 하여 실제 리뷰를 해당 Map에 넣자
-					
+	      if(PNList.length > 0){
+	          for (int i = 0; i < PNList.length; i++) {
+	             reviewPath = PNList[i].getPath();
+	             try {
+	                BufferedReader br = new BufferedReader(
+	                      new InputStreamReader(new FileInputStream(reviewPath),StandardCharsets.UTF_8));
+	                
+	                
+	                String line = "";
+	                String[] array;
 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			
-		}*/
-		//pnCount의 
-		
+	               List<String> pl = positive_WordHouse.get(i);
+	               List<String> nl = negative_WordHouse.get(i);
+	               /*while((line = br.readLine())!=null) {
+	                   //array = line.split();'
+	            	   for (int j = 0; j < pl.size(); j++) {
+		                   if(line.contains(pl.get(j))) {
+		                	   array = line.split("\t");
+		                	   positive.put(pl.get(j), array[1]);
+		                   } else continue;
+	            	   }
+	            	   for (int j = 0; j < nl.size(); j++) {
+		                   if(line.contains(nl.get(j))) {
+		                	   array = line.split("\t");
+		                	   negative.put(nl.get(j), array[1]);
+		                   } else continue;
+	            	   }
+
+	                }*/
+	                
+	                //긍부정 단어의 리스트에 있는 단어들로 split 하여 실제 리뷰를 해당 Map에 넣자
+	                
+
+	             } catch (Exception e) {
+	                e.printStackTrace();
+	             }
+	          }
+	          
+	       }
+
 	}
 	
 	@Override
 	public void pnCount(Model model) {
+		//긍부정 단어 리스트
+		
+		
+		
+		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 
@@ -117,6 +133,8 @@ public class ReviewServiceImpl implements ReviewService{
 		String keyWordCk[]=null;
 
 		if(PNList.length > 0){
+			
+			
 			//키워드 갯수만큼 돌림
 			for(int j=0; j < PNList.length; j++){
 				//키워드리스트 추가
@@ -130,16 +148,13 @@ public class ReviewServiceImpl implements ReviewService{
 				try {
 					BufferedReader br = new BufferedReader(
 							new InputStreamReader(new FileInputStream(keyWordName),StandardCharsets.UTF_8));
-
+					List<String> positive_WordList = new ArrayList<String>();
+					List<String> negative_WordList = new ArrayList<String>();
 					String line = "";
 					String[] array;
 					//단어장 비워두기
 					positive.clear();
 					negative.clear();
-					
-					//긍부정단어장 비워두기
-					positive_WordList.clear();
-					negative_WordList.clear();
 					
 					//긍부정단어 가져오기
 					//긍부정단어리스트에 추가?
@@ -147,15 +162,10 @@ public class ReviewServiceImpl implements ReviewService{
 						array = line.split(",");
 						if(line.contains("positive")) {
 							positive.put(array[1], Integer.parseInt(array[2]));
-							//리스트의 형태가 아니라 해시맵의 형태로 하여 키로는 긍부정단어, 값으로는 리뷰?
-							positive_WordList.add(array[1]);
 						} else if(line.contains("negative")) {
-							negative.put(array[1], Integer.parseInt(array[2]));
-							negative_WordList.add(array[1]);
+							negative.put(array[1], Integer.parseInt(array[2]));	
 						}
 					}
-					positive_WordHouse.add(positive_WordList);
-					negative_WordHouse.add(negative_WordList);
 					
 					// value 내림차순으로 정렬하고, value가 같으면 key 오름차순으로 정렬
 					List<Map.Entry<String, Integer>> positive_List = new LinkedList<>(positive.entrySet());
@@ -195,17 +205,26 @@ public class ReviewServiceImpl implements ReviewService{
 
 					positive_House.put(keyWordList.get(j), Positive_sortedMap);
 					negative_House.put(keyWordList.get(j), negative_sortedMap);
+					
+					positive_WordList.addAll(Positive_sortedMap.keySet());
+					negative_WordList.addAll(negative_sortedMap.keySet());
+					positive_WordHouse.add(positive_WordList);
+					negative_WordHouse.add(negative_WordList);
+					
+	               
+	               
+	                 
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		
-		System.out.println(positive_WordHouse);
-		System.out.println(negative_WordHouse);
 
-		//모델에 전달
-		//키워드리스트, 키워드리스트 and 긍부정단어리스트
+       
+        //모델에 전달
+      	//키워드리스트, 키워드리스트 and 긍부정단어리스트
+		
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
 		model.addAttribute("negative_House", negative_House);
