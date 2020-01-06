@@ -1,14 +1,32 @@
 /**
  * 
  */
- var width = window.outerWidth;
+		function getParam(sname) {	
+	    var params = location.search.substr(location.search.indexOf("?") + 1);	
+	    var sval = "";	
+	    params = params.split("&");	
+	    for (var i = 0; i < params.length; i++) {	
+	        temp = params[i].split("=");	
+	        if ([temp[0]] == sname) { sval = temp[1]; }	
+	    }	
+	    
+	    var sresult = sval.split("+");    
+	    
+	    return sresult[sresult.length-1];	
+		}
+		
+		var model_name = getParam("modelName");
+		console.log(model_name);
+		
+ 	   var width = window.outerWidth;
        var height = width*0.56;
-       var fontSize = width*0.15;
+       var fontSize = width*0.12;
+       
 
        var svg = d3.select("#wordcloud").append("svg")
             .attr("width", width)
             .attr("height", height); 
-        d3.csv("resources/text/result_1.LG전자 울트라PC 15U590-GA56K.csv", function (data) {
+        d3.csv("resources/text/" + model_name + ".csv", function (data) {
             showCloud(data)
             setInterval(function(){
                  showCloud(data)
@@ -20,7 +38,7 @@
         //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
         wordScale = d3.scale.linear().domain([0, 100]).range([0, fontSize]).clamp(true);
         /*colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);*/
-        colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280","#405275"]).clamp(true);
+        colorScale = d3.scale.linear().domain([0, 100]).range(["#fed993","#182640"]).clamp(true);
         var svg = d3.select("svg")
                     .append("g")
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")

@@ -11,6 +11,8 @@
   <meta name="author" content="">
 
   <title>LapView</title>
+  
+  <link rel="shortcut icon" href="resources/img/favicon2.ico">
 
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,13 +23,13 @@
  
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.7" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.8	" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <nav class="fixed-top navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="index">LapView</a>
 
     <!-- Navbar Search -->
@@ -46,7 +48,7 @@
 
   <div id="wrapper">
     <div id="content-wrapper">
-      <div class="container-fluid">
+      <div class="search_container">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">"${search}"에 대한 검색결과</li>
@@ -120,11 +122,6 @@
   </div>
   <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -177,7 +174,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
-  <script src="resources/js/common.js?ver=1.1"></script>
+  <script src="resources/js/common.js?ver=1.2"></script>
 
 </body>
 
