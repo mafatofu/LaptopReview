@@ -13,6 +13,8 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -43,17 +45,24 @@ public class ReviewServiceImpl implements ReviewService{
 		//리뷰 파일 경로
 		File[] PNList = file.listFiles();
 		//리뷰 파일들
-		//긍부정단어 리뷰 해쉬맵의 List 작성
-		List<HashMap<String, String>> pReviewHouse = new ArrayList<HashMap<String, String>>();
-		List<HashMap<String, String>> nReviewHouse = new ArrayList<HashMap<String, String>>();
+		//긍부정단어 리뷰 리스트의 List 작성
+		//각 리스트는 n번째 단어에 대한 리뷰들의 모임으로 구성된다. ex) pReviewHouse1에는, 각 키워드에 해당하는 파일의 첫번째 긍정단어들이 모여있다.
+		List<List<String>> pReviewHouse1 = new ArrayList<List<String>>();
+		List<List<String>> pReviewHouse2 = new ArrayList<List<String>>();
+		List<List<String>> pReviewHouse3 = new ArrayList<List<String>>();
+		List<List<String>> pReviewHouse4 = new ArrayList<List<String>>();
+		List<List<String>> pReviewHouse5 = new ArrayList<List<String>>();
 		
-		//긍부정단어 리뷰 해쉬맵
-		HashMap<String, String> positive = new HashMap<String, String>();
-		HashMap<String, String> negative = new HashMap<String, String>();	
+		List<List<String>> nReviewHouse1 = new ArrayList<List<String>>();
+		List<List<String>> nReviewHouse2 = new ArrayList<List<String>>();
+		List<List<String>> nReviewHouse3 = new ArrayList<List<String>>();
+		List<List<String>> nReviewHouse4 = new ArrayList<List<String>>();
+		List<List<String>> nReviewHouse5 = new ArrayList<List<String>>();
 		
-		//상위 5개의 긍부정 단어
+		//모델로 넘길 변수
+		List<List<List<String>>> pWareHouse = new ArrayList<List<List<String>>>();
+		List<List<List<String>>> nWareHouse = new ArrayList<List<List<String>>>();
 		
-		//
 		//절대경로를 바탕으로 하여 실제 파일 안의 리뷰들을  긍부정단어 Map에 저장
 		String reviewPath = "";
 	      if(PNList.length > 0){
@@ -62,49 +71,122 @@ public class ReviewServiceImpl implements ReviewService{
 	             try {
 	                BufferedReader br = new BufferedReader(
 	                      new InputStreamReader(new FileInputStream(reviewPath),StandardCharsets.UTF_8));
-	                
-	                
+
 	                String line = "";
 	                String[] array;
-
-	               List<String> pl = positive_WordHouse.get(i);
+	               
+	               //긍부정단어 리뷰 리스트. 각 단어들에 대한 리뷰가 들어간다. ex) 좋에 대한 리뷰: .....
+	               List<String> pReview1 = new ArrayList<String>();
+	               List<String> pReview2 = new ArrayList<String>();
+	               List<String> pReview3 = new ArrayList<String>();
+	               List<String> pReview4 = new ArrayList<String>();
+	               List<String> pReview5 = new ArrayList<String>();
+	               
+	               List<String> nReview1 = new ArrayList<String>();
+	               List<String> nReview2 = new ArrayList<String>();
+	               List<String> nReview3 = new ArrayList<String>();
+	               List<String> nReview4 = new ArrayList<String>();
+	               List<String> nReview5 = new ArrayList<String>();
+	               
+	               //긍부정단어 리스트 하나씩 가져오기
+	               List<String> pl = positive_WordHouse.get(i);//[ , , , , ]의 형태
 	               List<String> nl = negative_WordHouse.get(i);
-	               /*while((line = br.readLine())!=null) {
-	                   //array = line.split();'
-	            	   for (int j = 0; j < pl.size(); j++) {
-		                   if(line.contains(pl.get(j))) {
-		                	   array = line.split("\t");
-		                	   positive.put(pl.get(j), array[1]);
-		                   } else continue;
-	            	   }
-	            	   for (int j = 0; j < nl.size(); j++) {
-		                   if(line.contains(nl.get(j))) {
-		                	   array = line.split("\t");
-		                	   negative.put(nl.get(j), array[1]);
-		                   } else continue;
-	            	   }
+	               
 
-	                }*/
+	               //상위 5개 단어에 대한 실제 리뷰를 넣자
+	               //List<String>에, 각 단어에 대한 실제 리뷰 넣기
+	               
+	               
+	               while((line = br.readLine())!=null) {
+	            	     array = line.split("\t");
+	            	     	//긍부정단어의 1~5번째 단어와 \t로 잘라낸 문자열이 같다면, 5개의 리스트 중 한 곳으로 들어가라
+	            	     	//5개의 리스트는 긍부정단어 리스트의 단어 순서와 연동된다. ex) 좋: 1번 리스트, 최고, 2번 리스트....
+	            	    	 
+	            	         //긍정단어 리뷰
+	            	     	 if(pl.get(0).equals(array[0])) {  
+	    	       		         pReview1.add(array[1]); 		   
+	            	    	 } else if(pl.get(1).equals(array[0])) {
+	            	    		 pReview2.add(array[1]); 
+	            	    	 } else if(pl.get(2).equals(array[0])) {
+	            	    		 pReview3.add(array[1]); 
+	            	    	 } else if(pl.get(3).equals(array[0])) {
+	            	    		 pReview4.add(array[1]); 
+	            	    	 } else if(pl.get(4).equals(array[0])) {
+	            	    		 pReview5.add(array[1]); 
+	            	    	 }
+	            	     	 
+	            	     	 //부정단어 리뷰
+	            	     	 if(nl.get(0).equals(array[0])) {  
+	    	       		         nReview1.add(array[1]); 		   
+	            	    	 } else if(nl.get(1).equals(array[0])) {
+	            	    		 nReview2.add(array[1]); 
+	            	    	 } else if(nl.get(2).equals(array[0])) {
+	            	    		 nReview3.add(array[1]); 
+	            	    	 } else if(nl.get(3).equals(array[0])) {
+	            	    		 nReview4.add(array[1]); 
+	            	    	 } else if(nl.get(4).equals(array[0])) {
+	            	    		 nReview5.add(array[1]); 
+	            	    	 }
+				  }
 	                
-	                //긍부정 단어의 리스트에 있는 단어들로 split 하여 실제 리뷰를 해당 Map에 넣자
-	                
-
+	               
+	               pReviewHouse1.add(pReview1); 	
+	               pReviewHouse2.add(pReview2); 
+	               pReviewHouse3.add(pReview3); 
+	               pReviewHouse4.add(pReview4); 
+	               pReviewHouse5.add(pReview5); 
+	               
+	               nReviewHouse1.add(nReview1);
+	               nReviewHouse2.add(nReview2);
+	               nReviewHouse3.add(nReview3);
+	               nReviewHouse4.add(nReview4);
+	               nReviewHouse5.add(nReview5);
+	               
 	             } catch (Exception e) {
 	                e.printStackTrace();
 	             }
 	          }
 	          
+	          pWareHouse.add(pReviewHouse1);
+	          pWareHouse.add(pReviewHouse2);
+	          pWareHouse.add(pReviewHouse3);
+	          pWareHouse.add(pReviewHouse4);
+	          pWareHouse.add(pReviewHouse5);
+	          
+	          nWareHouse.add(nReviewHouse1);
+	          nWareHouse.add(nReviewHouse2);
+	          nWareHouse.add(nReviewHouse3);
+	          nWareHouse.add(nReviewHouse4);
+	          nWareHouse.add(nReviewHouse5);
+	          
+	          /*for (List<String> list : pReviewHouse1) {
+	        	  System.out.println();
+	        	  System.out.println("------------다음 키워드 리뷰----------------");
+	        	  System.out.println();
+				for (String s : list) {
+					System.out.println(s);
+				}
+	          }*/
+	          
+	          for (List<String> list : nReviewHouse1) { 
+	        	  System.out.println();
+	        	  System.out.println("------------다음 단어 리뷰----------------");
+	        	  System.out.println();
+				for (String s : list) {
+					System.out.println(s);
+				}
+	          }
+	          
+	          
 	       }
-
+	      model.addAttribute("pWareHouse", pWareHouse);
+	      model.addAttribute("nWareHouse", nWareHouse);
 	}
 	
 	@Override
 	public void pnCount(Model model) {
 		//긍부정 단어 리스트
-		
-		
-		
-		
+
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 
@@ -206,15 +288,30 @@ public class ReviewServiceImpl implements ReviewService{
 					positive_House.put(keyWordList.get(j), Positive_sortedMap);
 					negative_House.put(keyWordList.get(j), negative_sortedMap);
 					
-					positive_WordList.addAll(Positive_sortedMap.keySet());
-					negative_WordList.addAll(negative_sortedMap.keySet());
+
+					int listCk=0;
+					int ck=0;
+					for (String key : Positive_sortedMap.keySet()) {
+						if(listCk>=5) break;
+						positive_WordList.add(key);
+						listCk++;
+					}
+					
+					for (String key : negative_sortedMap.keySet()) {
+						if(ck>=5) break;
+						negative_WordList.add(key);
+						ck++;
+					}
+					
+					while(positive_WordList.size()<5) {
+						positive_WordList.add("없음");
+					}
+					while(negative_WordList.size()<5) {
+						negative_WordList.add("없음");
+					}
 					positive_WordHouse.add(positive_WordList);
 					negative_WordHouse.add(negative_WordList);
-					
-	               
-	               
-	                 
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -224,6 +321,17 @@ public class ReviewServiceImpl implements ReviewService{
        
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
+		
+		System.out.println("-----긍정단어 리스트-----");
+		for (List<String> l : positive_WordHouse) {
+			System.out.println(l);
+		}
+		System.out.println();
+		System.out.println("-----부정단어 리스트-----");
+		System.out.println();
+		for (List<String> l : negative_WordHouse) {
+			System.out.println(l);
+		}
 		
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
