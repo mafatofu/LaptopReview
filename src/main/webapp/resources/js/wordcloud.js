@@ -60,7 +60,7 @@
                 //Entering words
                 cloud.enter()
                     .append("text")
-                    .style("font-family", 'Stylish')
+                    .style("font-family", 'Gugi')
                     .style("fill", function (d) {
                   return colorScale(d.frequency);
                        // return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
