@@ -94,7 +94,6 @@
       <div class="container-fluid" id="keyword_top">
       <!-- Page Content -->
 
-
       <!-- Marketing Icons Section -->
       <div class="row">
       <!-- 키워드 개수만큼 그래프 생성 -->
@@ -180,34 +179,56 @@
                 // Configuration options go here
                 options: {}
             });
-
+		
       </script>
-   			<!-- 리뷰파트. 각 리뷰에 접근하려면, pReviewHouse 안에 있는 리스트를 변수로 받아 출력해야한다. -->
+      		
+   			
                </div>
             </div>
          </div>
+         </c:forEach>
+         <!-- 리뷰파트. -->
 	         <div class="col-lg-8 mb-8">
 		         <div class="card h-100">
 		         	<h4 class="card-header">${k} 리뷰</h4>
 		         	<div id = "review">
+		   		    <!-- 네비게이션
+		   		    	  현재 모델의 키워드 갯수만큼 돌아감.
+		   		    	  네비게이션은 positive_WordHouse, negative_WordHouse를 받는다.
+		   		    	 pl, nl을 펼쳐 긍부정 상위 5개 단어를 펼친다.
+		   		    	  -->
 		         	<div id = "reviewNav">
+<%-- 		         		<c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
+		         		<c:set var = "nl" value ="${negative_WordHouse[vs.index] }"/>
+		         		
+		         		<c:set var ="p1" value = "${pl[0]}"/>
+		         		<c:out value = "${p1 }"/> --%>
 		         		<div id = "positive_Nav">
-		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-primary slideup">p1</button></a>
-			         		<button type="button" class="btn btn-outline-primary slideup">P2</button>
-			         		<button type="button" class="btn btn-outline-primary slideup">P3</button>
-			         		<button type="button" class="btn btn-outline-primary slideup">P4</button>
-			         		<a href="#positive_review5"><button type="button" class="btn btn-outline-primary slideup">P5</button></a>
+		         		
+ 		         		<%-- <c:forEach var = "pn" items ="${pl }">
+		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-primary slideup">${pn }</button></a>
+		         		</c:forEach> --%>
 		         		</div>
 		         		<div id = "negative_Nav">
-		         			<button type="button" class="btn btn-outline-danger slideleft">n1</button>
-			         		<button type="button" class="btn btn-outline-danger slideleft">n2</button>
-			         		<button type="button" class="btn btn-outline-danger slideleft">n3</button>
-			         		<button type="button" class="btn btn-outline-danger slideleft">n4</button>
-			         		<button type="button" class="btn btn-outline-danger slideleft">n5</button>
+<%-- 						<c:forEach var = "nn" items ="${nl }">
+		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-danger slideleft">${nn }</button></a>
+		         		</c:forEach> --%>
 		         		</div>	
-
-		         	</div>    
+		         	</div> 
+		            <!-- 각 리뷰에 접근하려면, pReviewHouse 안에 있는 리스트를 변수로 받아 출력해야한다. 
+		   				현재 모델의 키워드 갯수만큼 돌아감. pWareHouse, nWareHouse 따로 돌리기. for문 2개.
+		   				 5번 돌려서 pReviewHouse, nReviewHouse 꺼내기.
+		   				  각 ReviewHouse 5번씩 돌려서 pReview, rReview 꺼내기
+		   				 n번째 단어 리뷰 자리에 반복문을 돌려 pReview, rReview를 펼친다.
+		   				 -->   
 		            <div id="review_body">
+<%-- 		            	<c:set var = "pWareHouse" value = "${pWareHouse }"/>
+		            	<c:set var = "pRevieweHouse" value = "${pWareHouse[vs.index] }"/>
+		            	<c:set var = "pReview" value = "${pReviewHouse[vs.index] }"/>
+		            	<cout value = "${pReview[vs.index] }"/> --%>
+		            	<%-- <c:forEach var = "pr" items = "${pReview }" varStatus = "idx">
+		            		${pr }
+		            	</c:forEach> --%>
 		            	<div id = "positive_review">
 			            	<ol start = "1" id = "positive_review1">
 			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
@@ -250,7 +271,7 @@
 		         </div>
 	         </div>
 	         </div>
-         </c:forEach>
+         
       </div>
       <!-- /.row -->
       <hr>          

@@ -22,10 +22,8 @@ import org.springframework.ui.Model;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
-	//키워드 리스트
-	List<String> keyWordList = new ArrayList<String>();
 	
-	//긍부정단어 리스트의 리스트
+	//긍부정단어 이중리스트
 	List<List> positive_WordHouse = new ArrayList<List>();
 	List<List> negative_WordHouse = new ArrayList<List>();
 	
@@ -159,6 +157,7 @@ public class ReviewServiceImpl implements ReviewService{
 	          nWareHouse.add(nReviewHouse4);
 	          nWareHouse.add(nReviewHouse5);
 	          
+	          //리뷰 체크
 	          /*for (List<String> list : pReviewHouse1) {
 	        	  System.out.println();
 	        	  System.out.println("------------다음 키워드 리뷰----------------");
@@ -168,23 +167,28 @@ public class ReviewServiceImpl implements ReviewService{
 				}
 	          }*/
 	          
-	          for (List<String> list : nReviewHouse1) { 
+	          /*for (List<String> list : nReviewHouse1) { 
 	        	  System.out.println();
 	        	  System.out.println("------------다음 단어 리뷰----------------");
 	        	  System.out.println();
 				for (String s : list) {
 					System.out.println(s);
 				}
-	          }
+	          }*/
 	          
 	          
 	       }
 	      model.addAttribute("pWareHouse", pWareHouse);
 	      model.addAttribute("nWareHouse", nWareHouse);
+	      
+	      model.addAttribute("positive_WordHouse", positive_WordHouse);
+	      model.addAttribute("negative_WordHouse", negative_WordHouse);
 	}
 	
 	@Override
 	public void pnCount(Model model) {
+		//키워드 리스트
+		List<String> keyWordList = new ArrayList<String>();
 		//긍부정 단어 리스트
 
 		Map<String, Object> map = model.asMap();
@@ -318,26 +322,24 @@ public class ReviewServiceImpl implements ReviewService{
 			}
 		}
 
-       
+        
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		
-		System.out.println("-----긍정단어 리스트-----");
-		for (List<String> l : positive_WordHouse) {
-			System.out.println(l);
-		}
-		System.out.println();
-		System.out.println("-----부정단어 리스트-----");
-		System.out.println();
-		for (List<String> l : negative_WordHouse) {
-			System.out.println(l);
-		}
-		
+//		System.out.println("-----긍정단어 리스트-----");
+//		for (List<String> l : positive_WordHouse) {
+//			System.out.println(l);
+//		}
+//		System.out.println();
+//		System.out.println("-----부정단어 리스트-----");
+//		System.out.println();
+//		for (List<String> l : negative_WordHouse) {
+//			System.out.println(l);
+//		}
+		System.out.println(keyWordList);
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
 		model.addAttribute("negative_House", negative_House);
-
-
 	}
 	
 	public String transKeyWord(String keyWord) {
