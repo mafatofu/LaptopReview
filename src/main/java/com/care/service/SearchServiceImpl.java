@@ -18,7 +18,7 @@ public class SearchServiceImpl implements SearchService {
 		Map<String, Object> map =  model.asMap();
 		String searchItem = (String)map.get("searchItem");
 		searchItem = searchItem.toUpperCase().replace(" ", "");
-		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1"};
+		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1", "GRAM"};
 		String[] apple = {"APPLE", "애플"}; String[] apple_s = {"맥북프로", "맥북", "에어"};
 		String[] samsung = {"SAMSUNG", "삼성"}; String[] samsung_s = {"노트북9", "노트북7", "노트북5", "노트북3", "갤럭시북", "갤럭시북S",  "노트북", "플렉스", "이온", "ODYSSEY", "PEN", "S"};
 		String[] hp = {"HP"}; String[] hp_s = {"파빌리온", "프로북", "엔비", "게이밍", "오멘", "스펙터"};
@@ -31,6 +31,7 @@ public class SearchServiceImpl implements SearchService {
 		String[] hansung= {"한성"}; String[] hansung_s = {"아방가르드", "올데이롱", "언더케이지", "BOSSMONSTER"};
 		String[] jooyun = {"주연", "주연테크"}; String[] jooyun_s = {"캐리북", "T", "리오나인" };
 		
+		//한글, 영어 변경 부분. array 따로 만들어서 변경.
 		//LG노트북 검색어 설정
 		for(String i : lg) {
 			if(searchItem.contains(i)) {
