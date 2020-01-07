@@ -93,11 +93,9 @@
       <div id="wordcloud"></div>
       <div class="container-fluid" id="keyword_top">
       <!-- Page Content -->
-
-      <!-- Marketing Icons Section -->
       <div class="row">
       <!-- 키워드 개수만큼 그래프 생성 -->
-      <c:forEach var='k' items="${keyWord }">
+      <c:forEach var='k'  varStatus = "vs" items="${keyWord }">
          <div class="col-lg-4 mb-4">
             <div class="card h-100">
                <h4 class="card-header">${k}</h4>
@@ -120,8 +118,7 @@
             </c:forEach>
             console.log()
             
-            var ctx = document.getElementById('${k}').getContext('2d'
-            		);
+            var ctx = document.getElementById('${k}').getContext('2d');
             var chart = new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'horizontalBar',
@@ -187,7 +184,7 @@
                </div>
             </div>
          </div>
-         </c:forEach>
+         
          <!-- 리뷰파트. -->
 	         <div class="col-lg-8 mb-8">
 		         <div class="card h-100">
@@ -199,21 +196,20 @@
 		   		    	 pl, nl을 펼쳐 긍부정 상위 5개 단어를 펼친다.
 		   		    	  -->
 		         	<div id = "reviewNav">
-<%-- 		         		<c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
+		         		<c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
 		         		<c:set var = "nl" value ="${negative_WordHouse[vs.index] }"/>
 		         		
-		         		<c:set var ="p1" value = "${pl[0]}"/>
-		         		<c:out value = "${p1 }"/> --%>
+		         		<%-- <c:set var ="p1" value = "${pl[0]}"/>
+		         		<c:out value = "${p1 }"/>  --%>
 		         		<div id = "positive_Nav">
-		         		
- 		         		<%-- <c:forEach var = "pn" items ="${pl }">
+ 		         		<c:forEach var = "pn" items ="${pl }">
 		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-primary slideup">${pn }</button></a>
-		         		</c:forEach> --%>
+		         		</c:forEach>
 		         		</div>
 		         		<div id = "negative_Nav">
-<%-- 						<c:forEach var = "nn" items ="${nl }">
+ 						<c:forEach var = "nn" items ="${nl }">
 		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-danger slideleft">${nn }</button></a>
-		         		</c:forEach> --%>
+		         		</c:forEach>
 		         		</div>	
 		         	</div> 
 		            <!-- 각 리뷰에 접근하려면, pReviewHouse 안에 있는 리스트를 변수로 받아 출력해야한다. 
@@ -222,57 +218,26 @@
 		   				  각 ReviewHouse 5번씩 돌려서 pReview, rReview 꺼내기
 		   				 n번째 단어 리뷰 자리에 반복문을 돌려 pReview, rReview를 펼친다.
 		   				 -->   
-		            <div id="review_body">
-<%-- 		            	<c:set var = "pWareHouse" value = "${pWareHouse }"/>
-		            	<c:set var = "pRevieweHouse" value = "${pWareHouse[vs.index] }"/>
-		            	<c:set var = "pReview" value = "${pReviewHouse[vs.index] }"/>
-		            	<cout value = "${pReview[vs.index] }"/> --%>
-		            	<%-- <c:forEach var = "pr" items = "${pReview }" varStatus = "idx">
-		            		${pr }
-		            	</c:forEach> --%>
-		            	<div id = "positive_review">
-			            	<ol start = "1" id = "positive_review1">
-			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            	</ol>
-							<ol start = "1" id = "positive_review2">
-								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-								<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>두번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            	</ol>
-			            	<ol start = "1" id = "positive_review3">
-			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>세번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            	</ol>
-			            	<ol start = "1" id = "positive_review4">
-			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            		<li>네번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰 첫번째 긍정 단어 리뷰</li>
-			            	</ol>
-			            	<ol start = "1" id = "positive_review5">
-			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
-			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
-			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
-			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
-			            		<li>다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰 다섯번째 긍정 단어 리뷰</li>
-			            	</ol>
-		           		</div>
+		            <div id="review_body">          	
+  		            	<c:set var = "pWareHouse" value = "${pWareHouse }"/>
+		            	<c:set var = "pReviewHouse1" value = "${pWareHouse[0] }"/>
+		            	<c:set var = "pReviewHouse2" value = "${pWareHouse[1] }"/>
+		            	<c:set var = "pReviewHouse3" value = "${pWareHouse[2] }"/>
+		            	<c:set var = "pReviewHouse4" value = "${pWareHouse[3] }"/>
+		            	<c:set var = "pReviewHouse5" value = "${pWareHouse[4] }"/>
+		            	
+	            		<ol start = "1" id = "${k }positive_review">
+		            		<c:forEach var = "pReviewHouse1" items = "${pReviewHouse1 }">
+	            				<li>${pReviewHouse1[vs.index]}</li>
+	            			</c:forEach>
+            			</ol>	 	
+		           	</div>
 			         	
 		         	</div>
 		         </div>
 	         </div>
-	         </div>
-         
+	         
+         </c:forEach>
       </div>
       <!-- /.row -->
       <hr>          
