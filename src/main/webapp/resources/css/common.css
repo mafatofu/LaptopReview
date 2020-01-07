@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gugi&display=swap');
+
+@media (max-width: 767px){
+	._search{
+		width:200px;
+	}
+}
+
+@media(max-width: 767px){
+	.search_container {
+	  width: 100%;
+	  padding-right: 15px;
+	  padding-left: 15px;
+	  margin-right: auto;
+	  margin-left: auto;
+	}
+}
+@media(min-width: 768px){
+	.search_container {
+	  width: 85%;
+	  padding-right: 15px;
+	  padding-left: 15px;
+	  margin-right: auto;
+	  margin-left: auto;
+	}
+}
+
+.bg_nav_menu_close{
+	z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;	
+}
+
+@media (max-width: 767px){
+	.nav_menu_open{	
+	    top: 70px !important;
+	}
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    display: flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
+}
+
+.nav_menu_open{	
+	position: absolute;
+    width: 170px;
+    top: 56px;
+    left: 10px;
+    background: #363c40;
+    background: rgba(52, 58, 64, 0.95);
+    clear: both;
+    z-index: 100;
+}
+
+.nav_menu_open ul {
+	margin: 0;
+	padding: 0;	
+}
+
+.nav_menu_open ul li {
+	list-style: none;	
+}
+
+.nav_menu_open ul li a {
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 15px;
+    display: block;
+    text-align: center;
+    border-top: 1px solid rgba(224, 224, 224, 0.21);
+    text-decoration: none;
+}
+
+.nav_menu_open ul li a:hover {
+	font-weight: bold;
+}
+	
+.search_table {
+	width: 100%;
+}
+
+.search-result{
+	overflow-x:auto;
+}
+
+.search_table tr:nth-of-type(2n) {
+    background-color: #f6f7f8;
+}
+
+.tr_h td {
+	color: #444;
+    vertical-align: bottom;
+    padding: 0 8px 8px 8px;
+    border-bottom: 1px solid #e6e6e6;
+    cursor: pointer;
+}
+
+.tr_h {
+	color: #444;
+	text-decoration: none;
+}
+
+.active, .tr_h td:hover {
+	color: #0466c8 !important;
+	font-weight:bold;
+	text-decoration: none;
+}
+
+.td_col {
+	padding: 22px 8px 22px 8px; */
+    border-bottom: 1px solid #e6e6e6;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #444;
+    height: 61px;
+    line-height: 61px;
+    padding: 0 8px;
+    position: relative;
+}

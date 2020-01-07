@@ -17,6 +17,8 @@ public class SearchServiceImpl implements SearchService {
 	public void SearchModel(Model model) {
 		Map<String, Object> map =  model.asMap();
 		String searchItem = (String)map.get("searchItem");
+		String order = (String)map.get("order");
+		Boolean order_asc = (Boolean)map.get("order_asc");
 		searchItem = searchItem.toUpperCase().replace(" ", "");
 		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1", "GRAM"};
 		String[] apple = {"APPLE", "애플"}; String[] apple_s = {"맥북프로", "맥북", "에어"};
@@ -30,6 +32,15 @@ public class SearchServiceImpl implements SearchService {
 		String[] dell = {"DELL", "델"}; String[] dell_s = {"래티튜드", "인스피론", "XPS", "17", "15", "13", "G5", "G3", "에일리언웨어", "AREA", "2IN1", "SE", "51M"};
 		String[] hansung= {"한성"}; String[] hansung_s = {"아방가르드", "올데이롱", "언더케이지", "BOSSMONSTER"};
 		String[] jooyun = {"주연", "주연테크"}; String[] jooyun_s = {"캐리북", "T", "리오나인" };
+		String[] search_input = {"GRAM", "MACBOOKPRO", "MACBOOK", "AIR", "FLEX", "ION", "오디세이", "IDEAPAD", "YOGA", "스위프트", "ASPIRE", "니트로", "ZENBOOK", "VIVOBOOK", "블레이드", "프로", "스텔스", "보스몬스터"};
+		String[] search_output = {"그램", "맥북프로", "맥북", "에어", "플렉스", "이온", "ODYSSEY", "아이디어패드", "요가", "SWIFT", "아스파이어", "NITRO", "젠북", "비보북", "BLADE", "PRO", "STEALTH", "BOSSMONSTER"};
+		
+		//한영 변환
+		for(int i = 0; i < search_input.length;i++) {
+			if(searchItem.contains(search_input[i])) {
+				searchItem = searchItem.replace(search_input[i], search_output[i]);
+			}
+		}
 		
 		//한글, 영어 변경 부분. array 따로 만들어서 변경.
 		//LG노트북 검색어 설정
@@ -38,11 +49,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%LG%");
 				for(String s : lg_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("GRAM")) {
-							searchItem = searchItem.replace(s, "%그램%");
-						}else {
 							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
 					}
 				}
 			}
@@ -53,15 +60,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%APPLE%");
 				for(String s : apple_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("MACBOOKPRO")) {
-							searchItem = searchItem.replace(s, "%맥북프로%");
-						}else if(s.equals("MACBOOK")) {
-							searchItem = searchItem.replace(s, "%맥북%");
-						}else if(s.equals("AIR")) {
-							searchItem = searchItem.replace(s, "%에어%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -71,15 +70,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%SAMSUNG%");
 				for(String s : samsung_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("FLEX")) {
-							searchItem = searchItem.replace(s, "%플렉스%");
-						}else if(s.equals("ION")) {
-							searchItem = searchItem.replace(s, "%이온%");
-						}else if(s.equals("오디세이")) {
-							searchItem = searchItem.replace(s, "%ODYSSEY%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -101,13 +92,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%LENOVO%");
 				for(String s : lenovo_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("IDEAPAD")) {
-							searchItem = searchItem.replace(s, "%아이디어패드%");
-						}else if(s.equals("YOGA")) {
-							searchItem = searchItem.replace(s, "%요가%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -129,15 +114,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%ACER%");
 				for(String s : acer_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("스위프트")) {
-							searchItem = searchItem.replace(s, "%SWIFT%");
-						}else if(s.equals("ASPIRE")) {
-							searchItem = searchItem.replace(s, "%아스파이어%");
-						}else if(s.equals("니트로")) {
-							searchItem = searchItem.replace(s, "%NITRO%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -148,13 +125,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%ASUS%");
 				for(String s : asus_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("ZENBOOK")) {
-							searchItem = searchItem.replace(s, "%젠북%");
-						}else if(s.equals("VIVOBOOK")) {
-							searchItem = searchItem.replace(s, "%비보북%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -165,15 +136,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%RAZER%");
 				for(String s : razer_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("블레이드")) {
-							searchItem = searchItem.replace(s, "%BLADE%");
-						}else if(s.equals("프로")) {
-							searchItem = searchItem.replace(s, "%PRO%");
-						}else if(s.equals("스텔스")) {
-							searchItem = searchItem.replace(s, "%STEALTH%");
-						}else {
-							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
+						searchItem = searchItem.replace(s, "%"+s+"%");
 					}
 				}
 			}
@@ -195,11 +158,7 @@ public class SearchServiceImpl implements SearchService {
 				searchItem = searchItem.replace(i, "%HANSUNG%");
 				for(String s : hansung_s) {
 					if(searchItem.contains(s)) {
-						if(s.equals("보스몬스터")) {
-							searchItem = searchItem.replace(s, "%BOSSMONSTER%");
-						}else {
 							searchItem = searchItem.replace(s, "%"+s+"%");
-						}
 					}
 				}
 			}
@@ -216,9 +175,8 @@ public class SearchServiceImpl implements SearchService {
 			}
 		}
 		
-		
 		System.out.println(searchItem);
-		model.addAttribute("searchList", dao.searchList(searchItem));
+		model.addAttribute("searchList", dao.searchList(searchItem, order, order_asc));
 	}
 
 		

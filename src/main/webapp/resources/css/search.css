@@ -1,7 +1,0 @@
-@charset "UTF-8";
-
-.search-result{
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}

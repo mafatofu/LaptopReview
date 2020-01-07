@@ -10,11 +10,15 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Creative - Start Bootstrap Theme</title>
+  <title>LapView</title>
+  
+  <link rel="shortcut icon" href="resources/img/favicon2.ico">
 
   <!-- Font Awesome Icons -->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -24,12 +28,11 @@
   <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="resources/css/creative.min.css?ver=1.4" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/index.css?ver=1.1'/>" />
+  <link href="resources/css/creative.min.css?ver=1.6" rel="stylesheet">
+  <link href="resources/css/index.css?ver=1.7" rel="stylesheet">
   <link href="resources/css/main.css?ver=1.6" rel="stylesheet">
   
   <!-- SearchBox CSS -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	
 					
@@ -91,32 +94,32 @@
 	        <div id="recommend_tag_main" class="col-lg-10 mt-3">
 	        <hr class="divider-2 my-5">
 	      	<ul class="row align-items-center justify-content-center">
-	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=그램">
+	        	<li class="tag_li col-lg-3 col-xs-6">
+	            	<a href="search?searchItem=그램">
 	                	<div class="img_box">
 	                    	<img src="resources/img/lggram.jpg" class="tag_img">
 	                     </div>
 	                     <p class="tag_p">LG 그램</p> 
 	                </a>
 	            </li>
-	            <li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=맥북">
+	            <li class="tag_li col-lg-3 col-xs-6">
+	            	<a href="search?searchItem=맥북">
 	                	<div class="img_box">
 	                    	<img src="resources/img/macbook.jpg" class="tag_img">
 	                     </div>
 	                     <p class="tag_p">애플 맥북</p>
 	                </a>
 	            </li>
-	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=노트북9"">
+	        	<li class="tag_li col-lg-3 col-xs-6">
+	            	<a href="search?searchItem=노트북9"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/sam9.jpg" class="tag_img">
 	                     </div>
 	                     <p class="tag_p">삼성 노트북9</p>
 	                </a>
 	            </li>                                
-	        	<li class="tag_li col-lg-3 col-sm-6">
-	            	<a href="search?searchOption=2&searchItem=아이디어패드"">
+	        	<li class="tag_li col-lg-3 col-xs-6">
+	            	<a href="search?searchItem=아이디어패드"">
 	                	<div class="img_box">
 	                    	<img src="resources/img/ideapad2.jpg" class="tag_img">
 	                     </div>
@@ -128,6 +131,44 @@
     	</div>
   	</div>
   </header>
+  
+  <!-- about Section -->
+  <section class="page-section" id="about">
+    <div class="container">
+      <h2 class="text-center mt-0">At Your Service</h2>
+      <hr class="divider my-4">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="material-icons md-48">all_inbox</i>
+            <h3 class="h4 mb-2">Sturdy Themes</h3>
+            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Up to Date</h3>
+            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Ready to Publish</h3>
+            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Made with Love</h3>
+            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-light py-1">
@@ -149,6 +190,8 @@
   <script src="resources/js/creative.min.js"></script>
   <script src="resources/js/extention/choices.js"></script>
   <script src="resources/js/common.js"></script>
+
+  
 </body>
 
 </html>
