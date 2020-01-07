@@ -40,8 +40,9 @@ public class ReviewServiceImpl implements ReviewService{
 		//모델명을 통해 resources 안 리뷰 파일의 절대 경로 가져오기
 		//모델 폴더 경로 
 		File file = new File(getClass().getClassLoader().getResource("PNReview/"+modelName).getFile());
-		//리뷰 파일 경로
+		//리뷰 파일 경로의 리스트 
 		File[] PNList = file.listFiles();
+		
 		//리뷰 파일들
 		//긍부정단어 리뷰 리스트의 List 작성
 		//각 리스트는 n번째 단어에 대한 리뷰들의 모임으로 구성된다. ex) pReviewHouse1에는, 각 키워드에 해당하는 파일의 첫번째 긍정단어들이 모여있다.

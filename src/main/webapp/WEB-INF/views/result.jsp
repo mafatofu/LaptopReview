@@ -64,11 +64,11 @@
     	<div class="bg_nav_menu_close" onclick="$('#div_nav_menu_open').css('display','none')"></div>
 	    <div class="nav_menu_open">
 			<ul>
+				<li><a href="#spec_top" >스펙</a></li>
 				<li><a href="#wordcloud">WordCloud</a></li>
 				<li id="keyLink"><a href="#keyword_top" >키워드 분석</a></li>
-				<li><a href="#">마케팅정보</a></li><!--search.html 페이지의 #marketing-->
+				<li><a href="#">가격정보</a></li><!--search.html 페이지의 #marketing-->
 				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>
-				<li><a href="#">SIGN IN</a></li>
 			</ul> 		   
 	    </div>    	
     </div>
@@ -120,7 +120,8 @@
             </c:forEach>
             console.log()
             
-            var ctx = document.getElementById('${k}').getContext('2d');
+            var ctx = document.getElementById('${k}').getContext('2d'
+            		);
             var chart = new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'horizontalBar',
