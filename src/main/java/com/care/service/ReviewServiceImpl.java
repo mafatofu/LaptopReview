@@ -13,7 +13,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
@@ -40,8 +39,9 @@ public class ReviewServiceImpl implements ReviewService{
 		//모델명을 통해 resources 안 리뷰 파일의 절대 경로 가져오기
 		//모델 폴더 경로 
 		File file = new File(getClass().getClassLoader().getResource("PNReview/"+modelName).getFile());
-		//리뷰 파일 경로
+		//리뷰 파일 경로의 리스트 
 		File[] PNList = file.listFiles();
+		
 		//리뷰 파일들
 		//긍부정단어 리뷰 리스트의 List 작성
 		//각 리스트는 n번째 단어에 대한 리뷰들의 모임으로 구성된다. ex) pReviewHouse1에는, 각 키워드에 해당하는 파일의 첫번째 긍정단어들이 모여있다.
@@ -144,17 +144,13 @@ public class ReviewServiceImpl implements ReviewService{
 	       }
 	      
 	      
-	      int cc = 1;
-	      for (List<List<String>> list : pWareHouse) {
-	    	System.out.println(cc++);
-	    	System.out.println("----------다음 키워드----------");
-			for (List<String> l : list) {
-				System.out.println("----------다음 긍부정단어----------");
-				for (String s : l) {
-					System.out.println(s);
-				}
-			}
-	      }
+		/*
+		 * int cc = 1; for (List<List<String>> list : pWareHouse) {
+		 * System.out.println(cc++); System.out.println("----------다음 키워드----------");
+		 * for (List<String> l : list) {
+		 * System.out.println("----------다음 긍부정단어----------"); for (String s : l) {
+		 * System.out.println(s); } } }
+		 */
 	      
 
 	      model.addAttribute("pWareHouse", pWareHouse);
@@ -176,11 +172,11 @@ public class ReviewServiceImpl implements ReviewService{
 		//최종적으로 모델에 넘어가는 맵. 키값으로 키워드를, 밸류값으로 긍/부정 단어 리스트(맵)를 가진다
 		HashMap<String, LinkedHashMap> positive_House = new HashMap<String, LinkedHashMap>();
 		HashMap<String, LinkedHashMap> negative_House = new HashMap<String, LinkedHashMap>();
-
 		
 		//키워드별 긍부정단어장(정렬 전)
 		HashMap<String, Integer> positive = new HashMap<String, Integer>();
 		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
+		
 		//모델명
 		String modelNameCk[] = null;
 		modelNameCk = request.getParameter("modelName").split("\\s");
@@ -193,40 +189,32 @@ public class ReviewServiceImpl implements ReviewService{
 		//디렉터리의 파일 리스트를 가져옴
 		File[] PNList = file.listFiles();
 		//키워드 추출
-		String keyWordSplit[] = null;
-		String keyWordName = ""; 
-		String keyWordCk[]=null;
+		String keyWordName = ""; // ~PNCount/모델명/cost.csv 파일의 경로 
 
-		if(PNList.length > 0){
-			
-			
-			//키워드 갯수만큼 돌림
+		if(PNList.length > 0){	//키워드 갯수만큼 돌림
 			for(int j=0; j < PNList.length; j++){
 				//키워드리스트 추가
 				//"_"으로 첫번째, "."으로 두번째 정제
 				keyWordName = PNList[j].getPath();
-				keyWordSplit = keyWordName.split(modelName+"\\\\");
-				keyWordCk = keyWordSplit[1].split("\\.");
-				keyWordList.add(transKeyWord(keyWordCk[0]));
-				
+				keyWordList.add(transKeyWord(keyWordName.split(modelName+"\\\\")[1].split("\\.")[0]));
+				//모델 경로에서 키워드리스트 추출 
 				
 				try {
 					BufferedReader br = new BufferedReader(
-							new InputStreamReader(new FileInputStream(keyWordName),StandardCharsets.UTF_8));
-					List<String> positive_WordList = new ArrayList<String>();
-					List<String> negative_WordList = new ArrayList<String>();
+							new InputStreamReader(new FileInputStream(keyWordName),StandardCharsets.UTF_8)); // 파일경로에서 파일 가져오기
+					List<String> positive_WordList = new ArrayList<String>(); //긍정 단어 리스트
+					List<String> negative_WordList = new ArrayList<String>(); //부정 단어 리스트 
 					String line = "";
 					String[] array;
 					//단어장 비워두기
-					positive.clear();
+					positive.clear(); //긍부정 단어 넣기 / 정렬을 위해. 
 					negative.clear();
 					
-					//긍부정단어 가져오기
-					//긍부정단어리스트에 추가?
+					//긍부정단어와 개수 넣기.
 					while((line = br.readLine())!=null) {
 						array = line.split(",");
 						if(line.contains("positive")) {
-							positive.put(array[1], Integer.parseInt(array[2]));
+							positive.put(array[1], Integer.parseInt(array[2])); 
 						} else if(line.contains("negative")) {
 							negative.put(array[1], Integer.parseInt(array[2]));	
 						}
@@ -307,17 +295,6 @@ public class ReviewServiceImpl implements ReviewService{
         
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
-		
-//		System.out.println("-----긍정단어 리스트-----");
-//		for (List<String> l : positive_WordHouse) {
-//			System.out.println(l);
-//		}
-//		System.out.println();
-//		System.out.println("-----부정단어 리스트-----");
-//		System.out.println();
-//		for (List<String> l : negative_WordHouse) {
-//			System.out.println(l);
-//		}
 		System.out.println(keyWordList);
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);

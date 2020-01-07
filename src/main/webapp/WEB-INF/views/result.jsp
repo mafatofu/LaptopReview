@@ -64,11 +64,11 @@
     	<div class="bg_nav_menu_close" onclick="$('#div_nav_menu_open').css('display','none')"></div>
 	    <div class="nav_menu_open">
 			<ul>
+				<li><a href="#spec_top" >스펙</a></li>
 				<li><a href="#wordcloud">WordCloud</a></li>
 				<li id="keyLink"><a href="#keyword_top" >키워드 분석</a></li>
-				<li><a href="#">마케팅정보</a></li><!--search.html 페이지의 #marketing-->
+				<li><a href="#">가격정보</a></li><!--search.html 페이지의 #marketing-->
 				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>
-				<li><a href="#">SIGN IN</a></li>
 			</ul> 		   
 	    </div>    	
     </div>
@@ -93,8 +93,6 @@
       <div id="wordcloud"></div>
       <div class="container-fluid" id="keyword_top">
       <!-- Page Content -->
-
-      <!-- Marketing Icons Section -->
       <div class="row">
       <!-- 키워드 개수만큼 그래프 생성 -->
       <c:forEach var='k'  varStatus = "vs" items="${keyWord }">
@@ -222,12 +220,20 @@
 		   				 -->   
 		            <div id="review_body">          	
 	            		<c:set var = "pReviewHouse" value = "${pWareHouse[vs.index] }"/>
-		            	<!-- 키워드 갯수만큼 돌아감. 1번은 9번. -->
-            				
+		            	<c:set var = "nReviewHouse" value = "${nWareHouse[vs.index] }"/>
+
 	            				<c:forEach var = "p" items="${pReviewHouse }">
-	           						<%-- <li>${p}</li> --%>
 	           						<ol start = "1" id = "${k }positive_review">
 	           						<c:forEach var = "s" items = "${p }" end = "4">
+	           							<li>${s }</li>
+	           						</c:forEach>
+	           						</ol> 
+	           					</c:forEach>
+	           					
+	           					<br><p>-----------------임시 군사분계선-----------------</p><br>
+	           					<c:forEach var = "n" items="${nReviewHouse }">
+	           						<ol start = "1" id = "${k }negative_review">
+	           						<c:forEach var = "s" items = "${n }" end = "4">
 	           							<li>${s }</li>
 	           						</c:forEach>
 	           						</ol> 
