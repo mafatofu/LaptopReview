@@ -45,17 +45,7 @@ public class ReviewServiceImpl implements ReviewService{
 		//리뷰 파일들
 		//긍부정단어 리뷰 리스트의 List 작성
 		//각 리스트는 n번째 단어에 대한 리뷰들의 모임으로 구성된다. ex) pReviewHouse1에는, 각 키워드에 해당하는 파일의 첫번째 긍정단어들이 모여있다.
-		List<List<String>> pReviewHouse1 = new ArrayList<List<String>>();
-		List<List<String>> pReviewHouse2 = new ArrayList<List<String>>();
-		List<List<String>> pReviewHouse3 = new ArrayList<List<String>>();
-		List<List<String>> pReviewHouse4 = new ArrayList<List<String>>();
-		List<List<String>> pReviewHouse5 = new ArrayList<List<String>>();
-		
-		List<List<String>> nReviewHouse1 = new ArrayList<List<String>>();
-		List<List<String>> nReviewHouse2 = new ArrayList<List<String>>();
-		List<List<String>> nReviewHouse3 = new ArrayList<List<String>>();
-		List<List<String>> nReviewHouse4 = new ArrayList<List<String>>();
-		List<List<String>> nReviewHouse5 = new ArrayList<List<String>>();
+
 		
 		//모델로 넘길 변수
 		List<List<List<String>>> pWareHouse = new ArrayList<List<List<String>>>();
@@ -85,6 +75,9 @@ public class ReviewServiceImpl implements ReviewService{
 	               List<String> nReview3 = new ArrayList<String>();
 	               List<String> nReview4 = new ArrayList<String>();
 	               List<String> nReview5 = new ArrayList<String>();
+	               
+	       		   List<List<String>> pReviewHouse = new ArrayList<List<String>>();
+	       		   List<List<String>> nReviewHouse = new ArrayList<List<String>>();
 	               
 	               //긍부정단어 리스트 하나씩 가져오기
 	               List<String> pl = positive_WordHouse.get(i);//[ , , , , ]의 형태
@@ -127,57 +120,43 @@ public class ReviewServiceImpl implements ReviewService{
 	            	    	 }
 				  }
 	                
+	               //각 리뷰들 담기
+	               pReviewHouse.add(pReview1); 	
+	               pReviewHouse.add(pReview2); 
+	               pReviewHouse.add(pReview3); 
+	               pReviewHouse.add(pReview4); 
+	               pReviewHouse.add(pReview5); 
 	               
-	               pReviewHouse1.add(pReview1); 	
-	               pReviewHouse2.add(pReview2); 
-	               pReviewHouse3.add(pReview3); 
-	               pReviewHouse4.add(pReview4); 
-	               pReviewHouse5.add(pReview5); 
+	               nReviewHouse.add(nReview1);
+	               nReviewHouse.add(nReview2);
+	               nReviewHouse.add(nReview3);
+	               nReviewHouse.add(nReview4);
+	               nReviewHouse.add(nReview5);
 	               
-	               nReviewHouse1.add(nReview1);
-	               nReviewHouse2.add(nReview2);
-	               nReviewHouse3.add(nReview3);
-	               nReviewHouse4.add(nReview4);
-	               nReviewHouse5.add(nReview5);
-	               
+	               pWareHouse.add(pReviewHouse);
+	               nWareHouse.add(nReviewHouse);
 	             } catch (Exception e) {
 	                e.printStackTrace();
 	             }
+	             
 	          }
 	          
-	          pWareHouse.add(pReviewHouse1);
-	          pWareHouse.add(pReviewHouse2);
-	          pWareHouse.add(pReviewHouse3);
-	          pWareHouse.add(pReviewHouse4);
-	          pWareHouse.add(pReviewHouse5);
-	          
-	          nWareHouse.add(nReviewHouse1);
-	          nWareHouse.add(nReviewHouse2);
-	          nWareHouse.add(nReviewHouse3);
-	          nWareHouse.add(nReviewHouse4);
-	          nWareHouse.add(nReviewHouse5);
-	          
-	          //리뷰 체크
-//	          for (List<List<String>> list : pWareHouse) {
-//				for (List<String> l : list) {
-//		        	System.out.println();
-//		        	System.out.println("------------다음 키워드 리뷰----------------");
-//		        	System.out.println();
-//		        	for (String s : l) {
-//		        		System.out.println(s);
-//					}
-//				}
-//	          }
-//	          
-//	          for (List<String> list : nReviewHouse1) { 
-//	        	  System.out.println();
-//	        	  System.out.println("------------다음 단어 리뷰----------------");
-//	        	  System.out.println();
-//				for (String s : list) {
-//					System.out.println(s);
-//				}
-//	          }
 	       }
+	      
+	      
+	      int cc = 1;
+	      for (List<List<String>> list : pWareHouse) {
+	    	System.out.println(cc++);
+	    	System.out.println("----------다음 키워드----------");
+			for (List<String> l : list) {
+				System.out.println("----------다음 긍부정단어----------");
+				for (String s : l) {
+					System.out.println(s);
+				}
+			}
+	      }
+	      
+
 	      model.addAttribute("pWareHouse", pWareHouse);
 	      model.addAttribute("nWareHouse", nWareHouse);
 	      
@@ -315,27 +294,30 @@ public class ReviewServiceImpl implements ReviewService{
 					}
 					positive_WordHouse.add(positive_WordList);
 					negative_WordHouse.add(negative_WordList);
-
+					
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
+		
 		}
 
         
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		
-		System.out.println("-----긍정단어 리스트-----");
-		for (List<String> l : positive_WordHouse) {
-			System.out.println(l);
-		}
-		System.out.println();
-		System.out.println("-----부정단어 리스트-----");
-		System.out.println();
-		for (List<String> l : negative_WordHouse) {
-			System.out.println(l);
-		}
+//		System.out.println("-----긍정단어 리스트-----");
+//		for (List<String> l : positive_WordHouse) {
+//			System.out.println(l);
+//		}
+//		System.out.println();
+//		System.out.println("-----부정단어 리스트-----");
+//		System.out.println();
+//		for (List<String> l : negative_WordHouse) {
+//			System.out.println(l);
+//		}
 		System.out.println(keyWordList);
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
