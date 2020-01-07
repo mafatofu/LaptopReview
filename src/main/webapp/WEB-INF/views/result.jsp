@@ -23,29 +23,33 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.9" rel="stylesheet">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <link href="resources/css/sb-admin.css?ver=2.2" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  
+  <!-- ===================JS==================== -->
+    <!-- Bootstrap core JavaScript-->
+  <script src="resources/vendor/jquery/jquery.min.js"></script>
+  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<script>
+  <!-- Core plugin JavaScript-->
+  <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="resources/js/sb-admin.min.js"></script>
+  <script src="resources/js/common.js"></script>  
+   
+  	<script>
 		$(document).ready(function(){
-/* 			$('#reviewNav a').click(function(){
-				//var offset = $('#positive_review5').offset(); //선택한 태그의 위치를 반환
-				var fixOffset = $('.card-header').offset();//스크롤 상단 고정.
-	                //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
-		        $('html').animate({scrollTop : fixOffset.top}, 400);
-			});
-			 */
-			$('#keyLink a').click(function(){
-				var fixOffset = $('#keyword').offset();
-		        $('html').animate({scrollTop : fixOffset.top}, 400);
+			$('a[href*=#]:not([href=#])').click(function(){
+				var a = $(this.hash);
+				var top = a.offset().top-55;
+		        $("html, body").animate({"scrollTop" : top}, 400);
 		        console.log('클릭 확인');
 			});
 		});
-	</script>
-
-
-  
+	</script>  
+    
 </head>
 
 <body id="page-top">
@@ -61,7 +65,7 @@
 	    <div class="nav_menu_open">
 			<ul>
 				<li><a href="#wordcloud">WordCloud</a></li>
-				<li id="keyLink"><a href="#keyword" >키워드 분석</a></li>
+				<li id="keyLink"><a href="#keyword_top" >키워드 분석</a></li>
 				<li><a href="#">마케팅정보</a></li><!--search.html 페이지의 #marketing-->
 				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>
 				<li><a href="#">SIGN IN</a></li>
@@ -87,7 +91,7 @@
     <div id="content-wrapper">
        <!-- wordCloud -->
       <div id="wordcloud"></div>
-      <div class="container-fluid" id="keyword">
+      <div class="container-fluid" id="keyword_top">
       <!-- Page Content -->
 
       <!-- Marketing Icons Section -->
@@ -102,7 +106,7 @@
                <canvas id="${k}" class="chart"></canvas>
                <canvas id="${k}2" class="chart"></canvas>
          <script>   
-            //키워드의 상위 5개 긍부정단어 생성
+            //키워드의 상위 5개 긍정단어 생성
             var positive_word = new Array();
             var positive_key = new Array();
             <c:forEach var = "pw" items = "${positive_House}">
@@ -140,7 +144,7 @@
       </script>
       
       <script>   
-            //키워드의 상위 5개 긍부정단어 생성
+            //키워드의 상위 5개 부정단어 생성
             var negative_word = new Array();
             var negative_key = new Array();
             <c:forEach var = "nw" items = "${negative_House}">
@@ -238,10 +242,7 @@
          </c:forEach>
       </div>
       <!-- /.row -->
-      <hr>
-
-        
-        
+      <hr>          
 
       </div>
       <!-- /.container-fluid -->
@@ -261,23 +262,12 @@
   </div>
   <!-- /#wrapper -->
 
-
-   
-  <!-- Bootstrap core JavaScript-->
-  <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="resources/js/sb-admin.min.js"></script>
-  <script src="resources/js/common.js"></script>
-   
   <!-- wordcloud -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>   
-  <script src="resources/js/wordcloud.js?ver=1.8	"></script>
+  <script src="resources/js/wordcloud.js?ver=1.9	"></script>
+  
+   
 
 </body>
 </html>

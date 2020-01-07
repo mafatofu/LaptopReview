@@ -23,7 +23,7 @@
  
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=1.7" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=2.2" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.8	" rel="stylesheet">
 
 </head>
@@ -57,52 +57,56 @@
         <!-- Page Content -->
         <!-- 눌렀을때 해당부분 active추가 / desc 모드 추가 필요 -->
   	<div class="search-result mx-2">
-  		<c:if test="${empty searchList }">
-  		검색 결과가 없습니다.
-  		</c:if>	
-  		<table class="search_table">
-  			<tr class="tr_h">
-		<c:url value="search" var="modelnameURL">
-			<c:param name="searchItem" value="${search}"></c:param>
-			<c:param name="order" value="MODELNAME"></c:param>
-		</c:url>  			
-  				<td class="colm_0" onclick="location.href='${modelnameURL}'">모델명</td>
-		<c:url value="search" var="cpuURL">
-			<c:param name="searchItem" value="${search}"></c:param>
-			<c:param name="order" value="CPU"></c:param>
-		</c:url>    				
-  				<td class="colm_1" onclick="location.href='${cpuURL}'">CPU</td>
-		<c:url value="search" var="displayURL">
-			<c:param name="searchItem" value="${search}"></c:param>
-			<c:param name="order" value="DISPLAY"></c:param>
-		</c:url>   				
-  				<td class="colm_2" onclick="location.href='${displayURL}'">화면크기</td>
-		<c:url value="search" var="weightURL">
-			<c:param name="searchItem" value="${search}"></c:param>
-			<c:param name="order" value="WEIGHT"></c:param>
-		</c:url>     				
-  				<td class="colm_3" onclick="location.href='${weightURL}'">무게</td>
-		<c:url value="search" var="purposeURL">
-			<c:param name="searchItem" value="${search}"></c:param>
-			<c:param name="order" value="PURPOSE"></c:param>
-		</c:url>     				
-  				<td class="colm_4" onclick="location.href='${purposeURL}'">용도</td>
-  			</tr>
-		<c:forEach var="list" items="${searchList }">
-		<c:url value="result" var="url">
-			<c:param name="modelName" value="${list.modelName }"></c:param>
-		</c:url>
-		<tr>
-			<td class="td_col">
-				<a href="${url}">${list.modelName }</a>
-			</td>
-			<td class="td_col">	${list.cpu }&nbsp;&nbsp;</td>
-			<td class="td_col"> ${list.display }인치&nbsp;&nbsp;</td>
-			<td class="td_col"> ${list.weight }kg&nbsp;&nbsp; </td>
-			<td class="td_col"> ${list.purpose }&nbsp;&nbsp;</td>
-		</tr>
-		</c:forEach>
-		</table>
+  		<c:choose>
+	  		<c:when test="${empty searchList }">
+	  			검색 결과가 없습니다.
+	  		</c:when>
+	  		<c:otherwise>	
+		  		<table class="search_table">
+		  			<tr class="tr_h">
+						<c:url value="search" var="modelnameURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="MODELNAME"></c:param>
+						</c:url>  			
+		  				<td class="colm_0" onclick="location.href='${modelnameURL}'">모델명</td>
+						<c:url value="search" var="cpuURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="CPU"></c:param>
+						</c:url>    				
+		  				<td class="colm_1" onclick="location.href='${cpuURL}'">CPU</td>
+						<c:url value="search" var="displayURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="DISPLAY"></c:param>
+						</c:url>   				
+		  				<td class="colm_2" onclick="location.href='${displayURL}'">화면크기</td>
+						<c:url value="search" var="weightURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="WEIGHT"></c:param>
+						</c:url>     				
+		  				<td class="colm_3" onclick="location.href='${weightURL}'">무게</td>
+						<c:url value="search" var="purposeURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="PURPOSE"></c:param>
+						</c:url>     				
+		  				<td class="colm_4" onclick="location.href='${purposeURL}'">용도</td>
+			  		</tr>
+					<c:forEach var="list" items="${searchList }">
+						<c:url value="result" var="url">
+							<c:param name="modelName" value="${list.modelName }"></c:param>
+						</c:url>
+					<tr>
+						<td class="td_col">
+							<a href="${url}">${list.modelName }</a>
+						</td>
+						<td class="td_col">	${list.cpu }&nbsp;&nbsp;</td>
+						<td class="td_col"> ${list.display }인치&nbsp;&nbsp;</td>
+						<td class="td_col"> ${list.weight }kg&nbsp;&nbsp; </td>
+						<td class="td_col"> ${list.purpose }&nbsp;&nbsp;</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</c:otherwise>
+		</c:choose>
 	</div>
 
       </div>
