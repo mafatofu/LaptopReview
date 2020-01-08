@@ -19,14 +19,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 
-@Service
-public class ReviewServiceImpl implements ReviewService{
-	
+
+public class ReviewServiceImpl {
+
 	//긍부정단어 이중리스트
 	List<List> positive_WordHouse = new ArrayList<List>();
 	List<List> negative_WordHouse = new ArrayList<List>();
 	
-	@Override
+	
 	public void pnReview(Model model) {
 		
 		Map<String, Object> map = model.asMap();
@@ -160,7 +160,7 @@ public class ReviewServiceImpl implements ReviewService{
 	      model.addAttribute("negative_WordHouse", negative_WordHouse);
 	}
 	
-	@Override
+
 	public void pnCount(Model model) {
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
@@ -281,17 +281,12 @@ public class ReviewServiceImpl implements ReviewService{
 						negative_WordList.add("없음");
 					}
 					positive_WordHouse.add(positive_WordList);
-					negative_WordHouse.add(negative_WordList);
-					
-					
-					
+					negative_WordHouse.add(negative_WordList);					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-		
+			}		
 		}
-
         
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
@@ -315,14 +310,4 @@ public class ReviewServiceImpl implements ReviewService{
 		default: return keyWord;
 		}
 	}
-
-
-
-
-
-
 }
-
-
-
-
