@@ -32,7 +32,6 @@ public class ReviewController {
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
 
-		service.pnCount(model);
 		service.pnReview(model);
 		return "result";
 	}
