@@ -219,18 +219,26 @@
 		   				 n번째 단어 리뷰 자리에 반복문을 돌려 pReview, rReview를 펼친다.
 		   				 -->   
 		            <div id="review_body">          	
-  		            	<c:set var = "pWareHouse" value = "${pWareHouse }"/>
-		            	<c:set var = "pReviewHouse1" value = "${pWareHouse[0] }"/>
-		            	<c:set var = "pReviewHouse2" value = "${pWareHouse[1] }"/>
-		            	<c:set var = "pReviewHouse3" value = "${pWareHouse[2] }"/>
-		            	<c:set var = "pReviewHouse4" value = "${pWareHouse[3] }"/>
-		            	<c:set var = "pReviewHouse5" value = "${pWareHouse[4] }"/>
-		            	
-	            		<ol start = "1" id = "${k }positive_review">
-		            		<c:forEach var = "pReviewHouse1" items = "${pReviewHouse1 }">
-	            				<li>${pReviewHouse1[vs.index]}</li>
-	            			</c:forEach>
-            			</ol>	 	
+	            		<c:set var = "pReviewHouse" value = "${pWareHouse[vs.index] }"/>
+		            	<c:set var = "nReviewHouse" value = "${nWareHouse[vs.index] }"/>
+
+	            				<c:forEach var = "p" items="${pReviewHouse }">
+	           						<ol start = "1" id = "${k }positive_review">
+	           						<c:forEach var = "s" items = "${p }" end = "4">
+	           							<li>${s }</li>
+	           						</c:forEach>
+	           						</ol> 
+	           					</c:forEach>
+	           					
+	           					<br><p>-----------------임시 군사분계선-----------------</p><br>
+	           					<c:forEach var = "n" items="${nReviewHouse }">
+	           						<ol start = "1" id = "${k }negative_review">
+	           						<c:forEach var = "s" items = "${n }" end = "4">
+	           							<li>${s }</li>
+	           						</c:forEach>
+	           						</ol> 
+	           					</c:forEach>
+           						
 		           	</div>
 			         	
 		         	</div>
@@ -239,6 +247,7 @@
 	         
          </c:forEach>
       </div>
+      
       <!-- /.row -->
       <hr>          
 
