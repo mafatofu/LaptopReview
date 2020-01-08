@@ -285,9 +285,20 @@ public class ReviewServiceImpl {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+<<<<<<< HEAD
 			}		
+=======
+				
+			}
+			
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 		}
+<<<<<<< HEAD
         
+=======
+
+		
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		System.out.println(keyWordList);

@@ -25,6 +25,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=2.2" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/result.css" rel="stylesheet">
   
   <!-- ===================JS==================== -->
     <!-- Bootstrap core JavaScript-->
@@ -34,6 +35,7 @@
   <!-- Core plugin JavaScript-->
   <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
+	
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/sb-admin.min.js"></script>
@@ -49,6 +51,22 @@
 			});
 		});
 	</script>  
+	
+    <script>
+	    $(document).ready(function(){
+	    	
+	    	$('ul.tabs li').click(function(){
+	    		var tab_id = $(this).attr('data-tab');
+	
+	    		$('ul.tabs li').removeClass('current');
+	    		$('.tab-content').removeClass('current');
+	
+	    		$(this).addClass('current');
+	    		$("#"+tab_id).addClass('current');
+	    	})
+	
+	    })
+	</script>
     
 </head>
 
@@ -186,61 +204,90 @@
          </div>
          
          <!-- 리뷰파트. -->
-	         <div class="col-lg-8 mb-8">
+         	 
+			 <div class="col-lg-8 mb-8">
 		         <div class="card h-100">
 		         	<h4 class="card-header">${k} 리뷰</h4>
 		         	<div id = "review">
-		   		    <!-- 네비게이션
-		   		    	  현재 모델의 키워드 갯수만큼 돌아감.
-		   		    	  네비게이션은 positive_WordHouse, negative_WordHouse를 받는다.
-		   		    	 pl, nl을 펼쳐 긍부정 상위 5개 단어를 펼친다.
-		   		    	  -->
+		         		<!-- 네비게이션 -->
+			         	 <c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
+					     <c:set var = "nl" value ="${negative_WordHouse[vs.index] }"/>
+			         	 <!-- 실제리뷰    -->
+			         	 <c:set var = "pReviewHouse" value = "${pWareHouse[vs.index] }"/>
+					     <c:set var = "nReviewHouse" value = "${nWareHouse[vs.index] }"/>
+			        <!-- 네비게이션-->
 		         	<div id = "reviewNav">
-		         		<c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
-		         		<c:set var = "nl" value ="${negative_WordHouse[vs.index] }"/>
-		         		
-		         		<%-- <c:set var ="p1" value = "${pl[0]}"/>
-		         		<c:out value = "${p1 }"/>  --%>
 		         		<div id = "positive_Nav">
- 		         		<c:forEach var = "pn" items ="${pl }">
-		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-primary slideup">${pn }</button></a>
-		         		</c:forEach>
+			         		<ul class="tabs">
+	 		         		<c:forEach var = "pn" items ="${pl}" varStatus = "status">
+	 		         			<c:choose>
+	 		         				<c:when test="${status.index eq 0}">
+									    <li class="tab-link current" data-tab="tab-${status.index +1}">
+									    	<button type="button" id = "${pn }" 
+				         				 class="btn btn-outline-primary slideup">${pn }</button>
+				         				</li>
+			         				</c:when>
+			         				<c:otherwise>
+			         					<li class="tab-link" data-tab="tab-${status.index +1}"><button type="button" id = "${pn }" 
+			         				 class="btn btn-outline-primary slideup">${pn }</button></li>
+			         				</c:otherwise>
+								</c:choose>
+			         		</c:forEach>
+			         		</ul>
 		         		</div>
 		         		<div id = "negative_Nav">
  						<c:forEach var = "nn" items ="${nl }">
-		         			<a href="#positive_review1"><button type="button" class="btn btn-outline-danger slideleft">${nn }</button></a>
+		         			<button type="button" id = "nNav" 
+		         			class="btn btn-outline-danger slideleft">${nn }</button>
 		         		</c:forEach>
 		         		</div>	
-		         	</div> 
-		            <!-- 각 리뷰에 접근하려면, pReviewHouse 안에 있는 리스트를 변수로 받아 출력해야한다. 
-		   				현재 모델의 키워드 갯수만큼 돌아감. pWareHouse, nWareHouse 따로 돌리기. for문 2개.
-		   				 5번 돌려서 pReviewHouse, nReviewHouse 꺼내기.
-		   				  각 ReviewHouse 5번씩 돌려서 pReview, rReview 꺼내기
-		   				 n번째 단어 리뷰 자리에 반복문을 돌려 pReview, rReview를 펼친다.
-		   				 -->   
-		            <div id="review_body">          	
-	            		<c:set var = "pReviewHouse" value = "${pWareHouse[vs.index] }"/>
-		            	<c:set var = "nReviewHouse" value = "${nWareHouse[vs.index] }"/>
-
-	            				<c:forEach var = "p" items="${pReviewHouse }">
-	           						<ol start = "1" id = "${k }positive_review">
-	           						<c:forEach var = "s" items = "${p }" end = "4">
-	           							<li>${s }</li>
-	           						</c:forEach>
-	           						</ol> 
-	           					</c:forEach>
+		         	</div> 	
+		         	
+		         	<!-- 리뷰 출력 -->  
+		         	<!-- 하나의 탭은 5개의 리뷰를 담아야 한다. 알맞게 바꾸자. 하나의 forEach문이 하나의 탭이 됨 -->
+		            <div id="review_body">
+		            <c:set var = "tcc" value = "tab-content current"/>
+		            <c:set var = "tc" value = "tab-content"/>
+		            
+		            <c:forEach var = "p" items="${pReviewHouse }" varStatus = "status">
+		            	
+		            	<c:choose>
+		            		<!-- 맨 첫번째 긍부정단어의 클래스명만을 바꾼다. -->
+		            		
+		            			<div id="tab-${status.index +1}" class="tab-content">
+		            				<c:when test="">
+				           				<c:forEach var = "s" items = "${p }" end = "4" >
+					            				<p>${s }</p><br>
+					            		</c:forEach>
+				            		</c:when>
+		           				</div>
+		            		
+		            		<c:otherwise>
+		            			<div id="tab-${status.index +1}" class="tab-content">
+			           				<c:forEach var = "s" items = "${p }" end = "4" >
+				            				<p>${s }</p><br>
+				            		</c:forEach>
+		           				</div>
+		            		</c:otherwise>
+		            	</c:choose>
+		            	
+		            	
+		            	
+		            	
+		            	
+		            	
+	           				
+	           		</c:forEach>
 	           					
-	           					<br><p>-----------------임시 군사분계선-----------------</p><br>
-	           					<c:forEach var = "n" items="${nReviewHouse }">
-	           						<ol start = "1" id = "${k }negative_review">
-	           						<c:forEach var = "s" items = "${n }" end = "4">
-	           							<li>${s }</li>
-	           						</c:forEach>
-	           						</ol> 
-	           					</c:forEach>
-           						
+		           	<c:forEach var = "n" items="${nReviewHouse }">
+   						<ol start = "1" id = "${k }negative_review">
+   						<c:forEach var = "s" items = "${n }" end = "4">
+   							<li>${s }</li>
+   						</c:forEach>
+   						</ol> 
+	           		</c:forEach>					
+	            										
 		           	</div>
-			         	
 		         	</div>
 		         </div>
 	         </div>
