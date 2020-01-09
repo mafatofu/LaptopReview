@@ -18,7 +18,7 @@
 		var model_name = getParam("modelName");
 		console.log(model_name);
 		
- 	   var width = window.outerWidth;
+ 	   var width = document.getElementById('content-wrapper').offsetWidth;
        var height = width*0.56;
        var fontSize = width*0.12;
        

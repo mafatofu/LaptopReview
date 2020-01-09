@@ -29,19 +29,13 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("result")
-	public String resultMap(Model model, HttpServletRequest request) {
-		model.addAttribute("request", request);
-		service.pnReview(model);
+	public String resultMap(Model model, @RequestParam(value="modelName", required=false, defaultValue = "item") String modelName) {
+		model.addAttribute("modelName", modelName);
+		System.out.println("컨트롤러 : " + modelName);
 		service.pnCount(model);
+		service.pnReview(model);		
+		s_service.SearchSpec(model);
 		return "result";
-	}
-	
-	@RequestMapping("result2")
-	public String resultMap2(Model model, HttpServletRequest request) {
-		model.addAttribute("request", request);
-		service.pnReview(model);
-		service.pnCount(model);
-		return "result2";
 	}
 	
 	@RequestMapping("search")
