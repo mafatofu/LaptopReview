@@ -2910,11 +2910,20 @@ fieldset:disabled a.btn {
   border-color: #007bff;
 }
 
+.btn-outline-primary:visited, .btn-outline-primary.visited{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;	
+}
+
+
 .btn-outline-primary:hover {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
 }
+
+
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);

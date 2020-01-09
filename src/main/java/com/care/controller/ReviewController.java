@@ -38,10 +38,7 @@ public class ReviewController {
 		return "result";
 	}
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
+
 	@RequestMapping("search")
 	public String search(@RequestParam(value="searchItem", required=false, defaultValue = "item") String searchItem, 
 			@RequestParam(value="order", required=false, defaultValue = "modelName") String order,
