@@ -2901,6 +2901,11 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
+  white-space: nowrap;
+  height: 2.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width:3.63em;
   color: #007bff;
   border-color: #007bff;
 }
@@ -3071,6 +3076,11 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-danger {
+  white-space: nowrap;
+  height: 2.4em;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  width:3.63em;
   color: #dc3545;
   border-color: #dc3545;
 }
@@ -4932,7 +4942,7 @@ input[type="button"].btn-block {
 .card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
   text-align:center;
-  background-color:#343a40 !important;
+  background-color: rgba(52, 58, 64, 0.85) !important;
   color: white;
 }
 

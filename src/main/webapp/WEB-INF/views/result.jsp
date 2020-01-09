@@ -120,8 +120,10 @@
                <h4 class="card-header">${k}</h4>
                
             <div class="card-body">
+            <div id = "chartCanvas">
                <canvas id="${k}" class="chart"></canvas>
                <canvas id="${k}2" class="chart"></canvas>
+            </div>
          <script>   
             //키워드의 상위 5개 긍정단어 생성
             var positive_word = new Array();
@@ -148,8 +150,8 @@
                    ],
                     datasets: [{
                         label: '긍정단어', 
-                        backgroundColor: 'rgb(205, 092, 092)',
-                        borderColor: 'rgb(205, 092, 092)',
+                        backgroundColor: 'rgb(111, 150, 255)',
+                        borderColor: 'rgb(111, 150, 255)',
                         data: [
                            positive_word[0],positive_word[1],positive_word[2],positive_word[3],positive_word[4]
                            ]
@@ -186,8 +188,8 @@
                    ],
                     datasets: [{
                         label: '부정단어', 
-                        backgroundColor: 'rgb(111, 150, 255)',
-                        borderColor: 'rgb(120, 150, 255)',
+                        backgroundColor: 'rgb(205, 092, 092)',
+                        borderColor: 'rgb(205, 092, 092)',
                         data: [
                            negative_word[0],negative_word[1],negative_word[2],negative_word[3],negative_word[4]
                            ]
@@ -286,7 +288,7 @@
 	           		
            			<c:forEach var = "n" items="${nReviewHouse }" varStatus = "status">
    						<c:choose>
-			            	<c:when test="${status.index eq 0}"><!-- 여기가 문제. 걍 status.index를 써버리니 첫 키워드에 대한 것만 적용되버림. -->
+			            	<c:when test="${status.index eq 0}">
 				            	<div id="tab-n${vs.index}-${status.index}" class="tab-content current">          	
 			            			<c:forEach var = "s" items = "${n }" end = "4" varStatus = "status">
 			            				<p>${s }</p><br>
