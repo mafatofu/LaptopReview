@@ -18,15 +18,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-
-
-public class ReviewServiceImpl {
+@Service
+public class ReviewServiceImpl implements ReviewService {
 
 	//긍부정단어 이중리스트
 	List<List> positive_WordHouse = new ArrayList<List>();
 	List<List> negative_WordHouse = new ArrayList<List>();
 	
-	
+	@Override
 	public void pnReview(Model model) {
 		
 		Map<String, Object> map = model.asMap();
@@ -159,8 +158,7 @@ public class ReviewServiceImpl {
 	      model.addAttribute("positive_WordHouse", positive_WordHouse);
 	      model.addAttribute("negative_WordHouse", negative_WordHouse);
 	}
-	
-
+	@Override
 	public void pnCount(Model model) {
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
@@ -285,20 +283,10 @@ public class ReviewServiceImpl {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 			}		
-=======
-				
-			}
-			
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 		}
-<<<<<<< HEAD
-        
-=======
+			
 
-		
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
 		System.out.println(keyWordList);

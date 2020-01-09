@@ -31,7 +31,6 @@ public class ReviewController {
 	@RequestMapping("result")
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
-
 		service.pnReview(model);
 		return "result";
 	}
