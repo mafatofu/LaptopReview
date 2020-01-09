@@ -183,8 +183,7 @@ public class SearchServiceImpl implements SearchService {
 				}
 			}
 		}
-		
-		System.out.println(searchItem);
+
 		model.addAttribute("searchList", dao.searchList(searchItem, order, order_asc));
 	}
 
