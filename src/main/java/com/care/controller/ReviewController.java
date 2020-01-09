@@ -32,7 +32,16 @@ public class ReviewController {
 	public String resultMap(Model model, HttpServletRequest request) {
 		model.addAttribute("request", request);
 		service.pnReview(model);
+		service.pnCount(model);
 		return "result";
+	}
+	
+	@RequestMapping("result2")
+	public String resultMap2(Model model, HttpServletRequest request) {
+		model.addAttribute("request", request);
+		service.pnReview(model);
+		service.pnCount(model);
+		return "result2";
 	}
 	
 	@RequestMapping("search")

@@ -54,7 +54,7 @@
 	
     <script>
 	    $(document).ready(function(){
-	    	
+	  
 	    	$('ul.tabs li').click(function(){
 	    		var tab_id = $(this).attr('data-tab');
 	
@@ -114,6 +114,7 @@
       <div class="row">
       <!-- 키워드 개수만큼 그래프 생성 -->
       <c:forEach var='k'  varStatus = "vs" items="${keyWord }">
+      	 <c:set var = "ck" value = "${vs.step }"/>
          <div class="col-lg-4 mb-4">
             <div class="card h-100">
                <h4 class="card-header">${k}</h4>
@@ -167,8 +168,8 @@
                <c:if test ="${k == nw.key}">
                   <c:forEach var = "np" items = "${nw.value }"
                       begin="0" end="4" step="1" varStatus="idx">
-                      negative_key[${idx.index}] ="${np.key}",
-                      negative_word[${idx.index}] = "${np.value}",
+                      negative_key[${idx.index}] ="${np.key}"
+                      negative_word[${idx.index}] = "${np.value}"
                   </c:forEach>
                </c:if>
             </c:forEach>
@@ -210,6 +211,7 @@
 		         	<h4 class="card-header">${k} 리뷰</h4>
 		         	<div id = "review">
 		         		<!-- 네비게이션 -->
+		         		 <!-- 각 키워드에 대한 최상위 긍부정단어가 5개씩 들어가있다. -->
 			         	 <c:set var = "pl" value = "${positive_WordHouse[vs.index] }"/>
 					     <c:set var = "nl" value ="${negative_WordHouse[vs.index] }"/>
 			         	 <!-- 실제리뷰    -->
@@ -222,70 +224,86 @@
 	 		         		<c:forEach var = "pn" items ="${pl}" varStatus = "status">
 	 		         			<c:choose>
 	 		         				<c:when test="${status.index eq 0}">
-									    <li class="tab-link current" data-tab="tab-${status.index +1}">
+									    <li class="tab-link current" data-tab="tab-p${vs.index}-${status.index}">
 									    	<button type="button" id = "${pn }" 
 				         				 class="btn btn-outline-primary slideup">${pn }</button>
 				         				</li>
 			         				</c:when>
 			         				<c:otherwise>
-			         					<li class="tab-link" data-tab="tab-${status.index +1}"><button type="button" id = "${pn }" 
-			         				 class="btn btn-outline-primary slideup">${pn }</button></li>
+			         					<li class="tab-link" data-tab="tab-p${vs.index}-${status.index}">
+			         						<button type="button" id = "${pn }" 
+			         				 	class="btn btn-outline-primary slideup">${pn }</button></li>
 			         				</c:otherwise>
 								</c:choose>
 			         		</c:forEach>
 			         		</ul>
 		         		</div>
 		         		<div id = "negative_Nav">
- 						<c:forEach var = "nn" items ="${nl }">
-		         			<button type="button" id = "nNav" 
-		         			class="btn btn-outline-danger slideleft">${nn }</button>
-		         		</c:forEach>
+ 							<ul class="tabs">
+	 		         		<c:forEach var = "nn" items ="${nl}" varStatus = "status">
+	 		         			<c:choose>
+	 		         				<c:when test="${status.index eq 0}">
+									    <li class="tab-link current" data-tab="tab-n${vs.index}-${status.index}">
+									    	<button type="button" id = "${nn }" 
+				         				 class="btn btn-outline-danger slideleft">${nn }</button>
+				         				</li>
+			         				</c:when>
+			         				<c:otherwise>
+			         					<li class="tab-link" data-tab="tab-n${vs.index}-${status.index}">
+			         						<button type="button" id = "${nn }" 
+			         				 	class="btn btn-outline-danger slideleft">${nn }</button></li>
+			         				</c:otherwise>
+								</c:choose>
+			         		</c:forEach>
+			         		</ul>
 		         		</div>	
 		         	</div> 	
 		         	
 		         	<!-- 리뷰 출력 -->  
 		         	<!-- 하나의 탭은 5개의 리뷰를 담아야 한다. 알맞게 바꾸자. 하나의 forEach문이 하나의 탭이 됨 -->
 		            <div id="review_body">
-		            <c:set var = "tcc" value = "tab-content current"/>
-		            <c:set var = "tc" value = "tab-content"/>
-		            
-		            <c:forEach var = "p" items="${pReviewHouse }" varStatus = "status">
-		            	
+
+					<!-- pReviewHouse: 각 키워드에 대한 긍정리뷰 5개가 들어있음. -->
+		            <c:forEach var = "p" items="${pReviewHouse }"  varStatus = "status">
 		            	<c:choose>
-		            		<!-- 맨 첫번째 긍부정단어의 클래스명만을 바꾼다. -->
-		            		
-		            			<div id="tab-${status.index +1}" class="tab-content">
-		            				<c:when test="">
-				           				<c:forEach var = "s" items = "${p }" end = "4" >
-					            				<p>${s }</p><br>
-					            		</c:forEach>
-				            		</c:when>
-		           				</div>
-		            		
-		            		<c:otherwise>
-		            			<div id="tab-${status.index +1}" class="tab-content">
-			           				<c:forEach var = "s" items = "${p }" end = "4" >
-				            				<p>${s }</p><br>
-				            		</c:forEach>
-		           				</div>
-		            		</c:otherwise>
-		            	</c:choose>
-		            	
-		            	
-		            	
-		            	
-		            	
-		            	
-	           				
+			            	<c:when test="${status.index eq 0}"><!-- 여기가 문제. 걍 status.index를 써버리니 첫 키워드에 대한 것만 적용되버림. -->
+				            	<div id="tab-p${vs.index}-${status.index}" class="tab-content current">          	
+			            			<c:forEach var = "s" items = "${p }" end = "4" varStatus = "status">
+			            				<p>${s }</p><br>
+			            			</c:forEach>				
+			            		</div>
+		            		</c:when>
+	            				
+	           			<c:otherwise> 
+	           				<div id="tab-p${vs.index}-${status.index}" class="tab-content">
+		           				<c:forEach var = "s" items = "${p }" end = "4" >
+			            				<p>${s }</p><br>
+			            		</c:forEach>
+		           			</div>
+	           			</c:otherwise>
+	           			</c:choose>	
 	           		</c:forEach>
-	           					
-		           	<c:forEach var = "n" items="${nReviewHouse }">
-   						<ol start = "1" id = "${k }negative_review">
-   						<c:forEach var = "s" items = "${n }" end = "4">
-   							<li>${s }</li>
-   						</c:forEach>
-   						</ol> 
-	           		</c:forEach>					
+	           		
+           			<c:forEach var = "n" items="${nReviewHouse }" varStatus = "status">
+   						<c:choose>
+			            	<c:when test="${status.index eq 0}"><!-- 여기가 문제. 걍 status.index를 써버리니 첫 키워드에 대한 것만 적용되버림. -->
+				            	<div id="tab-n${vs.index}-${status.index}" class="tab-content current">          	
+			            			<c:forEach var = "s" items = "${n }" end = "4" varStatus = "status">
+			            				<p>${s }</p><br>
+			            			</c:forEach>				
+			            		</div>
+		            		</c:when>
+	            				
+	           			<c:otherwise> 
+	           				<div id="tab-n${vs.index}-${status.index}" class="tab-content">
+		           				<c:forEach var = "s" items = "${n }" end = "4" >
+			            				<p>${s }</p><br>
+			            		</c:forEach>
+		           			</div>
+	           			</c:otherwise>
+	           			</c:choose> 
+           			</c:forEach>			
+		           						
 	            										
 		           	</div>
 		         	</div>

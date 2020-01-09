@@ -285,11 +285,9 @@ public class ReviewServiceImpl implements ReviewService {
 				}
 			}		
 		}
-			
-
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
-		System.out.println(keyWordList);
+		//System.out.println(keyWordList);
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
 		model.addAttribute("negative_House", negative_House);

@@ -188,4 +188,3 @@
 // * System.out.println("========리뷰========"); for(String review :
 // * negative_word_review_List.get(i).get(key)) { System.out.println(review); } }
 // * System.out.println("---------------구분선--------------"); }
-// */
