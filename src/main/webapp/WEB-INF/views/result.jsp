@@ -23,7 +23,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=2.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=2.9" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
   <link href="resources/css/result.css" rel="stylesheet">
   
@@ -82,11 +82,11 @@
     	<div class="bg_nav_menu_close" onclick="$('#div_nav_menu_open').css('display','none')"></div>
 	    <div class="nav_menu_open">
 			<ul>
-				<li><a href="#spec_top" >스펙</a></li>
+				<li><a href="#spec" >스펙</a></li>
 				<li><a href="#wordcloud">WordCloud</a></li>
 				<li id="keyLink"><a href="#keyword_top" >키워드 분석</a></li>
-				<li><a href="#">가격정보</a></li><!--search.html 페이지의 #marketing-->
-				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>
+				<li><a href="#">가격정보</a></li>
+				<li><a class="btn_Channel_Plugin" href="#">CONTACT</a></li>				
 			</ul> 		   
 	    </div>    	
     </div>
@@ -107,6 +107,37 @@
 
   <div id="wrapper">
     <div id="content-wrapper">
+      <!-- 모델 스펙 -->
+      <div class="row" id="spec">
+      	<div class="col-lg-6">
+	    	<img src="resources/img/model/${modelName}.jpg" class="model_img">
+      	</div> 
+      	<div class="col-lg-6 padding_x align-item">
+      		<table>
+      			<tr>
+      				<td colspan="2" class="td_title">${spec.modelName}</td>
+      			</tr>
+      			<tr>
+      				<td class="td_content">CPU</td><td class="td_content">${spec.cpu}</td>
+      			</tr>
+      			<tr>
+      				<td class="td_content">RAM</td><td class="td_content">8 GB</td>
+      			</tr>
+      			<tr>
+      				<td class="td_content">저장장치</td><td class="td_content">256 GB</td>
+      			</tr>      			      			
+      			<tr>
+      				<td class="td_content">화면크기</td><td class="td_content">${spec.display} 인치</td>
+      			</tr>
+      			<tr>
+      				<td class="td_content">무게</td><td class="td_content">${spec.weight} kg</td>
+      			</tr> 
+      			<tr>
+      				<td class="td_content">용도</td><td class="td_content">${spec.purpose}</td>
+      			</tr>        			     			      			
+      		</table>
+      	</div>     
+      </div>    
        <!-- wordCloud -->
       <div id="wordcloud"></div>
       <div class="container-fluid" id="keyword_top">
@@ -115,7 +146,7 @@
       <!-- 키워드 개수만큼 그래프 생성 -->
       <c:forEach var='k'  varStatus = "vs" items="${keyWord }">
       	 <c:set var = "ck" value = "${vs.step }"/>
-         <div class="col-lg-4 mb-4">
+         <div class="col-lg-4 mb-4" id="padding_x">
             <div class="card h-100">
                <h4 class="card-header">${k}</h4>
                
@@ -208,7 +239,7 @@
          
          <!-- 리뷰파트. -->
          	 
-			 <div class="col-lg-8 mb-8">
+			 <div class="col-lg-8 mb-8" id="padding_x">
 		         <div class="card h-100">
 		         	<h4 class="card-header">${k} 리뷰</h4>
 		         	<div id = "review">
@@ -339,7 +370,7 @@
   <!-- wordcloud -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>   
-  <script src="resources/js/wordcloud.js?ver=1.9	"></script>
+  <script src="resources/js/wordcloud.js?ver=1.2	"></script>
   
    
 

@@ -22,6 +22,7 @@
 //
 //	@Override
 //	public void pnReview(Model model) {
+//		
 //		List<String> keyWordList = new ArrayList<String>(); //키워드 리스트
 //		List<LinkedHashMap<String , Integer>> positive_word_count_List = new ArrayList<LinkedHashMap<String , Integer>>(); //긍정 단어와 개수 리스트
 //		List<LinkedHashMap<String , Integer>> negative_word_count_List = new ArrayList<LinkedHashMap<String , Integer>>(); //부정 단어와 개수 리스트
@@ -141,36 +142,13 @@
 //				positive_word_review_List.add(positive_word_review);
 //				negative_word_review_List.add(negative_word_review);
 //			}
+//		model.addAttribute("keyWordList", keyWordList);
+//		model.addAttribute("positive_word_count_List", positive_word_count_List);
+//		model.addAttribute("negative_word_count_List", negative_word_count_List);
+//		model.addAttribute("positive_word_review_List", positive_word_review_List);
+//		model.addAttribute("negative_word_review_List", negative_word_review_List);
 //		
-//		for(int i = 0; i < keyWordList.size(); i++) {
-//			System.out.println("키워드 : " + keyWordList.get(i));
-//			System.out.println(positive_word_count_List.size());
-//			System.out.println(negative_word_count_List.size());
-//			System.out.println(positive_word_count_List.get(i).size());
-//			System.out.println(negative_word_count_List.get(i).size());
-//			System.out.println(positive_word_review_List.size());
-//			System.out.println(negative_word_review_List.size());
-//			System.out.println(positive_word_review_List.get(i).size());
-//			System.out.println(negative_word_review_List.get(i).size());
-//			System.out.println("+++++++긍정 키워드+++++++");
-//			for(String key : positive_word_count_List.get(i).keySet()) {
-//				System.out.println(key + " : " + positive_word_count_List.get(i).get(key) + "개");
-//				System.out.println("========리뷰========");
-//				for(String review : positive_word_review_List.get(i).get(key)) {
-//					System.out.println(review);
-//				}
-//			}
-//			System.out.println("+++++++부정 키워드+++++++");
-//			for(String key : negative_word_count_List.get(i).keySet()) {
-//				System.out.println(key + " : " + negative_word_count_List.get(i).get(key) + "개");
-//				System.out.println("========리뷰========");
-//				for(String review : negative_word_review_List.get(i).get(key)) {
-//					System.out.println(review);
-//				}
-//			}
-//			System.out.println("---------------구분선--------------");
 //		}
-//	}
 //	
 //	public String transKeyWord(String keyWord) {
 //		switch (keyWord) {
@@ -187,3 +165,26 @@
 //		}
 //	}
 //}
+//
+//
+///* 화면 출력용 페이지.
+// * for(int i = 0; i < keyWordList.size(); i++) { System.out.println("키워드 : " +
+// * keyWordList.get(i)); System.out.println(positive_word_count_List.size());
+// * System.out.println(negative_word_count_List.size());
+// * System.out.println(positive_word_count_List.get(i).size());
+// * System.out.println(negative_word_count_List.get(i).size());
+// * System.out.println(positive_word_review_List.size());
+// * System.out.println(negative_word_review_List.size());
+// * System.out.println(positive_word_review_List.get(i).size());
+// * System.out.println(negative_word_review_List.get(i).size());
+// * System.out.println("+++++++긍정 키워드+++++++"); for(String key :
+// * positive_word_count_List.get(i).keySet()) { System.out.println(key + " : " +
+// * positive_word_count_List.get(i).get(key) + "개");
+// * System.out.println("========리뷰========"); for(String review :
+// * positive_word_review_List.get(i).get(key)) { System.out.println(review); } }
+// * System.out.println("+++++++부정 키워드+++++++"); for(String key :
+// * negative_word_count_List.get(i).keySet()) { System.out.println(key + " : " +
+// * negative_word_count_List.get(i).get(key) + "개");
+// * System.out.println("========리뷰========"); for(String review :
+// * negative_word_review_List.get(i).get(key)) { System.out.println(review); } }
+// * System.out.println("---------------구분선--------------"); }

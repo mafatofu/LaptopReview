@@ -23,7 +23,7 @@
  
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=2.2" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=2.4" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.8	" rel="stylesheet">
 
 </head>
@@ -43,7 +43,6 @@
         </div>
       </div>
     </form>
-
   </nav>
 
   <div id="wrapper">
