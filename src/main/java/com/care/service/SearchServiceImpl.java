@@ -12,6 +12,15 @@ public class SearchServiceImpl implements SearchService {
 	
 	@Autowired
 	SearchDAO dao;
+	
+	@Override
+	public void SearchSpec(Model model) {
+		Map<String, Object> map =  model.asMap();
+		String modelName = (String)map.get("modelName");
+		model.addAttribute("spec", dao.searchSpec(modelName));
+	}
+	
+	
 
 	@Override
 	public void SearchModel(Model model) {

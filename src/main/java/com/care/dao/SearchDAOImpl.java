@@ -19,6 +19,12 @@ public class SearchDAOImpl implements SearchDAO{
 	public static final String NAMESPACE = "search";
 
 	@Override
+	public ReviewDTO searchSpec(String modelName) {
+		System.out.println("DAO에서 : " + modelName);
+		return sql.selectOne(NAMESPACE+".searchSpec", modelName);
+	}
+	
+	@Override
 	public List<ReviewDTO> searchList(String searchItem, String order, Boolean order_asc) {
 		Map<String, Object> search = new HashMap<String, Object>();
 		search.put("searchItem", searchItem);

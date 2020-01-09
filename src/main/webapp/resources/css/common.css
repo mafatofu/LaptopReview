@@ -3,28 +3,78 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gugi&display=swap');
 
+.td_title{
+	font-size: 25px;
+	color: #339966;
+	font-weight: bold;	
+	height: 50px;
+    line-height: 50px;
+}
+
+.td_content{
+	font-weight: bold;
+	font-size: 19px;
+	height: 40px;
+    line-height: 40px;
+}
+
+@media (max-width: 767px){
+.padding_x{
+	padding: 2rem 1rem 2rem 1rem;
+	}
+}
+
+@media(min-width: 768px){
+	.padding_x{
+	padding-top: 4rem;
+	padding-left: 9rem;	
+	}
+}
+
+.align-item{
+	align-items: flex-end;
+}
+
+
+#keyword_top {
+	padding: 0;
+}
+
+#padding_x{
+	padding: 0;
+}
+
+#spec{
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.model_img{
+	width: 100%;
+}
+
 @media (max-width: 767px){
 	._search{
 		width:200px;
 	}
 }
 
-@media(max-width: 767px){
 	.search_container {
-	  width: 100%;
 	  padding-right: 15px;
 	  padding-left: 15px;
 	  margin-right: auto;
 	  margin-left: auto;
 	}
+
+
+@media(max-width: 767px){
+	.search_container {
+	  width: 100%;
+	}
 }
 @media(min-width: 768px){
 	.search_container {
 	  width: 85%;
-	  padding-right: 15px;
-	  padding-left: 15px;
-	  margin-right: auto;
-	  margin-left: auto;
 	}
 }
 

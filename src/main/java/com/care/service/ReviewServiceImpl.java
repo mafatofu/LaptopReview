@@ -14,28 +14,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-
-
-public class ReviewServiceImpl {
+@Service
+public class ReviewServiceImpl implements ReviewService {
 
 	//긍부정단어 이중리스트
 	List<List> positive_WordHouse = new ArrayList<List>();
 	List<List> negative_WordHouse = new ArrayList<List>();
 	
-	
+	@Override
 	public void pnReview(Model model) {
 		
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		//모델명 가져오기
-		String modelNameCk[] = null;
-		modelNameCk = request.getParameter("modelName").split("\\s");
-		String modelName = modelNameCk[2];
-		
+		String modelName = (String)map.get("modelName");
+		System.out.println("pnReview 에서 : " + modelName);
 		//모델명을 통해 resources 안 리뷰 파일의 절대 경로 가져오기
 		//모델 폴더 경로 
 		File file = new File(getClass().getClassLoader().getResource("PNReview/"+modelName).getFile());
@@ -142,8 +137,6 @@ public class ReviewServiceImpl {
 	          }
 	          
 	       }
-	      
-	      
 		/*
 		 * int cc = 1; for (List<List<String>> list : pWareHouse) {
 		 * System.out.println(cc++); System.out.println("----------다음 키워드----------");
@@ -151,7 +144,6 @@ public class ReviewServiceImpl {
 		 * System.out.println("----------다음 긍부정단어----------"); for (String s : l) {
 		 * System.out.println(s); } } }
 		 */
-	      
 
 	      model.addAttribute("pWareHouse", pWareHouse);
 	      model.addAttribute("nWareHouse", nWareHouse);
@@ -159,15 +151,13 @@ public class ReviewServiceImpl {
 	      model.addAttribute("positive_WordHouse", positive_WordHouse);
 	      model.addAttribute("negative_WordHouse", negative_WordHouse);
 	}
-	
-
+	@Override
 	public void pnCount(Model model) {
 		//키워드 리스트
 		List<String> keyWordList = new ArrayList<String>();
 		//긍부정 단어 리스트
 
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
 
 		//최종적으로 모델에 넘어가는 맵. 키값으로 키워드를, 밸류값으로 긍/부정 단어 리스트(맵)를 가진다
 		HashMap<String, LinkedHashMap> positive_House = new HashMap<String, LinkedHashMap>();
@@ -178,9 +168,11 @@ public class ReviewServiceImpl {
 		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
 		
 		//모델명
+		System.out.println("pnCount에서 : " + (String)map.get("modelName"));
 		String modelNameCk[] = null;
-		modelNameCk = request.getParameter("modelName").split("\\s");
+		modelNameCk = ((String)map.get("modelName")).split("\\s");
 		String modelName = modelNameCk[2];
+		
 		//System.out.println("모델명: "+modelName);
 		//모델 path
 
@@ -285,23 +277,12 @@ public class ReviewServiceImpl {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 			}		
-=======
-				
-			}
-			
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
 		}
-<<<<<<< HEAD
-        
-=======
-
-		
->>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
         //모델에 전달
       	//키워드리스트, 키워드리스트 and 긍부정단어리스트
-		System.out.println(keyWordList);
+		//System.out.println(keyWordList);
+	    model.addAttribute("modelName", modelName);
 		model.addAttribute("keyWord", keyWordList);
 		model.addAttribute("positive_House", positive_House);
 		model.addAttribute("negative_House", negative_House);

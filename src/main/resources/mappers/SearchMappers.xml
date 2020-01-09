@@ -9,4 +9,8 @@
 	<select id="searchDESC" parameterType="map" resultType = "com.care.dto.ReviewDTO">
 		 SELECT * FROM  LAPTOP WHERE MODELNAME like '%'||#{searchItem}||'%' ORDER BY ${order} DESC
 	</select>
+	
+	<select id="searchSpec" resultType = "com.care.dto.ReviewDTO">
+		 SELECT * FROM  LAPTOP WHERE MODELNAME like '%'||#{modelName}||'%'
+	</select>
 </mapper>
