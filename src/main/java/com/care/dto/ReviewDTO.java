@@ -4,7 +4,13 @@ public class ReviewDTO {
 	//product 테이블
 	private String modelName; //모델네임
 	private String cpu; //cpu
+	private String ram;//램
+	private String storage;//ssd 용량
 	private String display; //화면크기
+	public String getRam() {
+		return ram;
+	}
+
 	private String weight; //무게
 	private String purpose; //용도
 	
@@ -21,6 +27,17 @@ public class ReviewDTO {
 	public void setCpu(String cpu) {
 		this.cpu = cpu;
 	}
+	/*램, 용량 추가*/
+	public void setRam(String ram) {
+		this.ram = ram;
+	}
+	public String getStorage() {
+		return storage;
+	}
+	public void setStorage(String storage) {
+		this.storage = storage;
+	}
+
 	public String getDisplay() {
 		return display;
 	}
