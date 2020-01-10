@@ -24,7 +24,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=2.9" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.7" rel="stylesheet">
   <link href="resources/css/result.css" rel="stylesheet">
   
   <!-- ===================JS==================== -->
@@ -67,7 +67,7 @@
 	
 	    })
 	</script>
-    
+	
 </head>
 
 <body id="page-top">
@@ -113,27 +113,27 @@
 	    	<img src="resources/img/model/${modelName}.jpg" class="model_img">
       	</div> 
       	<div class="col-lg-6 padding_x align-item">
-      		<table>
+      		<table id="spec_table">
       			<tr>
       				<td colspan="2" class="td_title">${spec.modelName}</td>
       			</tr>
       			<tr>
-      				<td class="td_content">CPU</td><td class="td_content">${spec.cpu}</td>
+      				<td class="td_content">CPU</td><td class="td_content align_right">${spec.cpu}</td>
       			</tr>
       			<tr>
-      				<td class="td_content">RAM</td><td class="td_content">8 GB</td>
+      				<td class="td_content">RAM</td><td class="td_content align_right">8 GB</td>
       			</tr>
       			<tr>
-      				<td class="td_content">저장장치</td><td class="td_content">256 GB</td>
+      				<td class="td_content">저장장치</td><td class="td_content align_right">256 GB</td>
       			</tr>      			      			
       			<tr>
-      				<td class="td_content">화면크기</td><td class="td_content">${spec.display} 인치</td>
+      				<td class="td_content">화면크기</td><td class="td_content align_right">${spec.display} 인치</td>
       			</tr>
       			<tr>
-      				<td class="td_content">무게</td><td class="td_content">${spec.weight} kg</td>
+      				<td class="td_content">무게</td><td class="td_content align_right">${spec.weight} kg</td>
       			</tr> 
       			<tr>
-      				<td class="td_content">용도</td><td class="td_content">${spec.purpose}</td>
+      				<td class="td_content">용도</td><td class="td_content align_right">${spec.purpose}</td>
       			</tr>        			     			      			
       		</table>
       	</div>     
@@ -151,8 +151,10 @@
                <h4 class="card-header">${k}</h4>
                
             <div class="card-body">
+            <div id = "chartCanvas">
                <canvas id="${k}" class="chart"></canvas>
                <canvas id="${k}2" class="chart"></canvas>
+            </div>
          <script>   
             //키워드의 상위 5개 긍정단어 생성
             var positive_word = new Array();
@@ -179,8 +181,8 @@
                    ],
                     datasets: [{
                         label: '긍정단어', 
-                        backgroundColor: 'rgb(205, 092, 092)',
-                        borderColor: 'rgb(205, 092, 092)',
+                        backgroundColor: 'rgb(111, 150, 255)',
+                        borderColor: 'rgb(111, 150, 255)',
                         data: [
                            positive_word[0],positive_word[1],positive_word[2],positive_word[3],positive_word[4]
                            ]
@@ -217,8 +219,8 @@
                    ],
                     datasets: [{
                         label: '부정단어', 
-                        backgroundColor: 'rgb(111, 150, 255)',
-                        borderColor: 'rgb(120, 150, 255)',
+                        backgroundColor: 'rgb(205, 092, 092)',
+                        borderColor: 'rgb(205, 092, 092)',
                         data: [
                            negative_word[0],negative_word[1],negative_word[2],negative_word[3],negative_word[4]
                            ]
@@ -317,7 +319,7 @@
 	           		
            			<c:forEach var = "n" items="${nReviewHouse }" varStatus = "status">
    						<c:choose>
-			            	<c:when test="${status.index eq 0}"><!-- 여기가 문제. 걍 status.index를 써버리니 첫 키워드에 대한 것만 적용되버림. -->
+			            	<c:when test="${status.index eq 0}">
 				            	<div id="tab-n${vs.index}-${status.index}" class="tab-content current">          	
 			            			<c:forEach var = "s" items = "${n }" end = "4" varStatus = "status">
 			            				<p>${s }</p><br>
