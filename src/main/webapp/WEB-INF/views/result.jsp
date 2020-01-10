@@ -24,7 +24,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=2.9" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.7" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.94" rel="stylesheet">
   <link href="resources/css/result.css" rel="stylesheet">
   
   <!-- ===================JS==================== -->
@@ -50,9 +50,7 @@
 		        console.log('클릭 확인');
 			});
 		});
-	</script>  
-	
-    <script>
+
 	    $(document).ready(function(){
 	  
 	    	$('ul.tabs li').click(function(){
@@ -139,17 +137,29 @@
       	</div>     
       </div>    
        <!-- wordCloud -->
-      <div id="wordcloud"></div>
-      <div class="container-fluid" id="keyword_top">
-      <!-- Page Content -->
+      <div id="wordcloud" class="row">
+      	<div id="cloud" class="col-lg-8"></div>
+      	<div id="word" class="col-lg-4">
+      		<ul>
+      		<c:forEach var='k'  varStatus = "vs" items="${keyWord}">
+      	 	<li>
+      	 		<a href="#_${k}">
+      	 		<button type="button" class="btn btn-light">${k}</button>
+      	 		</a>
+      	 	</li>
+      		</c:forEach>
+      		</ul>
+      	</div>
+      </div>
+      <!-- 키워드 그래프 -->
+	  <div class="container-fluid" id="keyword_top">
       <div class="row">
       <!-- 키워드 개수만큼 그래프 생성 -->
-      <c:forEach var='k'  varStatus = "vs" items="${keyWord }">
+      <c:forEach var='k'  varStatus = "vs" items="${keyWord}">
       	 <c:set var = "ck" value = "${vs.step }"/>
-         <div class="col-lg-4 mb-4" id="padding_x">
+         <div class="col-lg-4 mb-4 padding_0" id="_${k}">
             <div class="card h-100">
-               <h4 class="card-header">${k}</h4>
-               
+               <h4 class="card-header">${k}</h4>               
             <div class="card-body">
             <div id = "chartCanvas">
                <canvas id="${k}" class="chart"></canvas>
@@ -239,7 +249,7 @@
          
          <!-- 리뷰파트. -->
          	 
-			 <div class="col-lg-8 mb-8" id="padding_x">
+			 <div class="col-lg-8 mb-8 padding_0">
 		         <div class="card h-100">
 		         	<h4 class="card-header">${k} 리뷰</h4>
 		         	<div id = "review">
@@ -370,7 +380,7 @@
   <!-- wordcloud -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>   
-  <script src="resources/js/wordcloud.js?ver=1.2	"></script>
+  <script src="resources/js/wordcloud.js?ver=1.5"></script>
   
    
 
