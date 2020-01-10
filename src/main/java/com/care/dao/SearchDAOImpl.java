@@ -20,7 +20,6 @@ public class SearchDAOImpl implements SearchDAO{
 
 	@Override
 	public ReviewDTO searchSpec(String modelName) {
-		System.out.println("DAO에서 : " + modelName);
 		return sql.selectOne(NAMESPACE+".searchSpec", modelName);
 	}
 	
@@ -29,7 +28,6 @@ public class SearchDAOImpl implements SearchDAO{
 		Map<String, Object> search = new HashMap<String, Object>();
 		search.put("searchItem", searchItem);
 		search.put("order", order);
-		System.out.println(search.get("searchItem") + " : " + search.get("order"));
 		List<ReviewDTO> list;
 		if (order_asc) {
 			list = sql.selectList(NAMESPACE+".searchASC", search);

@@ -30,7 +30,6 @@ public class ReviewServiceImpl implements ReviewService {
 		Map<String, Object> map = model.asMap();
 		//모델명 가져오기
 		String modelName = (String)map.get("modelName");
-		System.out.println("pnReview 에서 : " + modelName);
 		//모델명을 통해 resources 안 리뷰 파일의 절대 경로 가져오기
 		//모델 폴더 경로 
 		File file = new File(getClass().getClassLoader().getResource("PNReview/"+modelName).getFile());
@@ -168,7 +167,6 @@ public class ReviewServiceImpl implements ReviewService {
 		HashMap<String, Integer> negative = new HashMap<String, Integer>();	
 		
 		//모델명
-		System.out.println("pnCount에서 : " + (String)map.get("modelName"));
 		String modelNameCk[] = null;
 		modelNameCk = ((String)map.get("modelName")).split("\\s");
 		String modelName = modelNameCk[2];

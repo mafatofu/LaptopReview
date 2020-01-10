@@ -24,7 +24,7 @@
 
   <!-- Custom styles for this template-->
   <link href="resources/css/sb-admin.css?ver=2.9" rel="stylesheet">
-  <link href="resources/css/common.css?ver=1.2" rel="stylesheet">
+  <link href="resources/css/common.css?ver=1.7" rel="stylesheet">
   <link href="resources/css/result.css" rel="stylesheet">
   
   <!-- ===================JS==================== -->
@@ -113,27 +113,27 @@
 	    	<img src="resources/img/model/${modelName}.jpg" class="model_img">
       	</div> 
       	<div class="col-lg-6 padding_x align-item">
-      		<table>
+      		<table id="spec_table">
       			<tr>
       				<td colspan="2" class="td_title">${spec.modelName}</td>
       			</tr>
       			<tr>
-      				<td class="td_content">CPU</td><td class="td_content">${spec.cpu}</td>
+      				<td class="td_content">CPU</td><td class="td_content align_right">${spec.cpu}</td>
       			</tr>
       			<tr>
-      				<td class="td_content">RAM</td><td class="td_content">8 GB</td>
+      				<td class="td_content">RAM</td><td class="td_content align_right">8 GB</td>
       			</tr>
       			<tr>
-      				<td class="td_content">저장장치</td><td class="td_content">256 GB</td>
+      				<td class="td_content">저장장치</td><td class="td_content align_right">256 GB</td>
       			</tr>      			      			
       			<tr>
-      				<td class="td_content">화면크기</td><td class="td_content">${spec.display} 인치</td>
+      				<td class="td_content">화면크기</td><td class="td_content align_right">${spec.display} 인치</td>
       			</tr>
       			<tr>
-      				<td class="td_content">무게</td><td class="td_content">${spec.weight} kg</td>
+      				<td class="td_content">무게</td><td class="td_content align_right">${spec.weight} kg</td>
       			</tr> 
       			<tr>
-      				<td class="td_content">용도</td><td class="td_content">${spec.purpose}</td>
+      				<td class="td_content">용도</td><td class="td_content align_right">${spec.purpose}</td>
       			</tr>        			     			      			
       		</table>
       	</div>     

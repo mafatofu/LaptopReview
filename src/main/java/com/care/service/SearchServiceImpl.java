@@ -29,7 +29,7 @@ public class SearchServiceImpl implements SearchService {
 		String order = (String)map.get("order");
 		Boolean order_asc = (Boolean)map.get("order_asc");
 		searchItem = searchItem.toUpperCase().replace(" ", "");
-		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1"};
+		String[] lg = {"LG", "엘지"}; String[] lg_s = {"그램", "울트라", "울트라PC", "울트라기어", "2IN1", "GRAM"};
 		String[] apple = {"APPLE", "애플"}; String[] apple_s = {"맥북프로", "맥북", "에어"};
 		String[] samsung = {"SAMSUNG", "삼성"}; String[] samsung_s = {"노트북9", "노트북7", "노트북5", "노트북3", "갤럭시북", "갤럭시북S",  "노트북", "플렉스", "이온", "ODYSSEY", "PEN", "S"};
 		String[] hp = {"HP"}; String[] hp_s = {"파빌리온", "프로북", "엔비", "게이밍", "오멘", "스펙터"};
@@ -51,6 +51,7 @@ public class SearchServiceImpl implements SearchService {
 			}
 		}
 		
+		//한글, 영어 변경 부분. array 따로 만들어서 변경.
 		//LG노트북 검색어 설정
 		for(String i : lg) {
 			if(searchItem.contains(i)) {
@@ -182,8 +183,7 @@ public class SearchServiceImpl implements SearchService {
 				}
 			}
 		}
-		
-		System.out.println(searchItem);
+
 		model.addAttribute("searchList", dao.searchList(searchItem, order, order_asc));
 	}
 

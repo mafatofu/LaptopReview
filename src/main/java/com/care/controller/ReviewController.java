@@ -31,7 +31,6 @@ public class ReviewController {
 	@RequestMapping("result")
 	public String resultMap(Model model, @RequestParam(value="modelName", required=false, defaultValue = "item") String modelName) {
 		model.addAttribute("modelName", modelName);
-		System.out.println("컨트롤러 : " + modelName);
 		service.pnCount(model);
 		service.pnReview(model);		
 		s_service.SearchSpec(model);
@@ -47,7 +46,6 @@ public class ReviewController {
 		model.addAttribute("searchItem", searchItem);
 		model.addAttribute("order", order);
 		model.addAttribute("order_asc", order_asc);
-		System.out.println(order_asc);
 		s_service.SearchModel(model);
 		model.addAttribute("search", search);
 		return "search";

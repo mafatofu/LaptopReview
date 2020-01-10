@@ -3,11 +3,19 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gugi&display=swap');
 
+#spec_table{
+	width: 80%;
+	margin: auto;
+}
+.align_right{
+	text-align: right;	
+}
+
 .td_title{
 	font-size: 25px;
 	color: #339966;
 	font-weight: bold;	
-	height: 50px;
+	height: 75px;
     line-height: 50px;
 }
 
@@ -20,14 +28,19 @@
 
 @media (max-width: 767px){
 .padding_x{
-	padding: 2rem 1rem 2rem 1rem;
+	padding: 2rem 1rem;
 	}
 }
 
 @media(min-width: 768px){
 	.padding_x{
-	padding-top: 4rem;
-	padding-left: 9rem;	
+	padding: 0 15%;
+	}
+}
+
+@media(min-width: 992px){
+	.padding_x{
+	padding: 4%;
 	}
 }
 
