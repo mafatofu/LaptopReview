@@ -18,12 +18,12 @@
 		var model_name = getParam("modelName");
 		console.log(model_name);
 		
- 	   var width = document.getElementById('content-wrapper').offsetWidth;
+ 	   var width = document.getElementById('review').offsetWidth;
        var height = width*0.56;
        var fontSize = width*0.12;
        
 
-       var svg = d3.select("#wordcloud").append("svg")
+       var svg = d3.select("#cloud").append("svg")
             .attr("width", width)
             .attr("height", height); 
         d3.csv("resources/text/" + model_name + ".csv", function (data) {

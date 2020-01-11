@@ -3,6 +3,56 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gugi&display=swap');
 
+#wordcloud{
+	padding: 25px 0;
+}
+
+#cloud{
+	padding: 0 !important;
+}
+
+
+#word{
+	padding:0 5px;
+	margin:auto;
+}
+
+#word ul{
+	margin: auto;
+    padding: 0;
+    text-align: center;	
+}
+
+#word li{
+	padding: 3px;
+	list-style-type: none;
+}
+
+#word button{
+	font-family: 'Gugi';
+	font-weight: bold;
+	width: 30%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 15px 4%;
+}
+
+@media (max-width: 991px){
+#word button{
+	margin: 15px 0;
+	}
+}
+
+#word li{
+	display:inline;
+	}
+
+@media (max-width: 991px){
+#word li{
+	display:inline;
+	}
+}
+
 #spec_table{
 	width: 80%;
 	margin: auto;
@@ -53,7 +103,7 @@
 	padding: 0;
 }
 
-#padding_x{
+.padding_0{
 	padding: 0;
 }
 
