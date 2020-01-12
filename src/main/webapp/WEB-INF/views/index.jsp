@@ -29,12 +29,9 @@
   
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="resources/css/creative.min.css?ver=1.6" rel="stylesheet">
-  <link href="resources/css/index.css?ver=1.7" rel="stylesheet">
+  <link href="resources/css/index.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/main.css?ver=1.6" rel="stylesheet">
   
-  <!-- SearchBox CSS -->
-
-	
 					
 </head>
 
@@ -75,7 +72,7 @@
 	          	<hr class="divider my-4">
         	</div>
 	        <div class="col-lg-10 align-self-baseline mx-auto">
-	        	<p class="text-white-75 font-weight-light mb-5">다양한 리뷰 데이터들을 분석한 결과를 확인할 수 있습니다.</p>
+	        	<p class="text-white-75 font-weight-light mb-5">노트북 리뷰 데이터 분석 결과를 확인하세요</p>
 	        </div>
 	        <div class="s013 col-lg-10 align-self-center mx-auto my-3">
 		      <form name="search" action="search" onsubmit="return isNull()">
@@ -83,7 +80,7 @@
 		          <div class="left">
 		            <div class="input-wrap first">
 		              <div class="input-field first">
-		                <input type="text" placeholder="ex: lg, apple, samsung" name="searchItem" />
+		                <input type="text" placeholder=" ex: lg, apple, samsung" name="searchItem" />
 		              </div>
 		            </div>
 		          </div>
@@ -135,21 +132,21 @@
   <!-- about Section -->
   <section class="page-section" id="about">
     <div class="container">
-      <h2 class="text-center mt-0">At Your Service</h2>
+      <h2 class="text-center mt-0 font-weight-bold">리뷰 분석?</h2>
       <hr class="divider my-4">
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="material-icons md-48">all_inbox</i>
-            <h3 class="h4 mb-2">Sturdy Themes</h3>
-            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+            <i class="material-icons md-70">all_inbox</i>
+            <h3 class="h4 mb-2">다양한 리뷰 데이터</h3>
+            <p class="text-muted mb-0">모델당 수백건의 리뷰 데이터를 수집합니다</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Up to Date</h3>
-            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+            <h3 class="h4 mb-2"></h3>
+            <p class="text-muted mb-0">수집한 리뷰 데이터들을 한글 형태소 분석기를 통해 분석합니다</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
@@ -162,7 +159,7 @@
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Made with Love</h3>
+            <h3 class="h4 mb-2">Enjoy it</h3>
             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
           </div>
         </div>
