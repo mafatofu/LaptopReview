@@ -297,6 +297,11 @@ public class ReviewServiceImpl implements ReviewService {
 		case "display": return "화면";
 		case "weight": return "무게";
 		case "speed": return "속도";
+		case "package": return "포장";
+		case "concern": return "고민";
+		case "product": return "제품";
+		case "upgrade": return "업그레이드";
+		case "design": return "디자인";
 		default: return keyWord;
 		}
 	}
