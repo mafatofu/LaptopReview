@@ -167,7 +167,6 @@
                <canvas id="${k}2" class="chart"></canvas>
             </div>
          <script>       
-        	 @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
             //키워드의 상위 5개 긍정단어 생성
             var positive_word = new Array();
             var positive_key = new Array();
