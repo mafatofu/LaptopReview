@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+i.md-70{
+	font-size: 48px;
+}
+
 /* 모델 리스트 */
 #recommend_tag_main {
     color: #fff;
