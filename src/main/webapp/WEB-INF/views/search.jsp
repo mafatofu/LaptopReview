@@ -17,13 +17,14 @@
   <!-- Custom fonts for this template-->
   <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
 
   <!-- Page level plugin CSS-->
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
  
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=2.4" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=2.3" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.8	" rel="stylesheet">
 
 </head>

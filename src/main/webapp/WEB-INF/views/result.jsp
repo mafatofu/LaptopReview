@@ -35,6 +35,7 @@
   <!-- Core plugin JavaScript-->
   <script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
 	
 
   <!-- Custom scripts for all pages-->
@@ -165,7 +166,8 @@
                <canvas id="${k}" class="chart"></canvas>
                <canvas id="${k}2" class="chart"></canvas>
             </div>
-         <script>   
+         <script>       
+        	 @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
             //키워드의 상위 5개 긍정단어 생성
             var positive_word = new Array();
             var positive_key = new Array();
