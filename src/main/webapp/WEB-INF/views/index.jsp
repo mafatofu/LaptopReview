@@ -23,12 +23,13 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
 
   <!-- Plugin CSS -->
   <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="resources/css/creative.min.css?ver=1.6" rel="stylesheet">
+  <link href="resources/css/creative.min.css?ver=1.8" rel="stylesheet">
   <link href="resources/css/index.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/main.css?ver=1.6" rel="stylesheet">
   
@@ -40,24 +41,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">LapView</a>
+      <a class="navbar-brand js-scroll-trigger" href="#about">LapView</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -137,30 +126,30 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="material-icons md-70">all_inbox</i>
-            <h3 class="h4 mb-2">다양한 리뷰 데이터</h3>
+            <i class="material-icons md-70">description</i>
+            <h3 class="h4 mb-2">다양한 데이터</h3>
             <p class="text-muted mb-0">모델당 수백건의 리뷰 데이터를 수집합니다</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2"></h3>
-            <p class="text-muted mb-0">수집한 리뷰 데이터들을 한글 형태소 분석기를 통해 분석합니다</p>
+            <i class="material-icons md-70">code</i>
+            <h3 class="h4 mb-2">맞춤 한글 분석</h3>
+            <p class="text-muted mb-0">한글 형태소 분석기를 이용해 정확한 리뷰 분석을 하였습니다</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Ready to Publish</h3>
-            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+            <i class="material-icons md-70">dashboard</i>
+            <h3 class="h4 mb-2">빈출단어 확인</h3>
+            <p class="text-muted mb-0">리뷰에서 가장 많이 나오는 단어를 확인할 수 있습니다</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Enjoy it</h3>
-            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+            <i class="material-icons md-70">assessment</i>
+            <h3 class="h4 mb-2">긍부정 표현 확인</h3>
+            <p class="text-muted mb-0">빈출 단어의 연관 표현과 분석된 리뷰를 통해 빈출 단어의 의미를 확인할 수 있습니다</p>
           </div>
         </div>
       </div>
