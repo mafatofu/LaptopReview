@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 PN,text,frequency
 positive,가볍,71
 positive,적당,41
@@ -7,3 +8,14 @@ negative,약간,5
 negative,빼,1
 negative,무게감,1
 negative, 나가,0
+=======
+PN,text,frequency
+positive,가볍,71
+positive,적당,41
+positive,가볍고,25
+negative,무겁,17
+negative,약간,5
+negative,빼,1
+negative,무게감,1
+negative, 나가,0
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git

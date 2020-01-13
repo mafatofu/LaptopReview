@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 PN,text,frequency
 positive,좋,414
 positive,최고,174
@@ -8,3 +9,15 @@ positive,대비,16
 positive,훌륭,14
 positive,탁월,3
 positive,고려,2
+=======
+PN,text,frequency
+positive,좋,414
+positive,최고,174
+positive,만족,71
+positive,추천,42
+positive,괜찮,31
+positive,대비,16
+positive,훌륭,14
+positive,탁월,3
+positive,고려,2
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git

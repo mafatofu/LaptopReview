@@ -23,7 +23,7 @@
   <link href="resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/sb-admin.css?ver=2.9" rel="stylesheet">
+  <link href="resources/css/sb-admin.css?ver=1.5" rel="stylesheet">
   <link href="resources/css/common.css?ver=1.94" rel="stylesheet">
   <link href="resources/css/result.css" rel="stylesheet">
   

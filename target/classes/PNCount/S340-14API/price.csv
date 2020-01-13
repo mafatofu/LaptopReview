@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 PN,text,frequency
 positive,좋,333
 positive,대비,190
@@ -16,3 +17,23 @@ positive,굿,4
 positive,최저가,1
 positive,싸게,1
 negative,비싸,5
+=======
+PN,text,frequency
+positive,좋,333
+positive,대비,190
+positive,저렴,116
+positive,만족,116
+positive,가성비,97
+positive,이만한,36
+positive,훌륭,21
+positive,마음,19
+positive,착하,18
+positive,행사,13
+positive,비교,10
+positive,빅스마일데이,7
+positive,득템,4
+positive,굿,4
+positive,최저가,1
+positive,싸게,1
+negative,비싸,5
+>>>>>>> branch 'master' of https://github.com/mafatofu/LaptopReview.git
