@@ -120,10 +120,10 @@
       				<td class="td_content">CPU</td><td class="td_content align_right">${spec.cpu}</td>
       			</tr>
       			<tr>
-      				<td class="td_content">RAM</td><td class="td_content align_right">8 GB</td>
+      				<td class="td_content">RAM</td><td class="td_content align_right">${spec.ram} GB</td>
       			</tr>
       			<tr>
-      				<td class="td_content">저장장치</td><td class="td_content align_right">256 GB</td>
+      				<td class="td_content">저장장치</td><td class="td_content align_right">${spec.storage}</td>
       			</tr>      			      			
       			<tr>
       				<td class="td_content">화면크기</td><td class="td_content align_right">${spec.display} 인치</td>

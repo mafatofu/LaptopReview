@@ -14,11 +14,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-        id="dataSource">
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
         <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
-        <property value="jdbc:oracle:thin:@localhost:1521:xe"
-            name="url" />
+        <property value="jdbc:oracle:thin:@localhost:1521:xe" name="url" />
         <property value="jsp" name="username" /><!-- DB User -->
         <property value="1234" name="password" /><!-- DB User Password -->
     </bean>
