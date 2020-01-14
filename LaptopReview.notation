@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style">
+  <notation:Diagram xmi:id="_AZ_uwDW2EeqziZrE_NW54g" type="PapyrusUMLClassDiagram" name="Class Diagram" measurementUnit="Pixel">
+    <styles xsi:type="notation:StringValueStyle" xmi:id="_AZ_uwTW2EeqziZrE_NW54g" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_AZ_uwjW2EeqziZrE_NW54g"/>
+    <styles xsi:type="style:PapyrusDiagramStyle" xmi:id="_AZ_uwzW2EeqziZrE_NW54g" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
+      <owner href="LaptopReview.uml#_AZ8EYDW2EeqziZrE_NW54g"/>
+    </styles>
+    <element href="LaptopReview.uml#_AZ8EYDW2EeqziZrE_NW54g"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_AaA84DW2EeqziZrE_NW54g" type="UseCase" name="Use Case Diagram" measurementUnit="Pixel">
+    <styles xsi:type="notation:StringValueStyle" xmi:id="_AaA84TW2EeqziZrE_NW54g" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_AaA84jW2EeqziZrE_NW54g"/>
+    <styles xsi:type="style:PapyrusDiagramStyle" xmi:id="_AaA84zW2EeqziZrE_NW54g" diagramKindId="org.eclipse.papyrus.uml.diagram.useCase">
+      <owner href="LaptopReview.uml#_AZ8EYDW2EeqziZrE_NW54g"/>
+    </styles>
+    <element href="LaptopReview.uml#_AZ8EYDW2EeqziZrE_NW54g"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_AaDZIDW2EeqziZrE_NW54g" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
+    <children xsi:type="notation:Shape" xmi:id="_AaDZITW2EeqziZrE_NW54g" type="Interaction_Shape">
+      <children xsi:type="notation:DecorationNode" xmi:id="_AaDZIjW2EeqziZrE_NW54g" type="Interaction_NameLabel"/>
+      <children xsi:type="notation:BasicCompartment" xmi:id="_AaDZIzW2EeqziZrE_NW54g" type="Interaction_SubfragmentCompartment">
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_AaDZJDW2EeqziZrE_NW54g"/>
+      </children>
+      <element href="LaptopReview.uml#_AaCLADW2EeqziZrE_NW54g"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_AaDZJTW2EeqziZrE_NW54g"/>
+    </children>
+    <styles xsi:type="notation:StringValueStyle" xmi:id="_AaDZJjW2EeqziZrE_NW54g" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_AaDZJzW2EeqziZrE_NW54g"/>
+    <styles xsi:type="style:PapyrusDiagramStyle" xmi:id="_AaDZKDW2EeqziZrE_NW54g" diagramKindId="org.eclipse.papyrus.uml.diagram.sequence">
+      <owner href="LaptopReview.uml#_AZ8EYDW2EeqziZrE_NW54g"/>
+    </styles>
+    <element href="LaptopReview.uml#_AaCLADW2EeqziZrE_NW54g"/>
+  </notation:Diagram>
+</xmi:XMI>
