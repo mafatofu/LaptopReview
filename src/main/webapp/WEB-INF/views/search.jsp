@@ -74,6 +74,16 @@
 							<c:param name="order" value="CPU"></c:param>
 						</c:url>    				
 		  				<td class="colm_1" onclick="location.href='${cpuURL}'">CPU</td>
+						<c:url value="search" var="ramURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="RAM"></c:param>
+						</c:url>    				
+		  				<td class="colm_1" onclick="location.href='${ramURL}'">RAM</td>
+						<c:url value="search" var="storageURL">
+							<c:param name="searchItem" value="${search}"></c:param>
+							<c:param name="order" value="STORAGE"></c:param>
+						</c:url>    				
+		  				<td class="colm_1" onclick="location.href='${storageURL}'">저장장치</td>		  						  				
 						<c:url value="search" var="displayURL">
 							<c:param name="searchItem" value="${search}"></c:param>
 							<c:param name="order" value="DISPLAY"></c:param>
@@ -99,6 +109,8 @@
 							<a href="${url}">${list.modelName }</a>
 						</td>
 						<td class="td_col">	${list.cpu }&nbsp;&nbsp;</td>
+						<td class="td_col">	${list.ram } GB&nbsp;&nbsp;</td>
+						<td class="td_col">	${list.storage }&nbsp;&nbsp;</td>												
 						<td class="td_col"> ${list.display }인치&nbsp;&nbsp;</td>
 						<td class="td_col"> ${list.weight }kg&nbsp;&nbsp; </td>
 						<td class="td_col"> ${list.purpose }&nbsp;&nbsp;</td>
